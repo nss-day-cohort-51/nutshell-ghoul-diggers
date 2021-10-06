@@ -1,0 +1,10 @@
+.task {
+  display: flex;
+  flex-direction: row;
+}
+
+.task input {
+  display: flex;
+  align-items: center;
+  margin: 0px 20px;
+}
