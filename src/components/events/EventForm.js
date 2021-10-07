@@ -9,7 +9,8 @@ export const EventForm = () => {
 		name: "",
 		date: "",
 		location: "",
-    userId: 0 // find out how to autopopulate userId based on login, maybe sessionStorage.getItem("nutshell_user")
+    zipcode: 0,
+    userId: parseInt(sessionStorage.getItem("nutshell_user"))
 	});
 
 	const history = useHistory();
@@ -22,7 +23,8 @@ export const EventForm = () => {
       name: "",
       date: "",
       location: "",
-      userId: 0 // find out how to autopopulate userId based on login, see above
+      zipcode: 0,
+      userId: parseInt(sessionStorage.getItem("nutshell_user"))
     });
     console.log("resetForm invoked")
   }
@@ -40,12 +42,26 @@ export const EventForm = () => {
 		setEvent(newEvent)
 	}
 
+  const FiveDigitZipCode = (zipcode) => {
+    var zipcodeformat = /^[0-9]{5}?$/;
+    if(zipcode.match(zipcodeformat)) {
+      console.log("correct zip");
+    }
+    else {
+    console.log("incorrect zip");
+    return false;
+    }
+  }
+  
+
 	const handleClickSaveEvent = (evt) => {
 		evt.preventDefault() //Prevents the browser from submitting the form
 
 		if ( event.name === "" || event.date === "" || event.location === "" ) {
 			window.alert("Please fill out all required info")
-		} else {
+    } else if ( event.zipcode.length !== 5 || FiveDigitZipCode(event.zipcode) ) {
+      window.alert("Please enter a 5 digit zipcode") 
+    } else {
 			//invoke addEvent, passing event as an argument
 			//once completed, this changes the url and displays the event list
 			addEvent(event)
@@ -72,6 +88,9 @@ export const EventForm = () => {
 
             <label htmlFor="location">Event Location:</label>
             <input type="text" id="location" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="Event Location" value={event.location} />
+
+            <label htmlFor="zipcode">Event Zipcode:</label>
+            <input type="text" id="zipcode" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="5 digit zipcode" />
 
           </div>
         </fieldset>

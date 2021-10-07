@@ -17,6 +17,9 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
 
             <div className="event__info--details"><strong>Location: </strong> {event.location}</div>
 
+            <div className="event__info--details"><strong>Zipcode: </strong> {event.zipcode}</div>
+
+
           </div>
 
           <div className="remove-item">
