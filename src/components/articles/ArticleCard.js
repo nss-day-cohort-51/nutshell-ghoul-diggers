@@ -1,5 +1,5 @@
 
-export const ArticleCard = ({article}) => {
+export const ArticleCard = ({article, handleDelete}) => {
 
     return(
         <div className="card">
@@ -12,6 +12,7 @@ export const ArticleCard = ({article}) => {
           <p>synopsis: {article.synopsis}</p>
           <p>time: {article.timestamp}</p>
         </div>
+        <button className="btn--delete" onClick={() => handleDelete(article.id)}>Delete</button>
       </div>
     )
 }
