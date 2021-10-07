@@ -35,25 +35,26 @@ export const AddArticle = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Title: </label>
-                    <input type="text" id="title" onChange={handleChange} required className="form-control" placeholder="Title"/>
+                    <input type="text" id="title" onChange={handleChange} required className="form-control" placeholder="Insert title"/>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="url">url: </label>
-                    <input type="text" id="url" onChange={handleChange} required className="form-control" placeholder="url"/>
+                    <input type="text" id="url" onChange={handleChange} required className="form-control" placeholder="Insert url"/>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="synopsis">Synopsis: </label>
-                    <input type="text" id="synopsis" onChange={handleChange} required className="form-control" placeholder="Title"/>
+                    <input type="text" id="synopsis" onChange={handleChange} required className="form-control" placeholder="Insert synopsis"/>
                 </div>
             </fieldset>
-            <button className="btn btn-primary"
+            <button className="btn-save"
                 onClick={saveArticle}>
                 Save Article
             </button>
+            <button className="btn-cancel" onClick={() => history.push("/")}>Cancel</button>
         </form>
     )
 }

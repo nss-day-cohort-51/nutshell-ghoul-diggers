@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { AddArticle } from "./articles/AddArticle"
 import { Articles } from "./articles/Articles"
+import { EditForm } from "./articles/EditArticle"
 import { AddFriend } from "./friends/AddFriend"
 import { Friends } from "./friends/Friends"
 
@@ -16,6 +17,9 @@ export const ApplicationViews = () => {
       <Route path="/add">
         {/* Render the component for adding articles*/}
         <AddArticle /> 
+      </Route>
+      <Route path="/:articleId/edit">
+        <EditForm />
       </Route>
 
       <Route exact path="/friends">

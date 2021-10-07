@@ -33,7 +33,9 @@ export const AddFriend = () => {
 
         if(friend.userId === ""){
             console.log("Invalid User");
-        }else{
+        }else if(friend.userId === friend.currentUserId){
+            console.log("Cannot Add Yourself");
+        }else {
             addFriends(friend).then(() => history.push("/friends"))
         }
     }

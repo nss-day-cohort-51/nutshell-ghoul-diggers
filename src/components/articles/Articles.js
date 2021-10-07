@@ -1,11 +1,13 @@
 import React, {useState, useEffect } from "react";
 import ArticleManager from "./ArticleManager"
 import { ArticleCard } from "./ArticleCard";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 
 export const Articles = () => {
 
-    const [articles, changeArticles] = useState([])
+    const [articles, changeArticles] = useState([]);
+
+    const { articleId } = useParams();
 
     const history = useHistory();
 
