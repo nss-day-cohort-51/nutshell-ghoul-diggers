@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { TaskCard } from "./TaskCard";
-import { getAllTasks } from "./TaskManager";
+import { deleteTask, getAllTasks } from "./TaskManager";
 
 
 
 export const TaskList = () => {
     const [tasks, setTasks] = useState([]);
+    const history = useHistory();
 
     const getTasks = () => {
         return getAllTasks().then(tasksFromAPI => {
             setTasks(tasksFromAPI)
         });
+    };
+
+    const handleDeleteTask = id => {
+        deleteTask(id)
+            .then(() => getAllTasks().then(setTasks));
     };
 
     useEffect(() => {
@@ -19,8 +26,10 @@ export const TaskList = () => {
 
     return (
         <section className="section-content">
+
             <div className="container-cards">
-                {tasks.map(task => <TaskCard key={task.id} task={task} />)}
+                <button type="button" className="btn" onClick={() => { history.push("/tasks/create") }}>+ Add Task</button>
+                {tasks.map(task => <TaskCard key={task.id} task={task} handleDeleteTask={handleDeleteTask} />)}
             </div>
         </section>
     )

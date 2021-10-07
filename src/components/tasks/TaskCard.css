@@ -1,10 +1,20 @@
 .task {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin-top: 25px;
 }
 
 .task input {
-  display: flex;
-  align-items: center;
-  margin: 0px 20px;
+  margin-right: 20px;
+  margin-top: 12px;
+}
+
+.task input[type="checkbox"] + label {
+  color: black;
+}
+
+.task input[type="checkbox"]:checked + label {
+  color: darkgray;
+  text-decoration: line-through rgb(87, 87, 87);
 }
