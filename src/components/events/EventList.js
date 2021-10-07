@@ -26,6 +26,9 @@ export const EventList = () => {
     getEvents();
   }, []);
   
+  const copyOfEvents = [...events]
+  const firstEvent = copyOfEvents.shift()
+
     return(
 
       <div className="section">
@@ -39,11 +42,22 @@ export const EventList = () => {
         </div>
 
         <div className="container">
-        {events.map(event =>
-        <EventCard
-          key={event.id}
-          event={event}
-          handleDeleteEvent={handleDeleteEvent} />)}
+          <div className="first">
+            <EventCard
+              key={firstEvent.id}
+              event={firstEvent}
+              handleDeleteEvent={handleDeleteEvent} /> 
+          </div>
+          <div className="remaining">
+            {copyOfEvents.map(event => {
+              <EventCard
+                key={event.id}
+                event={event}
+                handleDeleteEvent={handleDeleteEvent} />
+              }
+        )}
+          </div>
+
         </div>
 
       </div>
