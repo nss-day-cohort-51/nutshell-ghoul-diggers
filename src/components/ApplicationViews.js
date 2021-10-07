@@ -3,8 +3,6 @@ import { Route } from "react-router-dom";
 import { PublicMessages } from "./PublicMessages/PublicMessages";
 import SentMessages from "./PublicMessages/SentMessages";
 import { getPublicMessages } from "./PublicMessages/publicMessageManager";
-import React from "react"
-import { Route } from "react-router-dom"
 import { AddArticle } from "./articles/AddArticle"
 import { Articles } from "./articles/Articles"
 import { EditForm } from "./articles/EditArticle"

@@ -10,6 +10,7 @@ const SentMessages = ({getPublicMessages}) => {
     event.preventDefault();
     const messages = {
       post: sentMessage,
+      userId: parseInt(sessionStorage.getItem("nutshell_user"))
     };
 
     addPublicMessages(messages).then(() => 
