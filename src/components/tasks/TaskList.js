@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { TaskCard } from "./TaskCard";
-import { deleteTask, getAllTasks } from "./TaskManager";
+import { completeTask, deleteTask, getAllTasks } from "./TaskManager";
 
 
 
@@ -20,6 +20,11 @@ export const TaskList = () => {
             .then(() => getAllTasks().then(setTasks));
     };
 
+    const handleCompleteTask = id => {
+        completeTask(id)
+            .then(() => getAllTasks().then(setTasks));
+    }
+
     useEffect(() => {
         getTasks();
     }, []);
@@ -29,7 +34,7 @@ export const TaskList = () => {
 
             <div className="container-cards">
                 <button type="button" className="btn" onClick={() => { history.push("/tasks/create") }}>+ Add Task</button>
-                {tasks.map(task => <TaskCard key={task.id} task={task} handleDeleteTask={handleDeleteTask} />)}
+                {tasks.map(task => task.isCompleted ? console.log('true') : <TaskCard key={task.id} task={task} handleDeleteTask={handleDeleteTask} handleCompleteTask={handleCompleteTask} />)}
             </div>
         </section>
     )

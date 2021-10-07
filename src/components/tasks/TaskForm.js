@@ -7,8 +7,10 @@ import "./TaskForm.css"
 
 export const TaskForm = () => {
     const [task, setTask] = useState({
-        name: "",
-        completeDate: ""
+        taskName: "",
+        completeDate: 0,
+        isCompleted: false,
+        userId: parseInt(sessionStorage.getItem("nutshell_user"))
     });
 
     const history = useHistory();
@@ -24,7 +26,7 @@ export const TaskForm = () => {
     }
     const handleClickSaveTask = (event) => {
         event.preventDefault()
-        const nameList = task.name
+        const nameList = task.taskName
         const dateList = task.completeDate
 
         if (nameList === "" || dateList === "") {
@@ -43,14 +45,14 @@ export const TaskForm = () => {
                     <fieldset>
                         <div className="form-group">
                             <label htmlFor="name">Enter Task: </label>
-                            <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
+                            <input type="text" id="taskName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
                         </div>
                     </fieldset>
                     <h2 className="task__form--title">Due Date</h2>
                     <fieldset>
                         <div className="form-group">
                             <label htmlFor="name">Select Date: </label>
-                            <input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" value={task.completeDate} />
+                            <input type="date" id="completeDate" onChange={handleControlledInputChange} required autoFocus className="form-control" />
                         </div>
                     </fieldset>
                     <button className="btn" onClick={handleClickSaveTask}>Save Task</button>

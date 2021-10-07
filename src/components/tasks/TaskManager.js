@@ -21,3 +21,15 @@ export const deleteTask = (id) => {
         method: "DELETE"
     }).then(res => res.json())
 }
+
+export const completeTask = (id) => {
+    return fetch(`${remoteUrl}/tasks/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+            isCompleted: true
+        }),
+        headers: {
+            "Content-type": "application/json"
+        }
+    }).then(res => res.json())
+}
