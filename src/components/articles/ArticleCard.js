@@ -1,3 +1,6 @@
+//Author: Brady Williams
+//Purpose: Display individual articles
+
 import { useHistory } from "react-router";
 
 export const ArticleCard = ({article, handleDelete}) => {

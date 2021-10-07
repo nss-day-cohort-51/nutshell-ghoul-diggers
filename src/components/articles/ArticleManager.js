@@ -1,3 +1,6 @@
+//Author: Brady Williams
+//Purpose: API calls for the article section
+
 const url = "http://localhost:8088"
 
 

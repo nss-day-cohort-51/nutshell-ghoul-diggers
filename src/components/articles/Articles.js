@@ -1,3 +1,6 @@
+//Author: Brady Williams
+//Purpose: Display the Articles main file
+
 import React, {useState, useEffect } from "react";
 import ArticleManager from "./ArticleManager"
 import { ArticleCard } from "./ArticleCard";

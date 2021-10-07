@@ -1,3 +1,6 @@
+//Author: Brady Williams
+//Purpose: Add Friends to the database and output
+
 import React, {useState} from "react";
 import { useHistory } from "react-router";
 import { getallUsers } from "../users/UserManager";
@@ -47,7 +50,7 @@ export const AddFriend = () => {
 				<div className="form-group">
 					<label htmlFor="name">User Name: </label>
 					<input type="text" id="name" onChange={event => checkUser(event.target.value)} className="form-control" placeholder="User Name" />
-                    <button className="save__button" onClick={() => handleSave()}>Save</button>
+                    <button className="save__button" onClick={() => handleSave().then()}>Save</button>
                     <button className="cancel__button" onClick={() => history.push("/friends")}>Cancel</button>
 				</div>
 		</fieldset>

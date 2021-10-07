@@ -1,3 +1,6 @@
+//Author: Brady Williams
+//Purpose: Edit article and update the database and dom
+
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
 import ArticleManager from "./ArticleManager";
