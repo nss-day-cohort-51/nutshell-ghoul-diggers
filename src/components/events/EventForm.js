@@ -9,7 +9,7 @@ export const EventForm = () => {
 		name: "",
 		date: "",
 		location: "",
-    userId: 0 // find out how to autopopulate userId based on login
+    userId: 0 // find out how to autopopulate userId based on login, maybe sessionStorage.getItem("nutshell_user")
 	});
 
 	const history = useHistory();
@@ -22,7 +22,7 @@ export const EventForm = () => {
       name: "",
       date: "",
       location: "",
-      userId: 0 // find out how to autopopulate userId based on login
+      userId: 0 // find out how to autopopulate userId based on login, see above
     });
     console.log("resetForm invoked")
   }

@@ -1,24 +1,39 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { EventList } from "./events/EventList"
+import { EventForm } from "./events/EventForm"
+import { EventEditForm } from "./events/EventEditForm"
+
 
 export const ApplicationViews = () => {
   return (
     <>
-
       <Route exact path="/">
         {/* Render the component for news articles */}
       </Route>
-      <Route path="/friends">
+
+      <Route exact path="/friends">
         {/* Render the component for list of friends */}
       </Route>
-      <Route path="/messages">
+
+      <Route exact path="/messages">
         {/* Render the component for the messages */}
       </Route>
-      <Route path="/tasks">
+
+      <Route exact path="/tasks">
         {/* Render the component for the user's tasks */}
       </Route>
-      <Route path="/events">
-        {/* Render the component for the user's events */}
+
+      <Route exact path="/events">
+        <EventList />
+      </Route>
+
+      <Route exact path="/events/create">
+        <EventForm />
+      </Route>
+
+      <Route exact path="/events/:eventId(\d+)/edit">
+        <EventEditForm />
       </Route>
     </>
   )
