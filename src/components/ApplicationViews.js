@@ -1,5 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { TaskEditForm } from "./tasks/TaskEditForm"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
 
@@ -22,6 +23,9 @@ export const ApplicationViews = () => {
       </Route>
       <Route path="/tasks/create">
         <TaskForm />
+      </Route>
+      <Route path="/tasks/:taskId(\d+)/edit">
+        <TaskEditForm />
       </Route>
       <Route path="/events">
         {/* Render the component for the user's events */}
