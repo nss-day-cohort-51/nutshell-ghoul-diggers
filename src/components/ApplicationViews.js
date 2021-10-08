@@ -8,12 +8,15 @@ import { Articles } from "./articles/Articles"
 import { EditForm } from "./articles/EditArticle"
 import { AddFriend } from "./friends/AddFriend"
 import { Friends } from "./friends/Friends"
+import MessageList from "./PublicMessages/MessageList";
+import { MessageEdit } from "./PublicMessages/PublicForm";
 
 export const ApplicationViews = () => {
   const[messages, setPublicMessages]= useState([])
   const getMeMesssage = () => {
     getPublicMessages().then((message) => setPublicMessages(message));
   };
+  
   return (
     <>
       <Route exact path="/">
@@ -28,6 +31,12 @@ export const ApplicationViews = () => {
         <EditForm />
       </Route>
 
+{/* author: Gerson
+Purpose: If the routh match the message edit path then will take the user to this page. */}
+      <Route  path="/messages/:messageId(\d+)/edit">
+        <MessageEdit />
+      </Route>
+
       <Route exact path="/friends">
         {/* Render the component for list of friends */}
         <Friends />
@@ -37,7 +46,7 @@ export const ApplicationViews = () => {
         <AddFriend /> 
       </Route>
     
-      <Route path="/messages">
+      <Route exact path="/messages">
         {/* Render the component for the messages */}
         <PublicMessages messages={messages} getPublicMessages={getMeMesssage}/>
         <SentMessages getPublicMessages={getMeMesssage} />
