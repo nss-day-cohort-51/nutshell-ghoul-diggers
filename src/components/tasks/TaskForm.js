@@ -1,3 +1,7 @@
+// Author: Colby Ryan
+// Purpose: Displays a form to add a new task to your task list.
+
+
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { addTask } from "./TaskManager";

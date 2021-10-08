@@ -1,3 +1,6 @@
+// Author: Colby Ryan
+// Purpose: Displays a page that allows you to edit current tasks.
+
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router";
 import { getTaskById, update } from "./TaskManager";
