@@ -11,17 +11,17 @@ export const EventList = () => {
   const [ futureEvents, setFutureEvents ] = useState([])
   const [ pastEvents, setPastEvents ] = useState([])
 
-
-  const getEvents = () => {
-    // After the data comes back from the API, we
-    //  use the setEvents function to update state
-    return getAllEvents().then(eventsFromAPI => {
-      const copyOfEvents = [...eventsFromAPI]
-      copyOfEvents.shift();
-      const remainingEvents = copyOfEvents;
-      setEvents(remainingEvents);
-    });
-  };
+// this gets all events then saves all except first which will be handled differently in JSX inside return statement of EventList
+  // const getEvents = () => {
+  //   // After the data comes back from the API, we
+  //   //  use the setEvents function to update state
+  //   return getAllEvents().then(eventsFromAPI => {
+  //     const copyOfEvents = [...eventsFromAPI]
+  //     copyOfEvents.shift();
+  //     const remainingEvents = copyOfEvents;
+  //     setEvents(remainingEvents);
+  //   });
+  // };
 
   const getFutureEvents = () => {
     const today = new Date();
@@ -53,17 +53,25 @@ export const EventList = () => {
         }
       })
       console.log("futureDatedEvents above setFutureEvents is: ", pastDatedEvents)
+      pastDatedEvents.reverse()
       setPastEvents(pastDatedEvents);
     }); 
   };
 
-  const showUpcomingEvents = () => {
-      const copyOfFutureEvents = [...futureEvents]
-      console.log("copyOfFutureEvents is: ", copyOfFutureEvents)
-      const firstEventObj = copyOfFutureEvents.shift()
-      setFirstUpcomingEvent(firstEventObj)
-      console.log("firstUpcomingEvent is: ", firstUpcomingEvent)
+  const showFirstUpcomingEvent = () => {
+    const copyOfFutureEvents = [...futureEvents]
+    console.log("copyOfFutureEvents is: ", copyOfFutureEvents)
+    const firstEventObj = copyOfFutureEvents.shift()
+    setFirstUpcomingEvent(firstEventObj)
+    console.log("firstUpcomingEvent is: ", firstUpcomingEvent)
   }
+
+  const showRemainingUpcomingEvents = () => {
+    const copyOfFutureEvents = [...futureEvents]
+    copyOfFutureEvents.shift();
+    const remainingFutureEvents = copyOfFutureEvents;
+    setEvents(remainingFutureEvents);
+    }
 
   const handleDeleteEvent = id => {
     deleteEvent(id)
@@ -71,9 +79,9 @@ export const EventList = () => {
   };
   
   // got the events from the API on the component's first render
-  useEffect(() => {
-    getEvents();
-  }, []);
+  // useEffect(() => {
+  //   getEvents();
+  // }, []);
   
   useEffect(() => {
     getFutureEvents();
@@ -84,8 +92,12 @@ export const EventList = () => {
   }, []);
 
   useEffect(() => {
-    showUpcomingEvents();
-  }, [events]);
+    showFirstUpcomingEvent();
+  }, [futureEvents]);
+
+  useEffect(() => {
+    showRemainingUpcomingEvents();
+  }, [futureEvents]);
 
     return(
 
@@ -100,25 +112,29 @@ export const EventList = () => {
         </div>
 
         <div className="container">
-          
-          {/* <div className="first">
+
+
+
+
+          <div className="first__upcoming">
+            <h2>FIRST UPCOMING EVENT</h2>
             {<EventCard
               key={firstUpcomingEvent?.id}
               event={firstUpcomingEvent}
               handleDeleteEvent={handleDeleteEvent} /> }
           </div>
-          <div className="remaining">
+          <div className="remaining__upcoming">
+            <h2>REMAINING UPCOMING EVENTS</h2>
             {events.map(event =>
               <EventCard
                 key={event?.id}
                 event={event}
                 handleDeleteEvent={handleDeleteEvent} />
-
                 
         )}
-          </div> */}
+          </div>
 
-          <div className="future"><h2>UPCOMING EVENTS</h2>
+          {/* <div className="future"><h2>UPCOMING EVENTS</h2>
             {futureEvents.map(event =>
               <EventCard
                 key={event?.id}
@@ -127,7 +143,7 @@ export const EventList = () => {
 
                 
         )}
-          </div>
+          </div> */}
 
           <div className="past"><h2>PAST EVENTS</h2>
             {pastEvents.map(event =>

@@ -1,7 +1,9 @@
 import React from 'react';
 // import { useHistory } from "react-router-dom";
 import "./Event.css"
+import { settings } from "../auth/Settings"
 
+const key = settings.weatherKey;
 export const EventWeather = () => {
   console.log("Put weather info here");
 }
@@ -10,7 +12,7 @@ export const EventWeather = () => {
 export const getWeatherZip = (zip) => {
 
   const weatherKey = "44af922166030fc09e93dcbe9adaa69e"
-  const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zip}&units=imperial&appid=${weatherKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zip}&units=imperial&appid=${key}`;
   
   return fetch(url)
       .then(response => response.json())

@@ -84,7 +84,7 @@ export const EventForm = () => {
           <div className="form__group">
 
             <label htmlFor="date">Date of Event</label>
-            <input type="date" id="date" onChange={handleControlledInputChange} required className="form__group--edit" value={event.date.getTimeInMillis()} />
+            <input type="date" id="date" onChange={handleControlledInputChange} required className="form__group--edit" value={event.date} />
 
             <label htmlFor="location">Event Location:</label>
             <input type="text" id="location" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="Event Location" value={event.location} />

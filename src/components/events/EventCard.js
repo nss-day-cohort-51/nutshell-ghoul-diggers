@@ -4,7 +4,6 @@ import { EventWeather } from "./EventWeather"
 import "./Event.css"
 
 export const EventCard = ({ event, handleDeleteEvent }) => {
-
     return (
     <>
         <div className="card__content">
