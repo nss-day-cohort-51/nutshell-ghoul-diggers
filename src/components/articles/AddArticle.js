@@ -21,7 +21,6 @@ export const AddArticle = () => {
         newArticle[e.target.id] = selectedVal
 
         changeArticle(newArticle)
-        console.log(article)
     }
 
     const saveArticle = (event) => {

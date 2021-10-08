@@ -9,14 +9,20 @@ import { useHistory, useParams } from "react-router";
 export const Articles = () => {
 
     const [articles, changeArticles] = useState([]);
-
+    const [friends, changeFriend] = useState([]);
     const { articleId } = useParams();
 
     const history = useHistory();
 
     const getArticles = () => {
         ArticleManager.getAllArticles().then(response => {
-            changeArticles(response);
+            const res = response.filter(f => !friends.some(item => {
+                if(item === f.userId || f.userId === parseInt(sessionStorage.getItem("nutshell_user"))){
+                    console.log(f);
+                    return f;
+                } }));
+            console.log(res)
+            changeArticles(res);
         })
     }
 
@@ -26,8 +32,26 @@ export const Articles = () => {
             .then(response => changeArticles(response)))
     }
 
+    const getFriends = () => {
+        let arrayTaco = [];
+        ArticleManager.getFriendsById(parseInt(sessionStorage.getItem("nutshell_user")))
+            .then(res => {
+                
+                // console.log(res)
+                res.forEach(taco => {
+                    arrayTaco.push(taco.userId)
+                })
+                changeFriend(arrayTaco);
+                console.log(arrayTaco);
+            })
+
+    }
+
     useEffect(() => {
         getArticles();
+        getFriends();
+        console.log("articles", articles);
+        console.log("friends", friends);
     }, [])
 
     return (
