@@ -45,10 +45,8 @@ export const EventForm = () => {
   const FiveDigitZipCode = (zipcode) => {
     var zipcodeformat = /^[0-9]{5}?$/;
     if(zipcode.match(zipcodeformat)) {
-      console.log("user entered 5 digit zip");
     }
     else {
-    console.log("not a 5 digit zip");
     return false;
     }
   }
