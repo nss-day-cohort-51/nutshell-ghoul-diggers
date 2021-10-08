@@ -16,12 +16,11 @@ export const Articles = () => {
 
     const getArticles = () => {
         ArticleManager.getAllArticles().then(response => {
-            const res = response.filter(f => !friends.some(item => {
-                if(item === f.userId || f.userId === parseInt(sessionStorage.getItem("nutshell_user"))){
-                    console.log(f);
-                    return f;
+            const res = response.filter(articleTaco => friends.some(friendsTaco => {
+                if(friendsTaco === articleTaco.userId || articleTaco.userId === parseInt(sessionStorage.getItem("nutshell_user"))){
+                    return articleTaco;
                 } }));
-            console.log(res)
+            console.log("output array",res)
             changeArticles(res);
         })
     }
