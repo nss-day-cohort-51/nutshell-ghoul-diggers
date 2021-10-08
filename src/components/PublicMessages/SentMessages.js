@@ -1,3 +1,7 @@
+//Authors: Gerson M. Diketama
+
+//Purpose: This is a public message component, allows users to send messages back and forwards, and I am using React-icons for icons. 
+
 import React, { useState, useEffect } from "react";
 import { addPublicMessages } from "./publicMessageManager";
 import {AiOutlineSend} from "react-icons/ai"
@@ -18,6 +22,7 @@ const SentMessages = ({getPublicMessages}) => {
     addPublicMessages(messages).then(() => 
     getPublicMessages())
     
+    //clear the inputs when user clicks the sent icon
     setSentMessage("")
     }
 

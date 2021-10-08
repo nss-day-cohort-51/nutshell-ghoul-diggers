@@ -31,6 +31,8 @@ export const ApplicationViews = () => {
         <EditForm />
       </Route>
 
+{/* author: Gerson
+Purpose: If the routh match the message edit path then will take the user to this page. */}
       <Route  path="/messages/:messageId(\d+)/edit">
         <MessageEdit />
       </Route>
