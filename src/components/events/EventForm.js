@@ -45,10 +45,10 @@ export const EventForm = () => {
   const FiveDigitZipCode = (zipcode) => {
     var zipcodeformat = /^[0-9]{5}?$/;
     if(zipcode.match(zipcodeformat)) {
-      console.log("correct zip");
+      console.log("user entered 5 digit zip");
     }
     else {
-    console.log("incorrect zip");
+    console.log("not a 5 digit zip");
     return false;
     }
   }
@@ -84,7 +84,7 @@ export const EventForm = () => {
           <div className="form__group">
 
             <label htmlFor="date">Date of Event</label>
-            <input type="date" id="date" onChange={handleControlledInputChange} required className="form__group--edit" value={event.date} />
+            <input type="date" id="date" onChange={handleControlledInputChange} required className="form__group--edit" value={event.date.getTimeInMillis()} />
 
             <label htmlFor="location">Event Location:</label>
             <input type="text" id="location" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="Event Location" value={event.location} />

@@ -7,14 +7,63 @@ import { getAllEvents, deleteEvent } from './EventManager';
 export const EventList = () => {
   // The initial state is an empty array
   const [events, setEvents] = useState([]);
+  const [ firstUpcomingEvent, setFirstUpcomingEvent ] = useState({})
+  const [ futureEvents, setFutureEvents ] = useState([])
+  const [ pastEvents, setPastEvents ] = useState([])
+
 
   const getEvents = () => {
     // After the data comes back from the API, we
     //  use the setEvents function to update state
     return getAllEvents().then(eventsFromAPI => {
-      setEvents(eventsFromAPI);
+      const copyOfEvents = [...eventsFromAPI]
+      copyOfEvents.shift();
+      const remainingEvents = copyOfEvents;
+      setEvents(remainingEvents);
     });
   };
+
+  const getFutureEvents = () => {
+    const today = new Date();
+    const parsedToday = today.getTime()
+    console.log("parsedToday is saved as: ", parsedToday)
+    return getAllEvents().then(eventsFromAPI => {
+      const copyOfEvents = [...eventsFromAPI]
+      const futureDatedEvents = copyOfEvents.filter(function (evt) {
+        let evtDate = Date.parse(evt.date);
+        if (evtDate > parsedToday) {
+          return evt
+        }
+      })
+      console.log("futureDatedEvents above setFutureEvents is: ", futureDatedEvents)
+      setFutureEvents(futureDatedEvents);
+    }); 
+  };
+
+  const getPastEvents = () => {
+    const today = new Date();
+    const parsedToday = today.getTime()
+    console.log("parsedToday is saved as: ", parsedToday)
+    return getAllEvents().then(eventsFromAPI => {
+      const copyOfEvents = [...eventsFromAPI]
+      const pastDatedEvents = copyOfEvents.filter(function (evt) {
+        let evtDate = Date.parse(evt.date);
+        if (evtDate < parsedToday) {
+          return evt
+        }
+      })
+      console.log("futureDatedEvents above setFutureEvents is: ", pastDatedEvents)
+      setPastEvents(pastDatedEvents);
+    }); 
+  };
+
+  const showUpcomingEvents = () => {
+      const copyOfFutureEvents = [...futureEvents]
+      console.log("copyOfFutureEvents is: ", copyOfFutureEvents)
+      const firstEventObj = copyOfFutureEvents.shift()
+      setFirstUpcomingEvent(firstEventObj)
+      console.log("firstUpcomingEvent is: ", firstUpcomingEvent)
+  }
 
   const handleDeleteEvent = id => {
     deleteEvent(id)
@@ -26,8 +75,17 @@ export const EventList = () => {
     getEvents();
   }, []);
   
-  const copyOfEvents = [...events]
-  const firstEvent = copyOfEvents.shift()
+  useEffect(() => {
+    getFutureEvents();
+  }, []);
+
+  useEffect(() => {
+    getPastEvents();
+  }, []);
+
+  useEffect(() => {
+    showUpcomingEvents();
+  }, [events]);
 
     return(
 
@@ -42,19 +100,43 @@ export const EventList = () => {
         </div>
 
         <div className="container">
-          <div className="first">
-            <EventCard
-              key={firstEvent.id}
-              event={firstEvent}
-              handleDeleteEvent={handleDeleteEvent} /> 
+          
+          {/* <div className="first">
+            {<EventCard
+              key={firstUpcomingEvent?.id}
+              event={firstUpcomingEvent}
+              handleDeleteEvent={handleDeleteEvent} /> }
           </div>
           <div className="remaining">
-            {copyOfEvents.map(event => {
+            {events.map(event =>
               <EventCard
-                key={event.id}
+                key={event?.id}
                 event={event}
                 handleDeleteEvent={handleDeleteEvent} />
-              }
+
+                
+        )}
+          </div> */}
+
+          <div className="future"><h2>UPCOMING EVENTS</h2>
+            {futureEvents.map(event =>
+              <EventCard
+                key={event?.id}
+                event={event}
+                handleDeleteEvent={handleDeleteEvent} />
+
+                
+        )}
+          </div>
+
+          <div className="past"><h2>PAST EVENTS</h2>
+            {pastEvents.map(event =>
+              <EventCard
+                key={event?.id}
+                event={event}
+                handleDeleteEvent={handleDeleteEvent} />
+
+                
         )}
           </div>
 
