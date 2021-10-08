@@ -1,3 +1,6 @@
+//Author: Susie Stanley
+//Purpose: To export multiple components that fetch/update/delete event info from database
+
 const remoteURL = "http://localhost:8088"
 
 export const getAllEvents = () => {

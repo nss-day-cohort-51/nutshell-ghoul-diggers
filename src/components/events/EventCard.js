@@ -1,9 +1,13 @@
+//Author: Susie Stanley
+//Purpose: Creates and displays individual event cards for a single event that is passed as a prop
+
 import React from "react"
 import { Link } from "react-router-dom";
 import { EventWeather } from "./EventWeather"
 import "./Event.css"
 
 export const EventCard = ({ event, handleDeleteEvent }) => {
+
     return (
     <>
         <div className="card__content">
@@ -27,10 +31,10 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
           <Link to={`/events/${event?.id}/edit`}><button>Edit</button></Link>
 
           <button type="button" onClick={() => handleDeleteEvent(event?.id)}>Remove</button>
-          <button type="button" onClick={() => EventWeather(event?.location)}>Forecast</button>
-
+          <button type="button" onClick={() => EventWeather(event?.date, event?.zipcode)}>Forecast</button>
+            {console.log("event.date is ", event?.date, " and event.zipcode is ", event?.zipcode )}
           </div>
-          
+
         </div>
     </>
     )

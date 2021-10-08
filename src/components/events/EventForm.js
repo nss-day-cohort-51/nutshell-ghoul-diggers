@@ -1,3 +1,6 @@
+//Author: Susie Stanley
+//Purpose: Creates and displays an input form for user to add an event
+
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { addEvent } from "./EventManager";
@@ -17,7 +20,6 @@ export const EventForm = () => {
 
 	//When a field changes, it updates state. The return will re-render and display based on the values in state
 	//Controlled component
-
   const ResetForm = () => {
     setEvent({
       name: "",

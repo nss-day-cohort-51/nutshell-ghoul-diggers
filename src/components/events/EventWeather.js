@@ -1,17 +1,20 @@
+//Author: Susie Stanley
+//Purpose: Multiple components that fetch and display weather data from openweathermap API
+
 import React from 'react';
 // import { useHistory } from "react-router-dom";
 import "./Event.css"
-import { settings } from "../auth/Settings"
+import { Settings } from "../auth/Settings"
 
-const key = settings.weatherKey;
-export const EventWeather = () => {
-  console.log("Put weather info here");
+const key = Settings.weatherKey;
+
+
+export const EventWeather = ( {date, zipcode} ) => {
+  console.log("The forecast for " + date + " is " + zipcode);
 }
 
 //Used to get 5 day weather report by zip code
-export const getWeatherZip = (zip) => {
-
-  const weatherKey = "44af922166030fc09e93dcbe9adaa69e"
+export const getWeatherByZip = (zip) => {
   const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zip}&units=imperial&appid=${key}`;
   
   return fetch(url)
@@ -22,11 +25,9 @@ export const getWeatherZip = (zip) => {
   
   }
 
-
 const formatDate = (obj) => {
   const date = new Date(obj);
-  const dateStr = date.toString(); // converts date object to a string
-  const formattedDate = dateStr.substring(0,3); // takes first 3 letters of date string so we can display it as Mon, Tue, etc
+  const formattedDate = date.toDateString(); // converts date object to a string that displays in format "Sun Jul 22 2018"
   return formattedDate;
 }
 
@@ -37,139 +38,13 @@ const formatTemp = (obj) => {
 
 export const addWeather = (weatherList, zipCode) => {
 
-  const dayOne = formatDate(weatherList[0].dt_txt);
-  const dayOneTemp = formatTemp(weatherList[0].main.temp);
-
-  const dayTwo = formatDate(weatherList[8].dt_txt);
-  const dayTwoTemp = formatTemp(weatherList[8].main.temp);
-
-  const dayThree = formatDate(weatherList[16].dt_txt);
-  const dayThreeTemp = formatTemp(weatherList[16].main.temp);
-
-  const dayFour = formatDate(weatherList[24].dt_txt);
-  const dayFourTemp = formatTemp(weatherList[24].main.temp);
-
-  const dayFive = formatDate(weatherList[32].dt_txt);
-  const dayFiveTemp = formatTemp(weatherList[32].main.temp);
+  const eventDateWeather = formatDate(weatherList[0].dt_txt);
+  const eventDateTemp = formatTemp(weatherList[0].main.temp);
 
   return ( 
     <>
-      <span>Forecast For The Next 5 Days in ${zipCode} &nbsp; (hover over cards for more info)</span>
+      <span>Forecast For  in ${zipCode} &nbsp; (hover over cards for more info)</span>
 
-      <div class="whole-flip-set">
-
-      <div class="flip-card">
-              <div class="flip-card-inner">
-              
-                  <div class="flip-card-front">
-                <h3 class="title-front">${dayOne}</h3>
-                  <div class="temp">${dayOneTemp}°</div>
-                  <div class="outlook">${weatherList[0].weather[0].main}</div>
-                  <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[0].weather[0].icon}@2x.png" /></div>
-                  </div>
-
-                  <div class="flip-card-back">
-                  <h3 class="title-back">${dayOne}</h3>
-                  <div class="outlook-back">${weatherList[0].weather[0].description}</div>
-                  <div class="temp-title">Low:</div>
-                  <div class="temp-result">${formatTemp(weatherList[0].main.temp_min)}°</div>
-                  <div class="temp-title">High:</div>
-                  <div class="temp-result">${formatTemp(weatherList[0].main.temp_max)}°</div>
-                  </div>
-
-              </div>
-      </div>
-  
-      <div class="flip-card">
-          <div class="flip-card-inner">
-
-              <div class="flip-card-front">
-              <h3 class="forecastTitle">${dayTwo}</h3>
-              <div class="temp">${dayTwoTemp}°</div>
-              <div class="outlook">${weatherList[8].weather[0].main}</div>
-              <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[8].weather[0].icon}@2x.png" /></div>
-              </div>
-
-              <div class="flip-card-back">
-              <h3 class="title-back">${dayTwo}</h3>
-              <div class="outlook-back">${weatherList[8].weather[0].description}</div>
-              <div class="temp-title">Low:</div>
-              <div class="temp-result">${formatTemp(weatherList[8].main.temp_min)}°</div>
-              <div class="temp-title">High:</div>
-              <div class="temp-result">${formatTemp(weatherList[8].main.temp_max)}°</div>
-              </div>
-
-          </div>
-      </div>
-  
-      
-      <div class="flip-card">
-          <div class="flip-card-inner">
-              <div class="flip-card-front">
-              <h3 class="forecastTitle">${dayThree}</h3>
-              <div class="temp">${dayThreeTemp}°</div>
-              <div class="outlook">${weatherList[16].weather[0].main}</div>
-              <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[16].weather[0].icon}@2x.png" /></div>
-              </div>
-
-              <div class="flip-card-back">
-              <h3 class="title-back">${dayThree}</h3>
-              <div class="outlook-back">${weatherList[16].weather[0].description}</div>
-              <div class="temp-title">Low:</div>
-              <div class="temp-result">${formatTemp(weatherList[16].main.temp_min)}°</div>
-              <div class="temp-title">High:</div>
-              <div class="temp-result">${formatTemp(weatherList[16].main.temp_max)}°</div>
-              </div>
-
-          </div>
-      </div>
-  
-     
-      <div class="flip-card">
-          <div class="flip-card-inner">
-
-              <div class="flip-card-front">
-              <h3 class="forecastTitle">${dayFour}</h3>
-              <div class="temp">${dayFourTemp}°</div>
-              <div class="outlook">${weatherList[24].weather[0].main}</div>
-              <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[24].weather[0].icon}@2x.png" /></div> 
-              </div>
-
-              <div class="flip-card-back">
-              <h3 class="title-back">${dayFour}</h3>
-              <div class="outlook-back">${weatherList[24].weather[0].description}</div>
-              <div class="temp-title">Low:</div>
-              <div class="temp-result">${formatTemp(weatherList[24].main.temp_min)}°</div>
-              <div class="temp-title">High:</div>
-              <div class="temp-result">${formatTemp(weatherList[24].main.temp_max)}°</div>
-              </div>
-
-          </div>
-      </div>
-  
-      <div class="flip-card">
-          <div class="flip-card-inner">
-
-              <div class="flip-card-front">
-              <h3 class="forecastTitle">${dayFive}</h3>
-              <div class="temp">${dayFiveTemp}°</div>
-              <div class="outlook">${weatherList[32].weather[0].main}</div>
-              <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[32].weather[0].icon}@2x.png" /></div>
-              </div>
-
-              <div class="flip-card-back">
-              <h3 class="title-back">${dayFive}</h3>
-              <div class="outlook-back">${weatherList[32].weather[0].description}</div>
-              <div class="temp-title">Low:</div>
-              <div class="temp-result">${formatTemp(weatherList[32].main.temp_min)}°</div>
-              <div class="temp-title">High:</div>
-              <div class="temp-result">${formatTemp(weatherList[32].main.temp_max)}°</div>
-              </div>
-
-          </div>
-      </div>
-  
-  </div>
-</>
+    </>
   );
 };

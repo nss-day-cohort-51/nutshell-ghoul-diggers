@@ -1,3 +1,6 @@
+//Author: Susie Stanley
+//Purpose: To render a list of all the upcoming and past events
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { EventCard } from './EventCard';
@@ -80,27 +83,23 @@ export const EventList = () => {
   
 // getFutureEvents gets all future events from API and saves the array to state as 'futureEvents' on first render only
   useEffect(() => {
-    console.log("useEffect1 - getFutureEvents")
     getFutureEvents();
   }, []);
 
 // getPastEvents gets all past events from API and saves the array to state as 'pastEvents' on first render only
   useEffect(() => {
-    console.log("useEffect2 - getPastEvents")
     getPastEvents();
   }, []);
 
 // showFirstUpcomingEvent makes a copy of all futureEvents, grabs first event from array and saves it to state as 'firstUpcomingEvent' on first render only
   useEffect(() => {
-    console.log("useEffect3 - showFirstUpcomingEvents")
     showFirstUpcomingEvent();
-  }, []);
+  }, [futureEvents]);
 
 // showRemainingUpcomingEvents makes a copy of all futureEvents, removes first event and saves the rest to state as 'events' on first render only
   useEffect(() => {
-    console.log("useEffect4 - showRemainingUpcomingEvents")
     showRemainingUpcomingEvents();
-  }, []);
+  }, [futureEvents]);
 
     return(
 
