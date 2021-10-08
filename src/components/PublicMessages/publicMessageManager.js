@@ -1,7 +1,7 @@
 const api = "http://localhost:8088";
 
 export const getPublicMessages = () => {
-  return fetch(`${api}/messages`).then((response) => response.json());
+  return fetch(`${api}/messages?_expand=user`).then((response) => response.json());
 };
 
 export const addPublicMessages = (newMessages) => {

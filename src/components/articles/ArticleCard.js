@@ -19,7 +19,7 @@ export const ArticleCard = ({article, handleDelete}) => {
          <h3>Title: <span>
          {article.title}
          </span></h3>
-         <p>url: {article.url}</p>
+         <a href={article.url} target="_blank">Check it out!</a>
          <p>synopsis: {article.synopsis}</p>
          <p>Posted by {article.user.name} - {formattedDate}</p>
        </div>
@@ -35,7 +35,7 @@ export const ArticleCard = ({article, handleDelete}) => {
          <h3>Title: <span>
          {article.title}
          </span></h3>
-         <p>url: {article.url}</p>
+         <a href={article.url} target="_blank">Check it out!</a>
          <p>synopsis: {article.synopsis}</p>
          <p>Posted by {article.user.name} - {formattedDate}</p>
        </div>
