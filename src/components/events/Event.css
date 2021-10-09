@@ -1,5 +1,66 @@
 /* 
 Author: Susie Stanley
-Purpose: Controls styling of all event pages 
+Purpose: Controls styling of all event pages
+
+Page colors:
+#FBC859 - Daffodil
+#A4B900 - Avocado
+#76AECB - Periwinkle
 */
 
+.card__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px;
+  width: 600px;
+  border: 1px solid red;
+}
+
+.event__info {
+  font-size: 20px;
+  width: 350px;
+  white-space: wrap;
+  border: 1px solid black;
+}
+
+.event__info--name {
+
+}
+
+.event__info--name {
+
+}
+
+.remove__item {
+  padding: 5px;
+  margin: auto 0px;
+  /* border: 1px solid blue; */
+}
+
+.button {
+  margin-bottom: 10px;
+  /* outline: 1px solid orange; */
+}
+
+.button.sm {
+  border: none;
+  background-color: transparent;
+  font-size: 26px;
+  color: gray;
+}
+
+.button.med {
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  color: gray;
+}
+
+.button.lg {
+  border: none;
+  background-color: transparent;
+  font-size: 36px;
+  color: gray;
+}

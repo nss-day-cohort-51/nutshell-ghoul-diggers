@@ -11,7 +11,7 @@ export const EventForm = () => {
 	const [ event, setEvent ] = useState({
 		name: "",
 		date: "",
-		location: "",
+		city: "",
     zipcode: 0,
     userId: parseInt(sessionStorage.getItem("nutshell_user"))
 	});
@@ -24,7 +24,7 @@ export const EventForm = () => {
     setEvent({
       name: "",
       date: "",
-      location: "",
+      city: "",
       zipcode: 0,
       userId: parseInt(sessionStorage.getItem("nutshell_user"))
     });
@@ -57,7 +57,7 @@ export const EventForm = () => {
 	const handleClickSaveEvent = (evt) => {
 		evt.preventDefault() //Prevents the browser from submitting the form
 
-		if ( event.name === "" || event.date === "" || event.location === "" ) {
+		if ( event.name === "" || event.date === "" || event.city === "" ) {
 			window.alert("Please fill out all required info")
     } else if ( event.zipcode.length !== 5 || FiveDigitZipCode(event.zipcode) ) {
       window.alert("Please enter a 5 digit zipcode") 
@@ -86,8 +86,8 @@ export const EventForm = () => {
             <label htmlFor="date">Date of Event</label>
             <input type="date" id="date" onChange={handleControlledInputChange} required className="form__group--edit" value={event.date} />
 
-            <label htmlFor="location">Event Location:</label>
-            <input type="text" id="location" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="Event Location" value={event.location} />
+            <label htmlFor="city">Event City:</label>
+            <input type="text" id="city" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="Event City" value={event.city} />
 
             <label htmlFor="zipcode">Event Zipcode:</label>
             <input type="text" id="zipcode" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="5 digit zipcode" />

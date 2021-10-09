@@ -7,7 +7,7 @@ import { useParams, useHistory } from "react-router-dom"
 
 
 export const EventEditForm = () => {
-  const [event, setEvent] = useState({ name: "", date: "", location: "" });
+  const [event, setEvent] = useState({ name: "", date: "", city: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const {eventId} = useParams();
@@ -28,7 +28,7 @@ export const EventEditForm = () => {
       id: eventId,
       name: event.name,
       date: event.date,
-      location: event.location
+      city: event.city
     };
 
   update(editedEvent)
@@ -72,14 +72,14 @@ export const EventEditForm = () => {
                 value={event.date}
               />
 
-              <label htmlFor="location">Event Location:</label>
+              <label htmlFor="city">Event City:</label>
               <input
                 type="text"
                 required
                 className="form__control--edit"
                 onChange={handleFieldChange}
-                id="location"
-                value={event.location}
+                id="city"
+                value={event.city}
               />
 
             </div>

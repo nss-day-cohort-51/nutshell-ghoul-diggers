@@ -9,7 +9,7 @@ import { Settings } from "../auth/Settings"
 const key = Settings.weatherKey;
 
 
-export const EventWeather = ( {date, zipcode} ) => {
+export const EventWeather = ( date, zipcode ) => {
   console.log("The forecast for " + date + " is " + zipcode);
 }
 
@@ -22,7 +22,6 @@ export const getWeatherByZip = (zip) => {
       .then(parsedResponse => {
           return parsedResponse;
       })
-  
   }
 
 const formatDate = (obj) => {

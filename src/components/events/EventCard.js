@@ -5,6 +5,9 @@ import React from "react"
 import { Link } from "react-router-dom";
 import { EventWeather } from "./EventWeather"
 import "./Event.css"
+import {FaEdit, FaTrash } from "react-icons/fa"
+import { TiWeatherPartlySunny } from "react-icons/ti"
+
 
 export const EventCard = ({ event, handleDeleteEvent }) => {
 
@@ -18,20 +21,20 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
 
             <div className="event__info--details"><strong>Date: </strong> {event?.date}</div>
 
-            <div className="event__info--details"><strong>Location: </strong> {event?.location}</div>
+            <div className="event__info--details"><strong>City: </strong> {event?.city}</div>
 
             <div className="event__info--details"><strong>Zipcode: </strong> {event?.zipcode}</div>
 
 
           </div>
 
-          <div className="remove-item">
+          <div className="remove__item">
 
           {/* <Link to={`/events/${event?.id}`}><button>Details</button></Link> */}
-          <Link to={`/events/${event?.id}/edit`}><button>Edit</button></Link>
+          <Link to={`/events/${event?.id}/edit`}><button className="button sm"><FaEdit/></button></Link>
 
-          <button type="button" onClick={() => handleDeleteEvent(event?.id)}>Remove</button>
-          <button type="button" onClick={() => EventWeather(event?.date, event?.zipcode)}>Forecast</button>
+          <button type="button" className="button sm" onClick={() => handleDeleteEvent(event?.id)}><FaTrash /></button>
+          <button type="button" className="button lg" onClick={() => EventWeather(event?.date, event?.zipcode)}><TiWeatherPartlySunny /></button>
             {console.log("event.date is ", event?.date, " and event.zipcode is ", event?.zipcode )}
           </div>
 
@@ -39,4 +42,5 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
     </>
     )
 }
+
 
