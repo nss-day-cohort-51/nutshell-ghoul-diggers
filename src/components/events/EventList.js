@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { EventCard } from './EventCard';
 import { getAllEvents, deleteEvent } from './EventManager';
+import "./Event.css"
 
 export const EventList = () => {
   // The initial state is an empty array
@@ -110,25 +111,27 @@ export const EventList = () => {
         </div> 
 
         <div className="section__content">
-          <Link to={`/events/create`}><button>Add An Event</button></Link>
+          <Link to={`/events/create`}><button className="add__event">+ Add An Event</button></Link>
         </div>
 
         <div className="container">
 
           <div className="first__upcoming">
-            <h2>FIRST UPCOMING EVENT</h2>
+            <h2>UPCOMING EVENTS</h2>
             {<EventCard
               key={firstUpcomingEvent?.id}
               event={firstUpcomingEvent}
+              card="card__content1"
               handleDeleteEvent={handleDeleteEvent} /> }
           </div>
 
           <div className="remaining__upcoming">
-            <h2>REMAINING UPCOMING EVENTS</h2>
+    
             {remainingEvents.map(event =>
               <EventCard
                 key={event?.id}
                 event={event}
+                card="card__content2"
                 handleDeleteEvent={handleDeleteEvent} />
                 
         )}
@@ -139,6 +142,7 @@ export const EventList = () => {
               <EventCard
                 key={event?.id}
                 event={event}
+                card="card__content2"
                 handleDeleteEvent={handleDeleteEvent} />
 
                 

@@ -1,6 +1,7 @@
 //Author: Susie Stanley
 //Purpose: Creates and displays form for user to edit an existing event
 
+
 import React, { useState, useEffect } from "react"
 import { update, getEventById } from "./EventManager"
 import { useParams, useHistory } from "react-router-dom"

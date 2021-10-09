@@ -9,11 +9,12 @@ import {FaEdit, FaTrash } from "react-icons/fa"
 import { TiWeatherPartlySunny } from "react-icons/ti"
 
 
-export const EventCard = ({ event, handleDeleteEvent }) => {
+export const EventCard = ({ event, handleDeleteEvent, card }) => {
 
     return (
     <>
-        <div className="card__content">
+        <div className={card}>
+
         
           <div className="event__info">
 

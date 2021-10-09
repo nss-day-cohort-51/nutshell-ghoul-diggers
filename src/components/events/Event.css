@@ -5,24 +5,129 @@ Purpose: Controls styling of all event pages
 Page colors:
 #FBC859 - Daffodil
 #A4B900 - Avocado
+#bcd501 - Lime
+#433531 - Mahogany
 #76AECB - Periwinkle
+
+Page fonts:
+Montserrat', sans-serif;
+'Noto Serif', serif;
 */
 
-.card__content {
+
+/* styling for Event List */
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  padding: 15px;
+}
+
+.section__header {
+  font-size: 44px;
+  color: #A4B900;
+  font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+}
+
+.section__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* border: 3px solid green; */
+}
+
+.add__event {
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.first__upcoming {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.first__upcoming h2 {
+  font-size: 26px;
+}
+
+.remaining__upcoming {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.past {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__content1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
   margin: 10px;
-  width: 600px;
-  border: 1px solid red;
+  width: 585px;
+  font-size: 22px;
+  font-weight: 700;
+  background-color: #a3b90061;
+  background-color: #b8c367;
+  border: 2px solid #A4B900;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.9);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.card__content2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px;
+  width: 550px;
+  font-size: 20px;
+  color: #241c1a;
+  /* background-color: #FBC859; */
+  background-color: #a3b90061;
+  /* background-color: #b8c367; */
+  /* border: 3px solid #A4B900; */
+  border: 2px solid #A4B900;
+  border-radius: 7px;
 }
 
 .event__info {
-  font-size: 20px;
   width: 350px;
   white-space: wrap;
-  border: 1px solid black;
+  padding: 20px;
+  /* background-color: #b8c367; */
+  /* background-color: #ffdc92; */
+  background-color: #fbc859bc;
+  /* background-color: rgb(240, 240, 240); */
+  border: 0.5px solid #fbc85968;
+
+  border-radius: 7px;
 }
 
 .event__info--name {
@@ -34,33 +139,36 @@ Page colors:
 }
 
 .remove__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 5px;
-  margin: auto 0px;
+  margin: auto 10px;
   /* border: 1px solid blue; */
 }
 
 .button {
-  margin-bottom: 10px;
-  /* outline: 1px solid orange; */
+  color: #483934;
+  margin: 5px;
 }
 
 .button.sm {
   border: none;
   background-color: transparent;
   font-size: 26px;
-  color: gray;
+  /* border: 1px solid black; */
 }
 
 .button.med {
   border: none;
   background-color: transparent;
   font-size: 30px;
-  color: gray;
+  /* border: 1px solid black; */
 }
 
 .button.lg {
   border: none;
   background-color: transparent;
   font-size: 36px;
-  color: gray;
+  /* outline: 1px solid black; */
 }
