@@ -1,5 +1,5 @@
 //Author: Susie Stanley
-//Purpose: To render a list of all the upcoming and past events
+//Purpose: Defines component EventList that renders a list of all the upcoming and past events
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -51,6 +51,7 @@ export const EventList = () => {
   const showFirstUpcomingEvent = () => {
     const copyOfFutureEvents = [...futureEvents]
     const firstEventObj = copyOfFutureEvents.shift()
+    console.log("firstEventObj is saved as ", firstEventObj)
     setFirstUpcomingEvent(firstEventObj)
   }
 

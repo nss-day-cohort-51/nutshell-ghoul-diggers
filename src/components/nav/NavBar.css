@@ -8,11 +8,11 @@ Purpose: To make NavBar beautiful
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-right: 20px;
+  padding-right: 30px;
 }
 
 .logo {
-  width: 225px;
+  width: 275px;
   margin: 20px 50px;
 }
 
