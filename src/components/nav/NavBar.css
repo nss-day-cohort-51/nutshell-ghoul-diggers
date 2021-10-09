@@ -8,7 +8,7 @@ Purpose: To make NavBar beautiful
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-right: 40px;
+  padding-right: 20px;
 }
 
 .logo {
@@ -20,7 +20,8 @@ Purpose: To make NavBar beautiful
   background-color: #FBC859;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: left;
+  justify-content: right;
+  margin: auto 0px;
 }
 
 .nav__item {
@@ -33,7 +34,7 @@ Purpose: To make NavBar beautiful
 .nav__link {
   font-size: 26px;
   font-weight: bold;
-  color: #5D4943;
+  color: #483934;
   text-decoration: none;
   cursor: pointer;
 }

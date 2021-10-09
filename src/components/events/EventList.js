@@ -16,7 +16,6 @@ export const EventList = () => {
 
 // grabs all events from API, makes a copy, filters through each event and returns array of the objects dated after today
   const getFutureEvents = () => {
-    console.log("step 1")
     const today = new Date();
     const parsedToday = today.getTime()
     return getAllEvents().then(eventsFromAPI => {
@@ -33,7 +32,6 @@ export const EventList = () => {
 
 // grabs all events from API, makes a copy, filters through each event and returns array of the objects dated before today
   const getPastEvents = () => {
-    console.log("step 2")
     const today = new Date();
     const parsedToday = today.getTime()
     return getAllEvents().then(eventsFromAPI => {
@@ -51,7 +49,6 @@ export const EventList = () => {
 
 // saves a copy of futureEvents array from state then grabs the first event and sets that to state
   const showFirstUpcomingEvent = () => {
-    console.log("step 3")
     const copyOfFutureEvents = [...futureEvents]
     const firstEventObj = copyOfFutureEvents.shift()
     setFirstUpcomingEvent(firstEventObj)
@@ -59,7 +56,6 @@ export const EventList = () => {
 
 // saves a copy of futureEvents array, removes first object and sets remaining events to state as 'events'
   const showRemainingUpcomingEvents = () => {
-    console.log("step 4")
     const copyOfFutureEvents = [...futureEvents]
     copyOfFutureEvents.shift();
     const remainingFutureEvents = copyOfFutureEvents;
@@ -107,7 +103,7 @@ export const EventList = () => {
       <div className="section">
 
         <div className="section__header">
-        EVENTS
+        Events
         </div> 
 
         <div className="section__content">

@@ -12,7 +12,7 @@ export const EventForm = () => {
 		name: "",
 		date: "",
 		city: "",
-    zipcode: 0,
+    zipcode: "",
     userId: parseInt(sessionStorage.getItem("nutshell_user"))
 	});
 
@@ -25,11 +25,13 @@ export const EventForm = () => {
       name: "",
       date: "",
       city: "",
-      zipcode: 0,
+      zipcode: "",
       userId: parseInt(sessionStorage.getItem("nutshell_user"))
     });
     console.log("resetForm invoked")
   }
+
+  const goBack = () => { history.push("/events") }; //takes user back to list
 
 	const handleControlledInputChange = (evt) => {
 		/* Because we are changing a state object or array,
@@ -78,9 +80,7 @@ export const EventForm = () => {
             <label htmlFor="name">Event name:</label>
             <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form__group--edit" placeholder="Event Name" value={event.name} />
           </div>
-        </fieldset>
 
-        <fieldset>
           <div className="form__group">
 
             <label htmlFor="date">Date of Event</label>
@@ -90,7 +90,7 @@ export const EventForm = () => {
             <input type="text" id="city" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="Event City" value={event.city} />
 
             <label htmlFor="zipcode">Event Zipcode:</label>
-            <input type="text" id="zipcode" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="5 digit zipcode" />
+            <input type="text" id="zipcode" onChange={handleControlledInputChange} required className="form__group--edit" placeholder="5 digit Zipcode" value={event.zipcode}/>
 
           </div>
         </fieldset>
@@ -105,6 +105,11 @@ export const EventForm = () => {
           <button className="form__btn"
             onClick={ResetForm}>
             Reset Form
+          </button>
+
+          <button className="form__btn"
+            onClick={goBack}>
+            Cancel
           </button>
 
         </div>

@@ -51,13 +51,13 @@ export const EventEditForm = () => {
         <form>
           <div className="form__title">Edit Event</div>
           <fieldset>
-            <div className="form__control">
+            <div className="form__group">
 
               <label htmlFor="name">Event Name:</label>
               <input
                 type="text"
                 required
-                className="form__control--edit"
+                className="form__group--edit"
                 onChange={handleFieldChange}
                 id="name"
                 value={event.name}
@@ -67,7 +67,7 @@ export const EventEditForm = () => {
               <input
                 type="text"
                 required
-                className="form__control--edit"
+                className="form__group--edit"
                 onChange={handleFieldChange}
                 id="date"
                 value={event.date}
@@ -77,7 +77,7 @@ export const EventEditForm = () => {
               <input
                 type="text"
                 required
-                className="form__control--edit"
+                className="form__group--edit"
                 onChange={handleFieldChange}
                 id="city"
                 value={event.city}

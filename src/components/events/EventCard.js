@@ -36,7 +36,7 @@ export const EventCard = ({ event, handleDeleteEvent, card }) => {
 
           <button type="button" className="button sm" onClick={() => handleDeleteEvent(event?.id)}><FaTrash /></button>
           <button type="button" className="button lg" onClick={() => EventWeather(event?.date, event?.zipcode)}><TiWeatherPartlySunny /></button>
-            {console.log("event.date is ", event?.date, " and event.zipcode is ", event?.zipcode )}
+          
           </div>
 
         </div>
