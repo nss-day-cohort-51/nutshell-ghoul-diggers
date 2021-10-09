@@ -3,18 +3,13 @@
 
 import React from "react"
 import { Link } from "react-router-dom";
-import { EventWeather } from "./EventWeather"
+// import { EventWeather } from "./EventWeather"
 import "./Event.css"
 import {FaEdit, FaTrash } from "react-icons/fa"
-import { TiWeatherPartlySunny } from "react-icons/ti"
-import Popup from 'reactjs-popup';
+// import { TiWeatherPartlySunny } from "react-icons/ti"
+import { App } from "../events/App";
 
 export const EventCard = ({ event, handleDeleteEvent, card }) => {
-  const Modal = () => (
-    <Popup trigger={<button className="button"> Open Modal </button>} modal>
-      <span> Modal content </span>
-    </Popup>
-  );
 
     return (
     <>
@@ -40,8 +35,7 @@ export const EventCard = ({ event, handleDeleteEvent, card }) => {
           <Link to={`/events/${event?.id}/edit`}><button className="button sm"><FaEdit/></button></Link>
 
           <button type="button" className="button sm" onClick={() => handleDeleteEvent(event?.id)}><FaTrash /></button>
-          <button type="button" className="button lg" onClick={() => EventWeather(event?.date, event?.zipcode)}><TiWeatherPartlySunny /></button>
-
+          <App />
 
           </div>
 
