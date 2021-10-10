@@ -64,7 +64,7 @@ export const AddArticle = () => {
                 <div className="form__btns">
                     <button className="form__btn"
                         onClick={saveArticle}>
-                        Save Article
+                        Submit
                     </button>
 
                     <button className="form__btn" onClick={ResetForm}>Reset Form</button>

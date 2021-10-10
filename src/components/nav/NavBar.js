@@ -4,7 +4,7 @@ import "../nav/NavBar.css"
 import logo from "../../images/nutshell_logo_bgyellow.png";
 
 
-export const NavBar = (props) => {
+export const NavBar = () => {
   return (
     <nav className="nav__flex">
       <img className="logo" src={logo} alt="C51 Nutshell Logo" />

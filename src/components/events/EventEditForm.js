@@ -49,9 +49,14 @@ export const EventEditForm = () => {
   return (
     <>
     <div className="form__flex">
+
         <form>
-          <div className="form__title">Edit Event</div>
+
+          <div className="form__title">Edit Event
+          </div>
+
           <fieldset>
+
             <div className="form__group">
 
               <label htmlFor="name">Event Name:</label>
@@ -93,16 +98,19 @@ export const EventEditForm = () => {
               <button
                 type="button" disabled={isLoading}
                 onClick={updateExistingEvent}
-                className="form__btn">Submit</button>
+                className="form__btn">Submit
+                </button>
 
               <button
                 type="button"
-                  onClick={() => history.push(`/events`)}
-                  className="form__btn">Cancel</button>
+                onClick={() => history.push(`/events`)}
+                className="form__btn">Cancel
+                </button>
 
-            </div>
+          </div>
 
         </form>
+
       </div>
     </>
   );
