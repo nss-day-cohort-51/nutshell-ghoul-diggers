@@ -10,7 +10,7 @@ export const NavBar = (props) => {
       <img className="logo" src={logo} alt="C51 Nutshell Logo" />
       <ul className="nav">
         <li className="nav__item">
-          <Link className="nav__link" to="/">Articles</Link>
+          <Link className="nav__link" to="/articles">Articles</Link>
         </li>
         <li className="nav__item">
           <Link className="nav__link" to="/friends">Friends</Link>

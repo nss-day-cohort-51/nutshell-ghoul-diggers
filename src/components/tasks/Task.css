@@ -96,15 +96,6 @@ Montserrat', sans-serif;
   font-size: 26px;
 }
 
-/* .task__btns {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 5px 5px 5px 20px;
-  margin: auto 10px;
-} */
-
 .task__btns {
   display: flex;
   flex-direction: column;
@@ -129,15 +120,86 @@ Montserrat', sans-serif;
   margin: 0px;
 }
 
-/* .form {
+/* start of styling for Add Task Form */
+.form__flex {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  font-family: "Montserrat", sans-serif;
+  padding: 15px;
+}
+
+form {
+  align-self: center;
+}
+
+.form__title {
+  font-size: 44px;
+  color: #A4B900;
+  font-weight: 800;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: auto;
-  padding-top: 40px;
-} */
+  margin: 10px 0px 20px;
+}
 
-/* .form button {
+fieldset {
+  width: 500px;
+  background-color: #fbc859df;
+  color: #483934;
+  text-align: left;
+  font-weight: bolder;
+  padding: 20px 10px 20px 20px;
+  border: 2px solid #fec54a;
+  border-radius: 10px;
+}
+
+label {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+input, select {
+  padding: 0px 5px;
+  text-decoration: none;
+}
+
+button:disabled,
+button:disabled:hover {
+  background-color: lightgray;
+}
+
+.form__group--edit{
+  display: block;
+  width: 96%;
+  margin: 5px 0px 20px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 40px;
+}
+
+.form__btns {
   display: flex;
-  justify-content: flex-start;
-} */
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+}
+
+.form__btn {
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 6px;
+}
+/* end of styling for Add Task Form */

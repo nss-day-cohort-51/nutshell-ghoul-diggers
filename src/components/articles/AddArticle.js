@@ -50,12 +50,12 @@ export const AddArticle = () => {
                         <input type="text" id="title" onChange={handleChange} required className="form__group--edit" placeholder="Insert title"/>
                     </div>
 
-                    <div className="form-group">
+                    <div className="form__group">
                         <label htmlFor="url">url: </label>
                         <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert url"/>
                     </div>
 
-                    <div className="form-group">
+                    <div className="form__group">
                         <label htmlFor="synopsis">Synopsis: </label>
                         <input type="text" id="synopsis" onChange={handleChange} required className="form__group--edit" placeholder="Insert synopsis"/>
                     </div>
@@ -69,7 +69,7 @@ export const AddArticle = () => {
 
                     <button className="form__btn" onClick={ResetForm}>Reset Form</button>
 
-                    <button className="form__btn" onClick={() => history.push("/")}>Cancel</button>
+                    <button className="form__btn" onClick={() => history.push("/articles")}>Cancel</button>
                 </div>
             </form>
         </div>

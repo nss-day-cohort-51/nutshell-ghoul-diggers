@@ -5,7 +5,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { addTask } from "./TaskManager";
-import "./TaskForm.css"
+import "./Task.css"
 
 
 
@@ -43,23 +43,22 @@ export const TaskForm = () => {
     return (
         <>
             <div className="form">
-                <button type="button" className="btn" onClick={() => { history.push("/tasks") }}>Back</button>
+
                 <form className="task__form">
-                    <h2 className="task__form--title">New Task</h2>
+                <div className="form__title">Add New Task</div>
                     <fieldset>
-                        <div className="form-group">
+                        <div className="form__group">
                             <label htmlFor="name">Enter Task: </label>
-                            <input type="text" id="taskName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
+                            <input type="text" id="taskName" onChange={handleControlledInputChange} required autoFocus className="form__group--edit" placeholder="Task" value={task.name} />
                         </div>
-                    </fieldset>
-                    <h2 className="task__form--title">Due Date</h2>
-                    <fieldset>
+    
                         <div className="form-group">
                             <label htmlFor="name">Select Date: </label>
-                            <input type="date" id="completeDate" onChange={handleControlledInputChange} required autoFocus className="form-control" />
+                            <input type="date" id="completeDate" onChange={handleControlledInputChange} required className="form__group--edit" />
                         </div>
                     </fieldset>
                     <button className="btn" onClick={handleClickSaveTask}>Save Task</button>
+                    <button type="button" className="btn" onClick={() => { history.push("/tasks") }}>Back</button>
                 </form>
             </div>
         </>

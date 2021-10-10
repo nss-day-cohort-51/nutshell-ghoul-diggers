@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 import ArticleManager from "./ArticleManager"
 import { ArticleCard } from "./ArticleCard";
-import { useHistory, useParams } from "react-router";
+import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
 import "./Article.css"
 
@@ -11,7 +11,6 @@ export const Articles = () => {
 
     const { articleId } = useParams();
 
-    const history = useHistory();
 
     const getArticles = () => {
         ArticleManager.getAllArticles().then(response => {

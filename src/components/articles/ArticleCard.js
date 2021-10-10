@@ -1,4 +1,3 @@
-import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import {FaEdit, FaTrash } from "react-icons/fa"
 import "./Article.css"
@@ -6,7 +5,6 @@ import "./Article.css"
 export const ArticleCard = ({article, handleDelete}) => {
 
     const date = new Date(article.timestamp);
-    const history = useHistory();
     const formattedDate = date.toLocaleString();
     
     const loggedInUser = parseInt(sessionStorage.getItem("nutshell_user"));

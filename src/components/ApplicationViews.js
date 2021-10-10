@@ -25,15 +25,15 @@ export const ApplicationViews = () => {
 
   return (
     <>
-      <Route exact path="/">
+      <Route exact path="/articles">
         {/* Render the component for news articles */}
         <Articles />
       </Route>
-      <Route path="/articles/add">
+      <Route exact path="/articles/add">
         {/* Render the component for adding articles*/}
         <AddArticle />
       </Route>
-      <Route path="/:articleId/edit">
+      <Route exact path="/:articleId(\d+)/edit">
         <EditForm />
       </Route>
 
@@ -47,7 +47,7 @@ export const ApplicationViews = () => {
         {/* Render the component for list of friends */}
         <Friends />
       </Route>
-      <Route path="/friends/add">
+      <Route exact path="/friends/add">
         {/* Render the component for adding friends */}
         <AddFriend />
       </Route>
@@ -60,10 +60,10 @@ export const ApplicationViews = () => {
       <Route exact path="/tasks">
         <TaskList />
       </Route>
-      <Route path="/tasks/create">
+      <Route exact path="/tasks/create">
         <TaskForm />
       </Route>
-      <Route path="/tasks/:taskId(\d+)/edit">
+      <Route exact path="/tasks/:taskId(\d+)/edit">
         <TaskEditForm />
       </Route>
 
