@@ -25,10 +25,10 @@ export const EventWeather = ( { event } ) => {
       })
      }, []);
 
-  const formatDate = (obj) => {
-    const date = new Date(obj);
-    const formattedDate = date.toDateString(); // converts date object to a string that displays in format "Sun Jul 22 2018"
-    return formattedDate;
+     
+  const formatTemp = (obj) => {
+    const temp = Math.round(obj); // this rounds the temp to a whole number
+    return temp;
   }
 
   return ( 
