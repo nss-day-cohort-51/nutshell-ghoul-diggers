@@ -14,11 +14,11 @@ Montserrat', sans-serif;
 'Noto Serif', serif;
 */
 
-.App {
+.WeatherApp {
   font-family: sans-serif;
   text-align: center;
 }
-.App button {
+.WeatherApp button {
   padding: 7px 10px;
   margin: 0px 10px;
   font-size: 1rem;

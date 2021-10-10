@@ -5,7 +5,7 @@ import React from "react"
 import { Link } from "react-router-dom";
 import "./Event.css"
 import {FaEdit, FaTrash } from "react-icons/fa"
-import { App } from "../events/App";
+import { WeatherApp } from "../events/WeatherApp";
 
 
 const formatDate = (obj) => {
@@ -37,8 +37,8 @@ export const EventCard = ({ event, handleDeleteEvent, card }) => {
 
           <button type="button" className="button sm" onClick={() => handleDeleteEvent(event?.id)}><FaTrash /></button>
 
-          {/* the App component renders the weather button on each EventCard */}
-          <App event={event} />
+          {/* the WeatherApp component renders the weather button on each EventCard */}
+          <WeatherApp event={event} />
 
           </div>
 

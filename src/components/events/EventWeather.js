@@ -15,21 +15,20 @@ export const EventWeather = ( { event } ) => {
   useEffect(() => {
     getWeatherByDateAndZip(eventDate, zipcode)
     .then(weather => {
-      setTheWeather({
-        high: weather.forecast.forecastday[0].day.maxtemp_f,
-        low: weather.forecast.forecastday[0].day.mintemp_f,
-        avg: weather.forecast.forecastday[0].day.avgtemp_f,
-        condition: weather.forecast.forecastday[0].day.condition.text,
-        icon: weather.forecast.forecastday[0].day.condition.icon
-      });
+      if (weather.forecast.forecastday.length > 0) {
+        setTheWeather({
+          high: weather.forecast.forecastday[0].day.maxtemp_f,
+          low: weather.forecast.forecastday[0].day.mintemp_f,
+          avg: weather.forecast.forecastday[0].day.avgtemp_f,
+          condition: weather.forecast.forecastday[0].day.condition.text,
+          icon: weather.forecast.forecastday[0].day.condition.icon
+        });
+      } else {
+        console.log("weather info came back undefined")
+        }
       })
      }, []);
 
-  const formatDate = (obj) => {
-    const date = new Date(obj);
-    const formattedDate = date.toDateString(); // converts date object to a string that displays in format "Sun Jul 22 2018"
-    return formattedDate;
-  }
 
   const formatTemp = (obj) => {
     const temp = Math.round(obj); // this rounds the temp to a whole number
@@ -38,6 +37,8 @@ export const EventWeather = ( { event } ) => {
 
   return ( 
     <>
+    {theWeather.avg !== "" ?
+
     <div className="forecast__flex">
 
       <div className="forecast__title">{event.name} Forecast</div>
@@ -61,7 +62,11 @@ export const EventWeather = ( { event } ) => {
       <div className="forecast__wrap"></div>
       <div className="forecast__label">Conditions: </div>
       <div className="forecast__info"> {theWeather.condition}</div>
+
       </div>
+
+    </div>
+      : <p className="no__forecast">Forecast Info Not Available For This Date</p> }
 
       {/* <picture>
           {theWeather.icon !== "" ?
@@ -71,8 +76,6 @@ export const EventWeather = ( { event } ) => {
 
       {/* <div className="forecast__icon">Icon Goes Here {theWeather.icon}</div> */}
 
-
-    </div>
     </>
   );
 }
