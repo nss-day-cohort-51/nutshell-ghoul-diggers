@@ -29,7 +29,7 @@ export const ApplicationViews = () => {
         {/* Render the component for news articles */}
         <Articles />
       </Route>
-      <Route path="/add">
+      <Route path="/articles/add">
         {/* Render the component for adding articles*/}
         <AddArticle />
       </Route>

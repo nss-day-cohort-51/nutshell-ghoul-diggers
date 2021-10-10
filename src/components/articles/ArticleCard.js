@@ -33,7 +33,8 @@ export const ArticleCard = ({article, handleDelete}) => {
 
             </div>
 
-          </div>  
+          </div>
+  
     )
     } else {
       return (

@@ -37,12 +37,14 @@ export const Articles = () => {
             </div> 
 
             <div className="section__content">
-            <Link to={`/add`}><button className="add__article">+ Add An Article</button></Link>
+                <Link to={`articles/add`}>
+                <button className="add__article">+ Add An Article</button></Link>
             </div>
 
             <div className="container">
                 {articles.map(article => <ArticleCard key={article.id} article={article} handleDelete={handleDelete}/>)}
             </div>
+
         </div>
     )
 }

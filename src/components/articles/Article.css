@@ -1,6 +1,6 @@
 /* 
 Author: Susie Stanley
-Purpose: Controls styling of all event pages
+Purpose: Controls styling of all article pages
 
 Page colors:
 #FBC859 - Daffodil
@@ -9,9 +9,8 @@ Page colors:
 #483934 - Mahogany
 #76AECB - Periwinkle
 
-Page fonts:
+Page font:
 Montserrat', sans-serif;
-'Noto Serif', serif;
 */
 
 
@@ -79,15 +78,6 @@ Montserrat', sans-serif;
   background-color: #fbc859bc;
   border: 0.5px solid #fbc85968;
   border-radius: 7px;
-}
-
-.remove__item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 5px 5px 5px 20px;
-  margin: auto 10px;
-  /* border: 1px solid blue; */
 }
 
 .button {

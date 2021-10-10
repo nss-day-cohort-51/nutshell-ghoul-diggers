@@ -3,27 +3,41 @@
 
 
 import React from "react";
-import { useHistory } from "react-router";
-import "./TaskCard.css"
+import "./Task.css"
+import { Link } from "react-router-dom";
+import {FaEdit, FaTrash } from "react-icons/fa"
 
 
 export const TaskCard = ({ task, handleDeleteTask, handleCompleteTask }) => {
-    const history = useHistory();
+
     if (task.userId === parseInt(sessionStorage.getItem("nutshell_user"))) {
         return (
             <>
-                <section className="task">
-                    <input type="checkbox" className="checkbox" onClick={() => handleCompleteTask(task.id)} />
-                    <label className="task__section">
-                        <h3 className="task__section--title">{task.taskName}</h3>
-                        <p className="task__section--complete-date">Due Date: {task.completeDate}</p>
-                    </label>
-                    <button className="btn" onClick={() => handleDeleteTask(task.id)}>Remove Task</button>
-                    <button className="btn" type="button"
-                        onClick={() => history.push(`/tasks/${task.id}/edit`)}>
-                        Edit
-                    </button>
-                </section>
+                <div className="card__content--task">
+
+                    <div className="task__info">
+
+                            <label className="task__section">
+                                <div className="task__title"><strong>{task.taskName}</strong></div>
+                                <div><strong>Due Date: </strong> {task.completeDate}</div>
+                            </label>
+
+                    </div>
+
+                    <div className="task__btns">
+                        <div className="task__complete">
+                        <input type="checkbox" className="checkbox" onClick={() => handleCompleteTask(task.id)} />
+                        <label>Complete </label>
+                        </div>
+
+                        <div className="task__edit__btns">
+                        <Link to={`/tasks/${task?.id}/edit`}><button className="button sm"><FaEdit/></button></Link>
+
+                        <button type="button" className="button sm" onClick={() => handleDeleteTask(task?.id)}><FaTrash /></button>
+                        </div>
+                    </div>
+
+                </div>
             </>
         )
     } else {
