@@ -110,13 +110,9 @@ Montserrat', sans-serif;
   justify-content: space-between;
   padding: 10px;
   margin: 10px;
-  /* width: 550px; */
   font-size: 20px;
   color: #241c1a;
-  /* background-color: #FBC859; */
   background-color: #a3b90061;
-  /* background-color: #b8c367; */
-  /* border: 3px solid #A4B900; */
   border: 2px solid #A4B900;
   border-radius: 7px;
 }
@@ -125,12 +121,8 @@ Montserrat', sans-serif;
   width: 330px;
   white-space: wrap;
   padding: 20px;
-  /* background-color: #b8c367; */
-  /* background-color: #ffdc92; */
   background-color: #fbc859bc;
-  /* background-color: rgb(240, 240, 240); */
   border: 0.5px solid #fbc85968;
-
   border-radius: 7px;
 }
 
@@ -247,42 +239,30 @@ button:disabled:hover {
 }
 /* end of styling for Add Event Form */
 
-/* start of Modal Styling */
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+/* start of EventWeather forecast popup styling */
+.forecast__flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 40px;
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+.forecast__title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.forecast__label {
+  font-size: 20px;
+  font-weight: 600;
 }
+.forecast__info {
+  font-size: 20px;
+  font-weight: 400;
+}
+.forecast__icon {
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
-/* end of Modal Styling */
+/* end of EventWeather forecast popup styling */

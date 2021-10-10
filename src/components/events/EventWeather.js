@@ -40,11 +40,20 @@ export const EventWeather = ( { event } ) => {
     <>
     <div className="forecast__flex">
 
-      <div className="forecast__title">Forecast For {zipcode} on {formatDate(event.date)} </div>
-      <div className="forecast__label">High: {formatTemp(theWeather.high)}</div>
-      <div className="forecast__label">Low: {formatTemp(theWeather.low)}</div>
-      <div className="forecast__label">TEMP: {formatTemp(theWeather.avg)}</div>
-      <div className="forecast__label">Conditions: {theWeather.condition}</div>
+      <div className="forecast__title">{event.name} Forecast</div>
+
+      <div className="forecast__label">Temp: </div>
+      <div className="forecast__info"> {formatTemp(theWeather.avg)}</div>
+
+      <div className="forecast__label">High: </div>
+      <div className="forecast__info"> {formatTemp(theWeather.high)}</div>
+
+      <div className="forecast__label">Low: </div>
+      <div className="forecast__info"> {formatTemp(theWeather.low)}</div>
+
+      <div className="forecast__label">Conditions: </div>
+      <div className="forecast__info"> {theWeather.condition}</div>
+
 
       {/* <picture>
           {theWeather.icon !== "" ?
@@ -52,7 +61,7 @@ export const EventWeather = ( { event } ) => {
           : <p>There isn't an icon available</p>}
       </picture> */}
 
-      <div className="forecast__icon">Icon Goes Here {theWeather.icon}</div>
+      {/* <div className="forecast__icon">Icon Goes Here {theWeather.icon}</div> */}
 
 
     </div>

@@ -7,6 +7,13 @@ import "./Event.css"
 import {FaEdit, FaTrash } from "react-icons/fa"
 import { App } from "../events/App";
 
+
+const formatDate = (obj) => {
+  const date = new Date(obj);
+  const formattedDate = date.toDateString(); // converts date object to a string that displays in format "Sun Jul 22 2018"
+  return formattedDate;
+}
+
 export const EventCard = ({ event, handleDeleteEvent, card }) => {
     return (
     <>
@@ -16,7 +23,7 @@ export const EventCard = ({ event, handleDeleteEvent, card }) => {
 
             <div className="event__info--name"><strong>Name:  {event?.name}</strong></div>
 
-            <div className="event__info--details"><strong>Date: </strong> {event?.date}</div>
+            <div className="event__info--details"><strong>Date: </strong> {formatDate(event?.date)}</div>
 
             <div className="event__info--details"><strong>City: </strong> {event?.city}</div>
 
