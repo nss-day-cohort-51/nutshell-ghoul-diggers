@@ -2,43 +2,28 @@
 //Purpose: Defines EventWeather component that fetches and displays weather data from weatherAPI
 
 import React from 'react';
-// import { useState, useEffect } from 'react';
-
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import "./Event.css"
-import { Settings } from "../auth/Settings"
+import { getWeatherByDateAndZip } from "../events/WeatherManager"
 
-const key = Settings.weatherKey;
+export const EventWeather = ( { event } ) => {
+  console.log("Inside EventWeather the event is: ", event);
+  const [ theWeather, setTheWeather ] = useState({ high: "", low: "", avg: "", condition: "", icon: "" })
+  const eventDate = event.date;
+  const zipcode = event.zipcode;
 
-export const EventWeather = ( eventDate, zipcode ) => {
-  console.log("Inside EventWeather the eventDate is " + eventDate + " and the zipcode is " + zipcode);
-  // const [ theWeather, setTheWeather ] =  useState({ day: "", high: "", low: "", avg: "", condition: "", icon: "" });
-
-  let day = "";
-  let high = "";
-  let low = "";
-  let avg = "";
-  let condition = "";
-  let icon = "";
-
-  //Used to get weather forecast by date and zipcode
-  const getWeatherByDateAndZip = ( eventDate, zipcode ) => {
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=37064&days=10&dt=${eventDate}`;
-    
-    const weatherInfo =  fetch(url)
-        .then(response => response.json())
-        .then(weather => {
-          console.log("weather from fetch inside weatherInfo is: ", weather)
-            day = weather.forecast.forecastday[0].date;
-            high = weather.forecast.forecastday[0].day.maxtemp_f;
-            low = weather.forecast.forecastday[0].day.mintemp_f;
-            avg = weather.forecast.forecastday[0].day.avgtemp_f;
-            condition = weather.forecast.forecastday[0].day.condition.text;
-            icon = weather.forecast.forecastday[0].day.condition.icon;
-        })
-        console.log("weatherInfo saved to variable is: ", weatherInfo)
-        return weatherInfo
-    }
+  useEffect(() => {
+    getWeatherByDateAndZip(eventDate, zipcode)
+    .then(weather => {
+      setTheWeather({
+        high: weather.forecast.forecastday[0].day.maxtemp_f,
+        low: weather.forecast.forecastday[0].day.mintemp_f,
+        avg: weather.forecast.forecastday[0].day.avgtemp_f,
+        condition: weather.forecast.forecastday[0].day.condition.text,
+        icon: weather.forecast.forecastday[0].day.condition.icon
+      });
+      })
+     }, []);
 
   const formatDate = (obj) => {
     const date = new Date(obj);
@@ -51,26 +36,26 @@ export const EventWeather = ( eventDate, zipcode ) => {
     return temp;
   }
 
-
-  getWeatherByDateAndZip(eventDate, zipcode);
-  // useEffect(() => {
-  //   getWeatherByDateAndZip(eventDate, zipcode)
-  // }, []);
-
   return ( 
     <>
     <div className="forecast__flex">
 
-      <div className="forecast__title">Forecast For ${formatDate(day)} ${zipcode}</div>
-      <div className="forecast__info">High: ${formatTemp(high)}</div>
-      <div className="forecast__info">Low: ${formatTemp(low)}</div>
-      <div className="forecast__info">TEMP: ${formatTemp(avg)}</div>
-      <div className="forecast__info">Conditions: ${condition}</div>
-      <div className="forecast__info">Icon: ${icon}</div>
+      <div className="forecast__title">Forecast For {zipcode} on {formatDate(event.date)} </div>
+      <div className="forecast__label">High: {formatTemp(theWeather.high)}</div>
+      <div className="forecast__label">Low: {formatTemp(theWeather.low)}</div>
+      <div className="forecast__label">TEMP: {formatTemp(theWeather.avg)}</div>
+      <div className="forecast__label">Conditions: {theWeather.condition}</div>
 
-      <Link to={`/events`}><button className="button">Close</button></Link>
+      {/* <picture>
+          {theWeather.icon !== "" ?
+          <img src={require(`http:${theWeather.icon}`).default} alt="weather icon" className=""/> 
+          : <p>There isn't an icon available</p>}
+      </picture> */}
+
+      <div className="forecast__icon">Icon Goes Here {theWeather.icon}</div>
+
 
     </div>
     </>
   );
-};
+}

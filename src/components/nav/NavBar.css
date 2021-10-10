@@ -1,6 +1,18 @@
 /* 
 Author: Susie Stanley
-Purpose: To make NavBar beautiful 
+Purpose: To make NavBar beautiful
+
+Page colors:
+#FBC859 - Daffodil
+#A4B900 - Avocado
+#bcd501 - Lime
+#483934 - Mahogany
+#76AECB - Periwinkle
+
+Page fonts:
+Montserrat', sans-serif;
+'Noto Serif', serif;
+
 */
 
 .nav__flex {
@@ -8,7 +20,7 @@ Purpose: To make NavBar beautiful
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* padding-right: 30px; */
+  padding-right: 20px;
 }
 
 .logo {
@@ -19,15 +31,14 @@ Purpose: To make NavBar beautiful
 .nav {
   background-color: #FBC859;
   display: flex;
-  flex-wrap: nowrap;
+  /* flex-wrap: nowrap; */
   justify-content: right;
   margin: auto 0px;
-  /* padding-right: 30px; */
 }
 
 .nav__item {
-  flex-basis: 20%;
-  white-space: nowrap;
+  /* flex-basis: 20%; */
+  /* white-space: nowrap; */
   margin: 0px 20px;
   list-style-type: none;
 }
