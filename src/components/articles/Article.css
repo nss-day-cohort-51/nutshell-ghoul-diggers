@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* 
 Author: Susie Stanley
 Purpose: Controls styling of all article pages
@@ -13,6 +14,8 @@ Page font:
 Montserrat', sans-serif;
 */
 
+=======
+>>>>>>> feature/nutshell-ss-10
 
 /* start of styling for Event List */
 .section {
@@ -39,7 +42,11 @@ Montserrat', sans-serif;
   justify-content: center;
 }
 
+<<<<<<< HEAD
 .add__article {
+=======
+.add__event {
+>>>>>>> feature/nutshell-ss-10
   font-size: 18px;
   font-weight: 600;
   background-color: #A4B900;
@@ -53,12 +60,65 @@ Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
+<<<<<<< HEAD
   margin-top: 40px;
 }
 
 .card__content {
   align-self: center;
   width: 700px;
+=======
+}
+
+.first__upcoming {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.first__upcoming h2 {
+  font-size: 26px;
+}
+
+.remaining__upcoming {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.past {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.past h2 {
+  font-size: 26px;
+}
+
+.card__content1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px;
+  width: 650px;
+  font-size: 22px;
+  font-weight: 700;
+  /* background-color: #a3b90061; */
+  background-color: #b8c367;
+  border: 2px solid #A4B900;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.9);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.card__content2 {
+>>>>>>> feature/nutshell-ss-10
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -71,8 +131,13 @@ Montserrat', sans-serif;
   border-radius: 7px;
 }
 
+<<<<<<< HEAD
 .article__info {
   width: 600px;
+=======
+.event__info {
+  width: 330px;
+>>>>>>> feature/nutshell-ss-10
   white-space: wrap;
   padding: 20px;
   background-color: #fbc859bc;
@@ -80,6 +145,18 @@ Montserrat', sans-serif;
   border-radius: 7px;
 }
 
+<<<<<<< HEAD
+=======
+.remove__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 5px 5px 20px;
+  margin: auto 10px;
+  /* border: 1px solid blue; */
+}
+
+>>>>>>> feature/nutshell-ss-10
 .button {
   color: #483934;
   margin: 5px;
@@ -182,4 +259,8 @@ button:disabled:hover {
   padding: 5px 10px;
   margin: 6px;
 }
+<<<<<<< HEAD
 /* end of styling for Add Article Form */
+=======
+/* end of styling for Add Event Form */
+>>>>>>> feature/nutshell-ss-10

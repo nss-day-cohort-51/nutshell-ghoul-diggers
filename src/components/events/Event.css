@@ -274,4 +274,10 @@ button:disabled:hover {
 .forecast__icon {
   margin: 10px;
 }
+
+.no__forecast {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
 /* end of EventWeather forecast popup styling */
