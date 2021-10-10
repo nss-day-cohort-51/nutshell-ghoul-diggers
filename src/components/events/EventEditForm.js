@@ -5,6 +5,7 @@
 import React, { useState, useEffect } from "react"
 import { update, getEventById } from "./EventManager"
 import { useParams, useHistory } from "react-router-dom"
+import "./Event.css"
 
 
 export const EventEditForm = () => {
@@ -47,7 +48,7 @@ export const EventEditForm = () => {
 
   return (
     <>
-    <div className="form-flex">
+    <div className="form__flex">
         <form>
           <div className="form__title">Edit Event</div>
           <fieldset>
@@ -85,20 +86,22 @@ export const EventEditForm = () => {
 
             </div>
 
-            <div className="form-btns">
+          </fieldset>
+
+          <div className="form__btns">
               
               <button
                 type="button" disabled={isLoading}
                 onClick={updateExistingEvent}
-                className="form-btn">Submit</button>
+                className="form__btn">Submit</button>
 
               <button
                 type="button"
                   onClick={() => history.push(`/events`)}
-                  className="form-btn">Cancel</button>
+                  className="form__btn">Cancel</button>
 
             </div>
-          </fieldset>
+
         </form>
       </div>
     </>

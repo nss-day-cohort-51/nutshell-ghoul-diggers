@@ -40,7 +40,7 @@ Montserrat', sans-serif;
   justify-content: center;
 }
 
-.add__event {
+.add__article {
   font-size: 18px;
   font-weight: 600;
   background-color: #A4B900;
@@ -54,56 +54,12 @@ Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 40px;
 }
 
-.first__upcoming {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.first__upcoming h2 {
-  font-size: 26px;
-}
-
-.remaining__upcoming {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.past {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.past h2 {
-  font-size: 26px;
-}
-
-.card__content1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px;
-  margin: 10px;
-  width: 650px;
-  font-size: 22px;
-  font-weight: 700;
-  /* background-color: #a3b90061; */
-  background-color: #b8c367;
-  border: 2px solid #A4B900;
-  border-radius: 7px;
-  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.9);
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-}
-
-.card__content2 {
+.card__content {
+  align-self: center;
+  width: 700px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -116,8 +72,8 @@ Montserrat', sans-serif;
   border-radius: 7px;
 }
 
-.event__info {
-  width: 330px;
+.article__info {
+  width: 600px;
   white-space: wrap;
   padding: 20px;
   background-color: #fbc859bc;

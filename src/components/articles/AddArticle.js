@@ -42,7 +42,7 @@ export const AddArticle = () => {
 
     return (
         <div className="form__flex">
-            <form className="customerForm">
+            <form>
                 <div className="form__title">Add New Article</div>
                 <fieldset>
                     <div className="form__group">
