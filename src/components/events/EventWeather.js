@@ -31,11 +31,6 @@ export const EventWeather = ( { event } ) => {
     return formattedDate;
   }
 
-  const formatTemp = (obj) => {
-    const temp = Math.round(obj); // this rounds the temp to a whole number
-    return temp;
-  }
-
   return ( 
     <>
     <div className="forecast__flex">

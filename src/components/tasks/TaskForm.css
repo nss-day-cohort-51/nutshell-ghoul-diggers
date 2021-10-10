@@ -1,0 +1,13 @@
+.form {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  padding-top: 40px;
+}
+
+.form button {
+  display: flex;
+  justify-content: flex-start;
+}
