@@ -42,18 +42,26 @@ export const EventWeather = ( { event } ) => {
 
       <div className="forecast__title">{event.name} Forecast</div>
 
+      <div className="forecast__wrap">
       <div className="forecast__label">Temp: </div>
-      <div className="forecast__info"> {formatTemp(theWeather.avg)}</div>
+      <div className="forecast__info"> {formatTemp(theWeather.avg)}°</div>
+      </div>
 
+      <div className="forecast__wrap">
       <div className="forecast__label">High: </div>
-      <div className="forecast__info"> {formatTemp(theWeather.high)}</div>
+      <div className="forecast__info"> {formatTemp(theWeather.high)}°</div>
+      </div>
 
+      <div className="forecast__wrap">
       <div className="forecast__label">Low: </div>
-      <div className="forecast__info"> {formatTemp(theWeather.low)}</div>
+      <div className="forecast__info"> {formatTemp(theWeather.low)}°</div>
+      </div>
 
+      <div className="forecast__wrap">
+      <div className="forecast__wrap"></div>
       <div className="forecast__label">Conditions: </div>
       <div className="forecast__info"> {theWeather.condition}</div>
-
+      </div>
 
       {/* <picture>
           {theWeather.icon !== "" ?
