@@ -4,13 +4,13 @@ import "../nav/NavBar.css"
 import logo from "../../images/nutshell_logo_bgyellow.png";
 
 
-export const NavBar = (props) => {
+export const NavBar = () => {
   return (
     <nav className="nav__flex">
       <img className="logo" src={logo} alt="C51 Nutshell Logo" />
       <ul className="nav">
         <li className="nav__item">
-          <Link className="nav__link" to="/">Articles</Link>
+          <Link className="nav__link" to="/articles">Articles</Link>
         </li>
         <li className="nav__item">
           <Link className="nav__link" to="/friends">Friends</Link>

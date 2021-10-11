@@ -25,21 +25,21 @@ export const ApplicationViews = () => {
 
   return (
     <>
-      <Route exact path="/">
+      <Route exact path="/articles">
         {/* Render the component for news articles */}
         <Articles />
       </Route>
-      <Route path="/add">
+
+      <Route exact path="/articles/add">
         {/* Render the component for adding articles*/}
         <AddArticle />
       </Route>
-      <Route path="/:articleId/edit">
+
+      <Route exact path="/:articleId(\d+)/edit">
         <EditForm />
       </Route>
 
-      {/* author: Gerson
-      Purpose: If the routh match the message edit path then will take the user to this page. */}
-      <Route path="/messages/:messageId(\d+)/edit">
+      <Route exact path="/messages/:messageId(\d+)/edit">
         <MessageEdit />
       </Route>
 
@@ -47,7 +47,8 @@ export const ApplicationViews = () => {
         {/* Render the component for list of friends */}
         <Friends />
       </Route>
-      <Route path="/friends/add">
+
+      <Route exact path="/friends/add">
         {/* Render the component for adding friends */}
         <AddFriend />
       </Route>
@@ -57,13 +58,16 @@ export const ApplicationViews = () => {
         <PublicMessages messages={messages} getPublicMessages={getMeMesssage} />
         <SentMessages getPublicMessages={getMeMesssage} />
       </Route>
+
       <Route exact path="/tasks">
         <TaskList />
       </Route>
-      <Route path="/tasks/create">
+
+      <Route exact path="/tasks/create">
         <TaskForm />
       </Route>
-      <Route path="/tasks/:taskId(\d+)/edit">
+
+      <Route exact path="/tasks/:taskId(\d+)/edit">
         <TaskEditForm />
       </Route>
 

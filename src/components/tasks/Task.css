@@ -13,8 +13,6 @@ Page font:
 Montserrat', sans-serif;
 */
 
-
-/* start of styling for Article List */
 .section {
   display: flex;
   flex-direction: column;
@@ -39,7 +37,7 @@ Montserrat', sans-serif;
   justify-content: center;
 }
 
-.add__article {
+.add__task {
   font-size: 18px;
   font-weight: 600;
   background-color: #A4B900;
@@ -56,10 +54,9 @@ Montserrat', sans-serif;
   margin-top: 40px;
 }
 
-
-.card__content {
+.card__content--task {
   align-self: center;
-  width: 700px;
+  width: 600px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,8 +69,8 @@ Montserrat', sans-serif;
   border-radius: 7px;
 }
 
-.article__info {
-  width: 600px;
+.task__info {
+  flex: 3;
   white-space: wrap;
   padding: 20px;
   background-color: #fbc859bc;
@@ -81,36 +78,49 @@ Montserrat', sans-serif;
   border-radius: 7px;
 }
 
-.remove__item {
+.task__flex {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding: 5px 5px 5px 20px;
-  margin: auto 10px;
-  /* border: 1px solid blue; */
+  justify-content: flex-start;
+  padding: 0px;
+  margin: 0px;
 }
 
-.button {
-  color: #483934;
-  margin: 5px;
-  border: none;
-  background-color: transparent;
+.task__section {
+  /* flex: 1; */
+  padding: 0px;
+  margin: 0px;
 }
 
-.button.sm {
+.task__title {
   font-size: 26px;
 }
 
-.button.med {
-  font-size: 30px;
+.task__btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 10px 5px 20px;
+  margin: auto;
 }
 
-.button.lg {
-  font-size: 36px;
+.task__complete {
+  flex: 1;
+  white-space: nowrap;
+  margin: 10px 0px;
 }
-/* end of styling for Article List */
 
-/* start of styling for Add Article Form */
+.checkbox {
+  margin-right: 10px;
+}
+
+.task__edit__btns {
+  flex: 1;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* start of styling for Add Task Form */
 .form__flex {
   display: flex;
   flex-direction: column;
@@ -192,4 +202,4 @@ button:disabled:hover {
   padding: 5px 10px;
   margin: 6px;
 }
-/* end of styling for Add Article Form */
+/* end of styling for Add Task Form */

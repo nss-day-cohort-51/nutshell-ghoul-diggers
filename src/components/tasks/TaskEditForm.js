@@ -45,38 +45,60 @@ export const TaskEditForm = () => {
 
     return (
         <>
+        <div className="form__flex">
+
             <form>
-                <button type="button" className="btn" onClick={() => { history.push("/tasks") }}>Back</button>
+
+                <div className="form__title">Edit Event
+                </div>
+
                 <fieldset>
-                    <div className="formgrid">
+
+                    <div className="form__group">
+
+                        <label htmlFor="taskName">Task Name</label>
                         <input
                             type="text"
                             required
-                            className="form-control"
+                            className="form__group--edit"
                             onChange={handleFieldChange}
                             id="taskName"
                             value={task.name}
                         />
-                        <label htmlFor="taskName">Task Name</label>
 
+                        <label htmlFor="breed">Due Date</label>
                         <input
                             type="date"
                             required
-                            className="form-control"
+                            className="form__group--edit"
                             onChange={handleFieldChange}
                             id="completeDate"
                         />
-                        <label htmlFor="breed">Due Date</label>
+
                     </div>
-                    <div className="alignRight">
+
+                </fieldset>
+
+
+                <div className="form__btns">
+
                         <button
                             type="button" disabled={isLoading}
                             onClick={updateExistingTask}
-                            className="btn"
-                        >Submit</button>
-                    </div>
-                </fieldset>
+                            className="form__btn">Submit
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() => history.push(`/tasks`)}
+                            className="form__btn">Cancel
+                        </button>
+                        
+                </div>
+
             </form>
+
+        </div>
         </>
     )
 }

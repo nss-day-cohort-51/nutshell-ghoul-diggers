@@ -74,11 +74,6 @@ export const EventList = () => {
     });
   }
   
-  //got the events from the API on the component's first render
-  // useEffect(() => {
-  //   getEvents();
-  // }, []);
-  
 // getFutureEvents gets all future events from API and saves the array to state as 'futureEvents' on first render only
   useEffect(() => {
     getFutureEvents();

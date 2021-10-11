@@ -9,9 +9,8 @@ Page colors:
 #483934 - Mahogany
 #76AECB - Periwinkle
 
-Page fonts:
+Page font:
 Montserrat', sans-serif;
-'Noto Serif', serif;
 */
 
 
@@ -38,7 +37,6 @@ Montserrat', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* border: 3px solid green; */
 }
 
 .add__event {
@@ -62,11 +60,15 @@ Montserrat', sans-serif;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding-bottom: 20px;
+  margin: 0px 0px 20px;
+
 }
 
 .first__upcoming h2 {
   font-size: 26px;
+  margin-bottom:20px;
+  padding: 0px;
 }
 
 .remaining__upcoming {

@@ -4,15 +4,15 @@
 
 
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router";
 import { TaskCard } from "./TaskCard";
 import { completeTask, deleteTask, getAllTasks } from "./TaskManager";
+import { Link } from 'react-router-dom';
+import "./Task.css"
 
 
 
 export const TaskList = () => {
     const [tasks, setTasks] = useState([]);
-    const history = useHistory();
 
     const getTasks = () => {
         return getAllTasks().then(tasksFromAPI => {
@@ -35,12 +35,28 @@ export const TaskList = () => {
     }, []);
 
     return (
-        <section className="section-content">
+        <div className="section">
 
-            <div className="container-cards">
-                <button type="button" className="btn" onClick={() => { history.push("/tasks/create") }}>+ Add Task</button>
-                {tasks.map(task => task.isCompleted ? console.log('true') : <TaskCard key={task.id} task={task} handleDeleteTask={handleDeleteTask} handleCompleteTask={handleCompleteTask} />)}
+            <div className="section__header">
+            Tasks
+            </div> 
+
+            <div className="section__content">
+                <Link to={`tasks/create`}>
+                <button className="add__task">+ Add A Task</button></Link>
             </div>
-        </section>
+
+            <div className="container">
+
+                {/* ternary statement to show only uncompleted tasks */}
+                {tasks.map(task => task.isCompleted ? 
+                    console.log('true') 
+                    : <TaskCard 
+                        key={task.id} task={task} 
+                        handleDeleteTask={handleDeleteTask} handleCompleteTask={handleCompleteTask} />)}
+
+            </div>
+
+        </div>
     )
 }
