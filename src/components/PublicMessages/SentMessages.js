@@ -11,7 +11,9 @@ const SentMessages = ({getPublicMessages}) => {
     event.preventDefault();
     getUserById(parseInt(sessionStorage.getItem("nutshell_user")))
       .then(res => {
-        console.log(res)
+
+        
+
         const messages = {
           post: sentMessage,
           userId: parseInt(sessionStorage.getItem("nutshell_user")),
