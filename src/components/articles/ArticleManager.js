@@ -1,10 +1,17 @@
+//Author: Brady Williams
+//Purpose: API calls for the article section
+
 const url = "http://localhost:8088"
 
+export const getFriendsById = (input) => {
+    return fetch(`${url}/friends/?currentUserId=${input}&_expand=user`)
+        .then(res => res.json())
+}
 
 const ArticleManager = { 
 
       getAllArticles: () => {
-        return fetch(`${url}/articles/?_sort=timestamp&_order=desc&_expand=user`)
+        return fetch(`${url}/articles?_sort=timestamp&_order=desc&_expand=user`)
         .then(res => res.json())
     },
     getArticleById: (input) => {
@@ -34,6 +41,10 @@ const ArticleManager = {
             },
             body: JSON.stringify(article)
           }).then(data => data.json());
+    },
+    getFriendsById: (input) => {
+        return fetch(`${url}/friends?currentUserId=${input}&_expand=user`)
+            .then(res => res.json())
     }
 
 }

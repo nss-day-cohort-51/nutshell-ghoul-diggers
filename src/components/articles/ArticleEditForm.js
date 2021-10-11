@@ -1,3 +1,6 @@
+//Author: Brady Williams
+//Purpose: Edit article and update the database and dom
+
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
 import ArticleManager from "./ArticleManager";
@@ -78,11 +81,7 @@ export const ArticleEditForm = () => {
                     Submit
                 </button>
                 
-                <button 
-                className="form__btn" 
-                onClick={() => history.push("/articles")}>
-                    Cancel
-                </button>
+                <button className="form__btn" onClick={() => history.push("/articles")}>Cancel</button>
             </div>
             
         </form>

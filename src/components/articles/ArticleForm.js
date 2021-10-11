@@ -1,3 +1,6 @@
+//Author: Brady Williams
+//Purpose: Add articles to the database and output
+
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import ArticleManager from "./ArticleManager";
@@ -29,14 +32,13 @@ export const ArticleForm = () => {
         newArticle[e.target.id] = selectedVal
 
         changeArticle(newArticle)
-        console.log(article)
     }
 
     const saveArticle = (event) => {
         event.preventDefault();
 
         if(article.url !== "" || article.title !== "" || article.synopsis !== ""){
-            ArticleManager.addArticleAPI(article).then(() => history.push("/"))
+            ArticleManager.addArticleAPI(article).then(() => history.push("/articles"))
         }       
     }
 

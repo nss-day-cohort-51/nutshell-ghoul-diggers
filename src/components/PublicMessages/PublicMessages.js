@@ -4,7 +4,8 @@
 import React, {useEffect } from "react";
 import { deleteMessages } from "./PublicMessageManager";
 import MessageCard from "./MessageCard";
-
+import { addFriends } from "../friends/FriendManager";
+import { getUserById } from "../users/UserManager";
 
 
 export const PublicMessages = ({ publicMessages, getPublicMessages}) => {
@@ -21,12 +22,26 @@ export const PublicMessages = ({ publicMessages, getPublicMessages}) => {
     .then(() => getPublicMessages())
 
   }
+
+  const handleAddFriend = (input) => {
+
+    getUserById(parseInt(sessionStorage.getItem("nutshell_user"))).then(res => {
+      console.log(res);
+
+      const friendObj = {
+        userId: input,
+        currentUserId: res.id,
+        currentUserName: res.name
+      }
+      addFriends(friendObj);
+    })
+  }
   return (
     <>
+
       {publicMessages.map((allMessages) => (
-        <MessageCard key={allMessages.id} data={allMessages} handledelete={handleDelete}/>
+        <MessageCard key={allMessages.id} data={allMessages} handledelete={handleDelete} handleAddFriend={handleAddFriend} />
       ))}
-      
     </>
   );
 };

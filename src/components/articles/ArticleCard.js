@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+//Author: Brady Williams
+//Purpose: Display individual articles
+
+import { Link } from 'react-router-dom';
 import {FaEdit, FaTrash } from "react-icons/fa"
 import "./Article.css"
 
 export const ArticleCard = ({article, handleDelete}) => {
-
-    const date = new Date(article.timestamp);
-    const formattedDate = date.toLocaleString();
     
     const loggedInUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
