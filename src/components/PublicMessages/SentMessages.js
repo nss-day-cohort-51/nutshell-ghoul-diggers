@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { addPublicMessages } from "./publicMessageManager";
 import {AiOutlineSend} from "react-icons/ai"
+import { getUserById } from "../users/UserManager";
 
 
 const SentMessages = ({getPublicMessages}) => {
@@ -8,14 +9,19 @@ const SentMessages = ({getPublicMessages}) => {
 
   const HandleInputAndSent = (event) => {
     event.preventDefault();
-    const messages = {
-      post: sentMessage,
-      userId: parseInt(sessionStorage.getItem("nutshell_user"))
-    };
-
-    addPublicMessages(messages).then(() => 
-    getPublicMessages()
-    );
+    getUserById(parseInt(sessionStorage.getItem("nutshell_user")))
+      .then(res => {
+        console.log(res)
+        const messages = {
+          post: sentMessage,
+          userId: parseInt(sessionStorage.getItem("nutshell_user")),
+          userName: res.name
+        };
+    
+        addPublicMessages(messages).then(() => 
+        getPublicMessages()
+        );
+      })
   };
 
   return (

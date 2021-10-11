@@ -10,25 +10,24 @@ export const Articles = () => {
 
     const [articles, changeArticles] = useState([]);
     const [friends, changeFriend] = useState([]);
-    const { articleId } = useParams();
 
     const history = useHistory();
-
-    const getArticles = () => {
-        ArticleManager.getAllArticles().then(response => {
-            const res = response.filter(articleTaco => friends.some(friendsTaco => {
-                if(friendsTaco === articleTaco.userId || articleTaco.userId === parseInt(sessionStorage.getItem("nutshell_user"))){
-                    return articleTaco;
-                } }));
-            console.log("output array", res);
-            changeArticles(res);
-        })
-    }
 
     const handleDelete = (id) => {
         ArticleManager.deleteArticle(id)
         .then(() => ArticleManager.getAllArticles()
             .then(response => changeArticles(response)))
+    }
+
+    const getArticles = () => {
+        ArticleManager.getAllArticles().then(response => {
+         const res = response.filter(articleTaco => friends.some(friendsTaco => {
+                if(friendsTaco === articleTaco.userId || articleTaco.userId === parseInt(sessionStorage.getItem("nutshell_user"))){
+                    return articleTaco;
+                } }));
+            
+            changeArticles(res);
+        })
     }
 
     const getFriends = () => {
@@ -41,17 +40,19 @@ export const Articles = () => {
                     arrayTaco.push(taco.userId)
                 })
                 changeFriend(arrayTaco);
-                console.log(arrayTaco);
+                
             })
 
     }
 
     useEffect(() => {
-        getArticles();
-        getFriends();
-        console.log("articles", articles);
-        console.log("friends", friends);
+        getFriends()
+        
     }, [])
+
+    useEffect(() => {
+        getArticles();
+    }, [friends])
 
     return (
         <div className="container-cards">

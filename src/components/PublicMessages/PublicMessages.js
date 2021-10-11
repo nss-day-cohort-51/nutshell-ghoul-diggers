@@ -3,6 +3,7 @@ import { getPublicMessages, deleteMessages } from "./publicMessageManager";
 import MessageList from "./MessageList";
 import SentMessages from "./SentMessages";
 import { addFriends } from "../friends/FriendManager";
+import { getUserById } from "../users/UserManager";
 
 
 export const PublicMessages = ({messages, getPublicMessages}) => {
@@ -20,11 +21,16 @@ export const PublicMessages = ({messages, getPublicMessages}) => {
 
   const handleAddFriend = (input) => {
 
-    const friendObj = {
-      userId: input,
-      currentUserId: parseInt(sessionStorage.getItem("nutshell_user"))
-    }
-    addFriends(friendObj);
+    getUserById(parseInt(sessionStorage.getItem("nutshell_user"))).then(res => {
+      console.log(res);
+
+      const friendObj = {
+        userId: input,
+        currentUserId: res.id,
+        currentUserName: res.name
+      }
+      addFriends(friendObj);
+    })
   }
   return (
     <>

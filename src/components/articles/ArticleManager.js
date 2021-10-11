@@ -11,7 +11,7 @@ export const getFriendsById = (input) => {
 const ArticleManager = { 
 
       getAllArticles: () => {
-        return fetch(`${url}/articles/?_sort=timestamp&_order=desc&_expand=user`)
+        return fetch(`${url}/articles?_sort=timestamp&_order=desc&_expand=user`)
         .then(res => res.json())
     },
     getArticleById: (input) => {
@@ -43,7 +43,7 @@ const ArticleManager = {
           }).then(data => data.json());
     },
     getFriendsById: (input) => {
-        return fetch(`${url}/friends/?currentUserId=${input}&_expand=user`)
+        return fetch(`${url}/friends?currentUserId=${input}&_expand=user`)
             .then(res => res.json())
     }
 
