@@ -4,10 +4,10 @@
 
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
-import { editMessages, messagById } from "./publicMessageManager";
+import { editMessages, messagById } from "./PublicMessageManager";
 
 
-export const MessageEdit = () =>
+export const MessageEditForm = () =>
 {
     const[edits, setEdits] = useState({post:""})
     const{messageId} = useParams()

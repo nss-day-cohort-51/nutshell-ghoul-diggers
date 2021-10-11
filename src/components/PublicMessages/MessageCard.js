@@ -7,7 +7,7 @@ import {AiTwotoneEdit} from "react-icons/ai"
 import { useHistory } from 'react-router'
 
 
-const MessageList = ({data, handledelete}) => {
+const MessageCard = ({data, handledelete}) => {
     const history = useHistory()
     return (
         <div>
@@ -15,4 +15,4 @@ const MessageList = ({data, handledelete}) => {
         </div>
     )
 }
-export default MessageList
+export default MessageCard

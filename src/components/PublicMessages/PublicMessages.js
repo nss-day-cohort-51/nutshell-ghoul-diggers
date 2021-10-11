@@ -3,11 +3,11 @@
 
 import React, {useEffect } from "react";
 import { deleteMessages } from "./publicMessageManager";
-import MessageList from "./MessageList";
+import MessageCard from "./MessageCard";
 
 
 
-export const PublicMessages = ({messages, getPublicMessages}) => {
+export const PublicMessages = ({ publicMessages, getPublicMessages}) => {
 
 // THIS USE EFFECT WATCHES FOR ANY CHANGES MADE ON APPLICATION VIEWS AND RE-RENDER
 
@@ -23,8 +23,8 @@ export const PublicMessages = ({messages, getPublicMessages}) => {
   }
   return (
     <>
-      {messages.map((allMessages) => (
-        <MessageList key={allMessages.id} data={allMessages} handledelete={handleDelete}/>
+      {publicMessages.map((allMessages) => (
+        <MessageCard key={allMessages.id} data={allMessages} handledelete={handleDelete}/>
       ))}
       
     </>

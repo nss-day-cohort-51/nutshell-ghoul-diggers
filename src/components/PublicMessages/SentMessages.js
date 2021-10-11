@@ -1,8 +1,8 @@
 //Authors: Gerson M. Diketama
 
-//Purpose: This is a public message component, allows users to send messages back and forwards, and I am using React-icons for icons. 
+//Purpose: This is a public message component, allows users to send messages back and forth to each other, and I am using React-icons for icons 
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { addPublicMessages } from "./publicMessageManager";
 import {AiOutlineSend} from "react-icons/ai"
 

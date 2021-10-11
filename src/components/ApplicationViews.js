@@ -5,18 +5,18 @@ import { TaskList } from "./tasks/TaskList"
 import React, { useState } from "react";
 import { PublicMessages } from "./PublicMessages/PublicMessages";
 import SentMessages from "./PublicMessages/SentMessages";
-import { getPublicMessages } from "./PublicMessages/publicMessageManager";
+import { getPublicMessages } from "./PublicMessages/PublicMessageManager";
 import { AddArticle } from "./articles/AddArticle"
 import { Articles } from "./articles/Articles"
-import { EditForm } from "./articles/EditArticle"
+import { ArticleEditForm } from "./articles/ArticleEditForm"
 import { AddFriend } from "./friends/AddFriend"
 import { Friends } from "./friends/Friends"
-import { MessageEdit } from "./PublicMessages/PublicForm";
+import { MessageEditForm } from "./PublicMessages/MessageEditForm";
 
 export const ApplicationViews = () => {
-  const [messages, setPublicMessages] = useState([])
-  const getMeMesssage = () => {
-    getPublicMessages().then((message) => setPublicMessages(message));
+  const [publicMessages, setPublicMessages] = useState([])
+  const getMessages = () => {
+    getPublicMessages().then((messages) => setPublicMessages(messages));
   };
 
   return (
@@ -25,24 +25,27 @@ export const ApplicationViews = () => {
         {/* Render the component for news articles */}
         <Articles />
       </Route>
+
       <Route path="/add">
         {/* Render the component for adding articles*/}
         <AddArticle />
       </Route>
+
       <Route path="/:articleId/edit">
-        <EditForm />
+        <ArticleEditForm />
       </Route>
 
       {/* author: Gerson
-      Purpose: If the routh match the message edit path then will take the user to this page. */}
+      Purpose: If the route matches the message edit path then it will take the user to this page */}
       <Route path="/messages/:messageId(\d+)/edit">
-        <MessageEdit />
+        <MessageEditForm />
       </Route>
 
       <Route exact path="/friends">
         {/* Render the component for list of friends */}
         <Friends />
       </Route>
+
       <Route path="/friends/add">
         {/* Render the component for adding friends */}
         <AddFriend />
@@ -50,8 +53,8 @@ export const ApplicationViews = () => {
 
       <Route exact path="/messages">
         {/* Render the component for the messages */}
-        <PublicMessages messages={messages} getPublicMessages={getMeMesssage} />
-        <SentMessages getPublicMessages={getMeMesssage} />
+        <SentMessages getPublicMessages={getMessages} />
+        <PublicMessages publicMessages={publicMessages} getPublicMessages={getMessages} />
       </Route>
       <Route exact path="/tasks">
         <TaskList />

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
 import ArticleManager from "./ArticleManager";
 
-export const EditForm = () => {
+export const ArticleEditForm = () => {
     const [articles, changeArticles] = useState({
     userId: parseInt(sessionStorage.getItem("nutshell_user")),
     synopsis: "",
