@@ -7,11 +7,11 @@ import "./ArticleCardDesign.css"
 export const ArticleCard = ({article, handleDelete}) => {
 
     const date = new Date(article.timestamp);
-    const history = useHistory();
     const formattedDate = date.toLocaleString();
     
     const loggedInUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
+    const history = useHistory();
 
     if(article.userId === loggedInUser){
       return(

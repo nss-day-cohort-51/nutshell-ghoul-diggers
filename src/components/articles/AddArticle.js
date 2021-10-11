@@ -10,6 +10,17 @@ export const AddArticle = () => {
 
     const history = useHistory();
 
+    const ResetForm = () => {
+        changeArticle({
+            userId: parseInt(sessionStorage.getItem("nutshell_user")),
+            url: "",
+            title: "",
+            synopsis: "",
+            timestamp: Date.now()
+        });
+        console.log("resetForm invoked")
+      }
+
     const handleChange = (e) => {
         const newArticle = { ...article }
         let selectedVal = e.target.value
@@ -32,31 +43,37 @@ export const AddArticle = () => {
     }
 
     return (
-        <form className="customerForm">
-            <h2 className="customerForm__title">New Article</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="title">Title: </label>
-                    <input type="text" id="title" onChange={handleChange} required className="form-control" placeholder="Insert title"/>
+        <div className="form__flex">
+            <form>
+                <div className="form__title">Add New Article</div>
+                <fieldset>
+                    <div className="form__group">
+                        <label htmlFor="title">Title: </label>
+                        <input type="text" id="title" onChange={handleChange} required className="form__group--edit" placeholder="Insert title"/>
+                    </div>
+
+                    <div className="form__group">
+                        <label htmlFor="url">url: </label>
+                        <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert url"/>
+                    </div>
+
+                    <div className="form__group">
+                        <label htmlFor="synopsis">Synopsis: </label>
+                        <input type="text" id="synopsis" onChange={handleChange} required className="form__group--edit" placeholder="Insert synopsis"/>
+                    </div>
+                </fieldset>
+
+                <div className="form__btns">
+                    <button className="form__btn"
+                        onClick={saveArticle}>
+                        Submit
+                    </button>
+
+                    <button className="form__btn" onClick={ResetForm}>Reset Form</button>
+
+                    <button className="form__btn" onClick={() => history.push("/articles")}>Cancel</button>
                 </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="url">url: </label>
-                    <input type="text" id="url" onChange={handleChange} required className="form-control" placeholder="Insert url"/>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="synopsis">Synopsis: </label>
-                    <input type="text" id="synopsis" onChange={handleChange} required className="form-control" placeholder="Insert synopsis"/>
-                </div>
-            </fieldset>
-            <button className="btn-save"
-                onClick={saveArticle}>
-                Save Article
-            </button>
-            <button className="btn-cancel" onClick={() => history.push("/")}>Cancel</button>
-        </form>
+            </form>
+        </div>
     )
 }

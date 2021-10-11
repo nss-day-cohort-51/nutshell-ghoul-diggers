@@ -1,5 +1,11 @@
+//Author: Gerson Diketama
+//Purpose: Card to display all the the message from API/ GET
+
 import React from 'react'
 import {AiFillDelete} from "react-icons/ai"
+import {AiTwotoneEdit} from "react-icons/ai"
+import { useHistory } from 'react-router'
+
 
 const MessageList = ({data, handledelete, handleAddFriend}) => {
     return (
