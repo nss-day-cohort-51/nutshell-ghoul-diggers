@@ -17,7 +17,8 @@ const SentMessages = ({getPublicMessages}) => {
         const messages = {
           post: sentMessage,
           userId: parseInt(sessionStorage.getItem("nutshell_user")),
-          userName: res.name
+          userName: res.name,
+          timestamp: Date.now()
         };
     
         addPublicMessages(messages).then(() => 
