@@ -5,7 +5,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { addTask } from "./TaskManager";
-import "./TaskForm.css"
+import "./Task.css"
 
 
 
@@ -18,6 +18,16 @@ export const TaskForm = () => {
     });
 
     const history = useHistory();
+
+    const ResetForm = () => {
+        setTask({
+            taskName: "",
+            completeDate: 0,
+            isCompleted: false,
+            userId: parseInt(sessionStorage.getItem("nutshell_user"))
+        });
+        console.log("resetForm invoked")
+      }
 
     const handleControlledInputChange = (event) => {
         const newTask = { ...task }
@@ -34,7 +44,7 @@ export const TaskForm = () => {
         const dateList = task.completeDate
 
         if (nameList === "" || dateList === "") {
-            window.alert("Please fill in input fields")
+            window.alert("Please fill out all required info")
         } else {
             addTask(task)
                 .then(() => history.push("/tasks"))
@@ -42,26 +52,46 @@ export const TaskForm = () => {
     }
     return (
         <>
-            <div className="form">
-                <button type="button" className="btn" onClick={() => { history.push("/tasks") }}>Back</button>
-                <form className="task__form">
-                    <h2 className="task__form--title">New Task</h2>
-                    <fieldset>
-                        <div className="form-group">
-                            <label htmlFor="name">Enter Task: </label>
-                            <input type="text" id="taskName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
-                        </div>
-                    </fieldset>
-                    <h2 className="task__form--title">Due Date</h2>
-                    <fieldset>
-                        <div className="form-group">
-                            <label htmlFor="name">Select Date: </label>
-                            <input type="date" id="completeDate" onChange={handleControlledInputChange} required autoFocus className="form-control" />
-                        </div>
-                    </fieldset>
-                    <button className="btn" onClick={handleClickSaveTask}>Save Task</button>
-                </form>
-            </div>
+        <div className="form__flex">
+
+            <form>
+
+                <div className="form__title">Add New Task
+                </div>
+
+                <fieldset>
+
+                    <div className="form__group">
+
+                        <label htmlFor="name">Enter Task: </label>
+
+                        <input type="text" id="taskName" onChange={handleControlledInputChange} required autoFocus className="form__group--edit" placeholder="Task" value={task.name} />
+
+                    </div>
+
+                    <div className="form__group">
+
+                        <label htmlFor="name">Select Date: </label>
+
+                        <input type="date" id="completeDate" onChange={handleControlledInputChange} required className="form__group--edit" />
+
+                    </div>
+
+                </fieldset>
+
+                <div className="form__btns">
+
+                    <button className="form__btn" onClick={handleClickSaveTask}>Submit</button>
+
+                    <button className="form__btn" onClick={ResetForm}>Reset Form</button>
+
+                    <button type="button" className="form__btn" onClick={() => { history.push("/tasks") }}>Back</button>
+
+                </div>
+
+            </form>
+                
+        </div>
         </>
     )
 }

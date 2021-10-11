@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
 import ArticleManager from "./ArticleManager";
+import "./Article.css"
 
 export const ArticleEditForm = () => {
     const [articles, changeArticles] = useState({
@@ -49,31 +50,38 @@ export const ArticleEditForm = () => {
     }, []);
 
     return (
-        <form className="customerForm">
-        <h2 className="customerForm__title">New Article</h2>
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="title">Title: </label>
-                <input type="text" id="title" onChange={handleChange} required className="form-control" placeholder="Insert title" value={articles.title}/>
+        <div className="form__flex">
+        <form>
+            <div className="form__title">Edit Article</div>
+            <fieldset>
+
+                <div className="form__group">
+
+                    <label htmlFor="title">Title: </label>
+                    <input type="text" id="title" onChange={handleChange} required className="form__group--edit" placeholder="Insert title" value={articles.title}/>
+                {/* </div>
+
+                <div className="form__group"> */}
+                    <label htmlFor="url">URL: </label>
+                    <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert url" value={articles.url}/>
+                {/* </div> 
+
+                <div className="form__group"> */}
+                    <label htmlFor="synopsis">Synopsis: </label>
+                    <input type="text" id="synopsis" onChange={handleChange} required className="form__group--edit" placeholder="Insert synopsis" value={articles.synopsis}/>
+
+                </div>
+
+            </fieldset>
+            <div className="form__btns">
+                <button className="form__btn"
+                    onClick={handleEdit}>
+                    Submit
+                </button>
+                
+                <button className="form__btn" onClick={() => history.push("/")}>Cancel</button>
             </div>
-        </fieldset>
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="url">url: </label>
-                <input type="text" id="url" onChange={handleChange} required className="form-control" placeholder="Insert url" value={articles.url}/>
-            </div>
-        </fieldset>
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="synopsis">Synopsis: </label>
-                <input type="text" id="synopsis" onChange={handleChange} required className="form-control" placeholder="Insert synopsis" value={articles.synopsis}/>
-            </div>
-        </fieldset>
-        <button className="btn-save"
-            onClick={handleEdit}>
-            Save Article
-        </button>
-        <button className="btn-cancel" onClick={() => history.push("/")}>Cancel</button>
-    </form>
+        </form>
+    </div>
     )
 }
