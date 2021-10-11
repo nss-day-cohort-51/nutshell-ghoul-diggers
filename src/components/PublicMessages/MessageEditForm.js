@@ -4,7 +4,7 @@
 
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
-import { editMessages, messagById } from "./PublicMessageManager";
+import { editMessages, messageById } from "./PublicMessageManager";
 
 
 export const MessageEditForm = () =>
@@ -13,7 +13,7 @@ export const MessageEditForm = () =>
     const{messageId} = useParams()
     const history = useHistory()
 
-    const hadleFields = evt => 
+    const handleFields = evt => 
     {
         const stateTochange = {...edits}
         stateTochange[evt.target.id] = evt.target.value
@@ -37,13 +37,13 @@ export const MessageEditForm = () =>
 
 
     useEffect(() => {
-        messagById(messageId)
+        messageById(messageId)
         .then(messages => setEdits(messages))
     },[])
 
     return(
         <form>
-            <input value={edits.post} id="post" type="text" onChange={hadleFields}/>
+            <input value={edits.post} id="post" type="text" onChange={handleFields}/>
             <button onClick={updateMessage}>Save</button>
         </form>
     )

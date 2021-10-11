@@ -46,22 +46,25 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Nutshell</h1>
-                    <h2>Please sign in</h2>
+                    <div className="form--login--headline">Nutshell</div>
+                    <div className="form--login--subtitle">Please Sign In</div>
                     <fieldset>
+
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             id="email"
-                            className="form-control"
+                            className="form__group--edit"
                             placeholder="Email address"
                             required autoFocus
                             value={loginUser.email}
                             onChange={handleInputChange} />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
+
+                        <div className="form__btns">
+                            <button type="submit" className="form__btn">
+                                Sign In
+                            </button>
+                        </div>
+
                     </fieldset>
                 </form>
             </section>

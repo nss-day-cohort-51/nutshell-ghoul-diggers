@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom";
-
 import "./Login.css"
 
 export const Register = () => {
@@ -62,24 +61,25 @@ export const Register = () => {
                 <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
             </dialog>
 
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Application Name</h1>
-                <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input type="text" name="firstName" id="firstName" className="form-control" placeholder="First name" required autoFocus value={registerUser.firstName} onChange={handleInputChange} />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input type="text" name="lastName" id="lastName" className="form-control" placeholder="Last name" required value={registerUser.lastName} onChange={handleInputChange} />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputEmail"> Email address </label>
-                    <input type="email" name="email" id="email" className="form-control" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
-                </fieldset>
-                <fieldset>
-                    <button type="submit"> Sign in </button>
-                </fieldset>
-            </form>
+            <div classname="form__flex">
+                <div className="form__flex__inner">
+                    <form className="form--login" onSubmit={handleRegister}>
+                        <h1 className="register--headline">Please Register for Nutshell</h1>
+                        <fieldset>
+                            <label htmlFor="firstName"> First Name </label>
+                            <input type="text" name="firstName" id="firstName" className="form__group--edit" placeholder="First name" required autoFocus value={registerUser.firstName} onChange={handleInputChange} />
+
+                            <label htmlFor="lastName"> Last Name </label>
+                            <input type="text" name="lastName" id="lastName" className="form__group--edit" placeholder="Last name" required value={registerUser.lastName} onChange={handleInputChange} />
+        
+                            <label htmlFor="inputEmail"> Email address </label>
+                            <input type="email" name="email" id="email" className="form__group--edit" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
+
+                            <button type="submit" className="form__btn"> Sign in </button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </main>
     )
 }
