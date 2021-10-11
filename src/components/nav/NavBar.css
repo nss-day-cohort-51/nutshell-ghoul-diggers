@@ -1,1 +1,52 @@
+/* 
+Author: Susie Stanley
+Purpose: To make NavBar beautiful
 
+Page colors:
+#FBC859 - Daffodil
+#A4B900 - Avocado
+#bcd501 - Lime
+#483934 - Mahogany
+#76AECB - Periwinkle
+
+Page fonts:
+Montserrat', sans-serif;
+'Noto Serif', serif;
+
+*/
+
+.nav__flex {
+  background-color: #FBC859;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.logo {
+  width: 275px;
+  margin: 20px 50px;
+}
+
+.nav {
+  background-color: #FBC859;
+  display: flex;
+  /* flex-wrap: nowrap; */
+  justify-content: right;
+  margin: auto 0px;
+}
+
+.nav__item {
+  /* flex-basis: 20%; */
+  /* white-space: nowrap; */
+  margin: 0px 20px;
+  list-style-type: none;
+}
+
+.nav__link {
+  font-size: 26px;
+  font-weight: bold;
+  color: #483934;
+  text-decoration: none;
+  cursor: pointer;
+}
