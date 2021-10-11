@@ -5,7 +5,7 @@ import React, {useEffect } from "react";
 import { deleteMessages } from "./publicMessageManager";
 import MessageList from "./MessageList";
 import SentMessages from "./SentMessages";
-import { addFriends } from "../friends/FriendManager";
+import { addFriends, getFriendsById } from "../friends/FriendManager";
 import { getUserById } from "../users/UserManager";
 
 
@@ -24,7 +24,7 @@ export const PublicMessages = ({messages, getPublicMessages}) => {
 
   }
 
-  const handleAddFriend = (input) => {
+  const handleAddFriend = (input, button) => {
 
     getUserById(parseInt(sessionStorage.getItem("nutshell_user"))).then(res => {
       console.log(res);
@@ -34,7 +34,7 @@ export const PublicMessages = ({messages, getPublicMessages}) => {
         currentUserId: res.id,
         currentUserName: res.name
       }
-      addFriends(friendObj);
+      addFriends(friendObj).then(() => getFriendsById(parseInt(sessionStorage.getItem("nutshell_user"))))
     })
   }
   return (

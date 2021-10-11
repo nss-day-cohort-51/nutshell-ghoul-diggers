@@ -20,6 +20,7 @@ import { MessageEdit } from "./PublicMessages/PublicForm";
 export const ApplicationViews = () => {
   const [messages, setPublicMessages] = useState([])
   const getMeMesssage = () => {
+    console.log("getmemessage")
     getPublicMessages().then((message) => setPublicMessages(message));
   };
 
