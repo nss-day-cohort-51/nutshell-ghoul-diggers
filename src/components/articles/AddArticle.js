@@ -38,7 +38,7 @@ export const AddArticle = () => {
         event.preventDefault();
 
         if(article.url !== "" || article.title !== "" || article.synopsis !== ""){
-            ArticleManager.addArticleAPI(article).then(() => history.push("/"))
+            ArticleManager.addArticleAPI(article).then(() => history.push("/articles"))
         }       
     }
 

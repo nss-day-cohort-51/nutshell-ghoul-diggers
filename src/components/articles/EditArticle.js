@@ -33,7 +33,7 @@ export const EditForm = () => {
         };
 
         ArticleManager.editArticle(editedArticle)
-            .then(() => history.push("/")
+            .then(() => history.push("/articles")
             )
     }
 
@@ -82,7 +82,7 @@ export const EditForm = () => {
                     Submit
                 </button>
                 
-                <button className="form__btn" onClick={() => history.push("/")}>Cancel</button>
+                <button className="form__btn" onClick={() => history.push("/articles")}>Cancel</button>
             </div>
         </form>
     </div>
