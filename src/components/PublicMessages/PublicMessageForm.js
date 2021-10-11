@@ -29,22 +29,32 @@ const PublicMessageForm = ({getPublicMessages}) => {
   return (
     <>
     <div className="message__flex">
+
       <div className="message__input--headline">Messages</div>
+
       <div className="message__input">
+
+        <div className="message__input--textarea">
           <input
             type="text"
-            className="form__group--edit"
-            placeholder="enter a message"
+            className="form__group--message"
+            placeholder=" Enter your message"
             value={sentMessage}
             onChange={(evt) => setSentMessage(evt.target.value) }
           />
-          <button
-            type="button"
-            className="form__btn--message" 
-            onClick={(event) => HandleInputAndSent(event)}>
-              <RiSendPlane2Fill />
-          </button>
+        </div>
+
+        <div className="message__input--button">
+            <button
+              type="button"
+              className="form__btn--message" 
+              onClick={(event) => HandleInputAndSent(event)}>
+                <RiSendPlane2Fill />
+            </button>
+        </div>
+
       </div>
+
     </div>
     </>
   );

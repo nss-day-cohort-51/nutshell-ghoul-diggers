@@ -18,40 +18,50 @@ const formatDate = (obj) => {
     return formattedTime;
   }
 
-const MessageCard = ({data, handledelete}) => {
+const MessageCard = ({data, handledelete, handleAddFriend}) => {
     const history = useHistory()
     return (
 <>
-<div className="card__content">
+            <div className="message__list__flex">
+                <div className="card__content--messages">
 
-        <div className="message__info">
+                    <div className="message__info">
 
-            <div><strong>Message: </strong>{data.post}</div>
+                        <div className="message__info__name"><strong>{data.user.name} </strong></div>
 
-            <div className="message__info__field"><strong>Posted By: </strong> {data.user.name}</div>
+                        <div className="message__info__field"><strong>Message: </strong>{data.post}</div>
 
-            <div className="message__info__field"><strong>Posted On: </strong> {formatDate(data.timestamp)} at {formatTime(data.timestamp)}</div>
+                        <div className="message__info__date"><strong>Posted On: </strong> {formatDate(data.timestamp)} at {formatTime(data.timestamp)}</div>
 
-        </div>
+                    </div>
 
-        <div className="remove__item">
+                    <div className="remove__item">
 
-            <button 
-            className="button sm"
-            onClick={() => history.push(`/messages/${data.id}/edit`)}>
-                <FaEdit/>
-            </button>
+                        <button 
+                        className="button sm"
+                        onClick={() => history.push(`/messages/${data.id}/edit`)}>
+                            <FaEdit/>
+                        </button>
 
-            <button 
-            type="button" 
-            className="button sm" 
-            onClick={() => handledelete(data.id)}>
-                <FaTrash />
-            </button>
+                        <button 
+                        type="button" 
+                        className="button sm" 
+                        onClick={() => handledelete(data.id)}>
+                            <FaTrash />
+                        </button>
 
-        </div>
+                        <button 
+                            type="button"
+                            className="form__btn--friend"
+                            onClick={() => handleAddFriend(data.user.id)}>
+                                + Add Friend
+                        </button>
 
-</div>
+                    </div>
+
+                </div>
+
+            </div>
 </>
     )
 }

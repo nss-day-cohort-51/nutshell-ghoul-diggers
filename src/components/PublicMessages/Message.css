@@ -56,10 +56,15 @@ Montserrat', sans-serif;
   margin-top: 40px;
 }
 
+.message__list__flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
-.card__content {
+.card__content--messages {
   align-self: center;
-  width: 700px;
+  width: 800px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -73,7 +78,7 @@ Montserrat', sans-serif;
 }
 
 .message__info {
-  width: 600px;
+  width: 700px;
   white-space: wrap;
   padding: 20px;
   background-color: #fbc859bc;
@@ -81,8 +86,20 @@ Montserrat', sans-serif;
   border-radius: 7px;
 }
 
-.message__info__field {
+.message__info__name {
+  font-size: 24px;
   margin: 5px 0px;
+}
+
+.message__info__field {
+  font-size: 20px;
+  margin: 5px 0px;
+}
+
+.message__info__date {
+  font-size: 16px;
+  margin: 5px 0px;
+  white-space: nowrap;
 }
 
 .remove__item {
@@ -184,23 +201,49 @@ button:disabled:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .message__input--headline {
   align-self: center;
   font-size: 44px;
-  color: #A4B900;
   font-weight: 800;
-  margin: 10px;
+  color: #A4B900;
+  margin: 30px;
 }
 
 .message__input {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 500px;
   align-self: center;
-  align-items: baseline;
+}
+
+.message__input--textarea {
+padding: 0px;
+margin: 0px;
+width: 600px;
+}
+
+.form__group--message {
+  display: block;
+  width: 96%;
+  margin: 5px 0px 0px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 40px;
+}
+
+.message__input--button {
+  padding-top: 5.5px;
 }
 
 .form__btns {
@@ -216,8 +259,20 @@ button:disabled:hover {
   background-color: #A4B900;
   border: 1px solid #849503;
   border-radius: 5px;
-  padding: 0px 15px;
-  margin: 15px 7px 0px;
-  height: 40px;
+  padding: 5px 15px 0px 18px;
+  margin: 0px 5px 0px;
+  height: 41px;
+  border: 1px solid black;
+}
+
+.form__btn--friend{
+  font-size: 18px;
+  font-weight: 800;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 0px 5px 4px 15px;
+  white-space: nowrap;
 }
 /* end of styling for Add Message Form */
