@@ -14,14 +14,19 @@ export const ArticleCard = ({article, handleDelete}) => {
       return (
           <div className="card__content">
 
-            <div className="article__info">
+<div className="article__info">
 
-              <div><strong>Title: </strong>{article.title}</div>
-              <div><strong>URL: </strong> {article.url}</div>
-              <div><strong>Synopsis: </strong>{article.synopsis}</div>
-              <div><strong>Posted by: </strong> {article.user.name} - {formattedDate}</div>
-            
-            </div>
+<div className="article__info__field"><strong>Title: </strong>{article.title}</div>
+
+<div className="article__info__field"><strong>URL: </strong> {article.url}</div>
+
+<div className="article__info__field"><strong>Synopsis: </strong>{article.synopsis}</div>
+
+<div className="article__info__field"><strong>Posted By: </strong> {article.user.name}</div>
+
+<div className="article__info__field"><strong>Posted On: </strong> {formatDate(article.timestamp)} at {formatTime(article.timestamp)}</div>
+
+</div>
 
             <div className="remove__item">
 
@@ -38,14 +43,19 @@ export const ArticleCard = ({article, handleDelete}) => {
       return (
         <div className="card__content">
 
-          <div className="article__info">
+<div className="article__info">
 
-            <div><strong>Title: </strong>{article.title}</div>
-            <div><strong>URL: </strong> {article.url}</div>
-            <div><strong>Synopsis: </strong>{article.synopsis}</div>
-            <div><strong>Posted by: </strong> {article.user.name} - {formattedDate}</div>
-          
-          </div>
+<div className="article__info__field"><strong>Title: </strong>{article.title}</div>
+
+<div className="article__info__field"><strong>URL: </strong> {article.url}</div>
+
+<div className="article__info__field"><strong>Synopsis: </strong>{article.synopsis}</div>
+
+<div className="article__info__field"><strong>Posted By: </strong> {article.user.name}</div>
+
+<div className="article__info__field"><strong>Posted On: </strong> {formatDate(article.timestamp)} at {formatTime(article.timestamp)}</div>
+
+</div>
         
         </div>
       )
