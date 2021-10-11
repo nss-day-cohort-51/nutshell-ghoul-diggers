@@ -13,18 +13,36 @@ const SentMessages = ({getPublicMessages}) => {
   const HandleInputAndSent = (event) => {
    
 
-    event.preventDefault();
+    
     const messages = {
       post: sentMessage,
       userId: parseInt(sessionStorage.getItem("nutshell_user"))
     };
-    
+    console.log(messages)
     addPublicMessages(messages).then(() => 
     getPublicMessages())
-    
+
+    event.preventDefault();
     //clear the inputs when user clicks the sent icon
-    setSentMessage("")
+    
+
+
     }
+
+    
+    useEffect(() => {
+ 
+      const listener = event => {
+        if (event.keyCode === 13 || event.code === "NumpadEnter") {
+          console.log("Enter key was pressed. Run your function.");
+          HandleInputAndSent(event);
+          setSentMessage("")
+         
+        }
+      };
+      document.addEventListener("keydown", listener);
+    }, []);
+
 
 
   return (

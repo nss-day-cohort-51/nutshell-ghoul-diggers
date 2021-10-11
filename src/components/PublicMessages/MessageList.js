@@ -11,7 +11,9 @@ const MessageList = ({data, handledelete}) => {
     const history = useHistory()
     return (
         <div>
-            <h4>{data.post} <button onClick={() =>handledelete(data.id)}><AiFillDelete/></button> <button onClick={() => history.push(`/messages/${data.id}/edit`)}><AiTwotoneEdit/></button></h4>
+            <h3>{data.name}</h3>
+            <h4>{data.post} <button onClick={() =>handledelete(data.id)}><AiFillDelete/></button> <button onClick={() => history.push(`/messages/${data.id}/edit`)}><AiTwotoneEdit/></button>
+            </h4>
         </div>
     )
 }

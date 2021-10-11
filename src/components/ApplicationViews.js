@@ -2,7 +2,7 @@ import { Route } from "react-router-dom"
 import { TaskEditForm } from "./tasks/TaskEditForm"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { PublicMessages } from "./PublicMessages/PublicMessages";
 import SentMessages from "./PublicMessages/SentMessages";
 import { getPublicMessages } from "./PublicMessages/publicMessageManager";
@@ -13,11 +13,15 @@ import { AddFriend } from "./friends/AddFriend"
 import { Friends } from "./friends/Friends"
 import { MessageEdit } from "./PublicMessages/PublicForm";
 
+
 export const ApplicationViews = () => {
   const [messages, setPublicMessages] = useState([])
   const getMeMesssage = () => {
     getPublicMessages().then((message) => setPublicMessages(message));
+
   };
+
+  
 
   return (
     <>
@@ -38,6 +42,7 @@ export const ApplicationViews = () => {
       <Route path="/messages/:messageId(\d+)/edit">
         <MessageEdit />
       </Route>
+
 
       <Route exact path="/friends">
         {/* Render the component for list of friends */}

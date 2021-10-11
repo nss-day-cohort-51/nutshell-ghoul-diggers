@@ -1,7 +1,7 @@
 //Authour: Gerson Diketama
 //Purpose: This is where I have all my data managers
 
-const api = "http://localhost:8088";
+export const api = "http://localhost:8088";
 
 //GET BY ID
 export const messagById = (messageInput) => {
