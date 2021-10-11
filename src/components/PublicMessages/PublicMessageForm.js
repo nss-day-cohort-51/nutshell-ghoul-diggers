@@ -12,7 +12,7 @@ const PublicMessageForm = ({getPublicMessages}) => {
   
   const HandleInputAndSent = (event) => {
     event.preventDefault();
-    
+
     const messages = {
       post: sentMessage,
       userId: parseInt(sessionStorage.getItem("nutshell_user"))
@@ -28,13 +28,21 @@ const PublicMessageForm = ({getPublicMessages}) => {
 
   return (
     <>
+    <div className="message__input">
       <input
         type="text"
+        className="form__group--edit"
         placeholder="enter a message"
         value={sentMessage}
         onChange={(evt) => setSentMessage(evt.target.value) }
       />
-      <button onClick={(event) => HandleInputAndSent(event)}><AiOutlineSend/></button>
+      <button
+        type="button"
+        className="form__btn" 
+        onClick={(event) => HandleInputAndSent(event)}>
+          <AiOutlineSend />
+      </button>
+    </div>
     </>
   );
 };
