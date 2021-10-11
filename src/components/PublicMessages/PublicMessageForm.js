@@ -4,7 +4,7 @@
 
 import React, { useState } from "react";
 import { addPublicMessages } from "./PublicMessageManager";
-import {AiOutlineSend} from "react-icons/ai"
+import {RiSendPlane2Fill} from "react-icons/ri"
 
 
 const PublicMessageForm = ({getPublicMessages}) => {
@@ -40,7 +40,7 @@ const PublicMessageForm = ({getPublicMessages}) => {
         type="button"
         className="form__btn" 
         onClick={(event) => HandleInputAndSent(event)}>
-          <AiOutlineSend />
+          <RiSendPlane2Fill />
       </button>
     </div>
     </>
