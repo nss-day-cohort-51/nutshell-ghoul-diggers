@@ -51,7 +51,7 @@ export const AddArticle = () => {
                     </div>
 
                     <div className="form__group">
-                        <label htmlFor="url">url: </label>
+                        <label htmlFor="url">URL: </label>
                         <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert url"/>
                     </div>
 

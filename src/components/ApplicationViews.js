@@ -2,7 +2,6 @@ import { Route } from "react-router-dom"
 import { EventList } from "./events/EventList"
 import { EventForm } from "./events/EventForm"
 import { EventEditForm } from "./events/EventEditForm"
-
 import { TaskEditForm } from "./tasks/TaskEditForm"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
@@ -35,7 +34,7 @@ export const ApplicationViews = () => {
         <AddArticle />
       </Route>
 
-      <Route path="/:articleId/edit">
+      <Route path="/:articleId/(\d+)/edit">
         <ArticleEditForm />
       </Route>
 

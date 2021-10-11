@@ -4,6 +4,7 @@
 import React from 'react'
 import {FaEdit, FaTrash } from "react-icons/fa"
 import { useHistory } from 'react-router'
+import "./Message.css"
 
 
 const MessageCard = ({data, handledelete}) => {
