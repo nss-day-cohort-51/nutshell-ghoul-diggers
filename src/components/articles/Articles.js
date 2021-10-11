@@ -20,7 +20,7 @@ export const Articles = () => {
                 if(friendsTaco === articleTaco.userId || articleTaco.userId === parseInt(sessionStorage.getItem("nutshell_user"))){
                     return articleTaco;
                 } }));
-            console.log("output array",res)
+            console.log("output array", res);
             changeArticles(res);
         })
     }
