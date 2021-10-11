@@ -8,6 +8,11 @@ export const getallUsers = () => {
         .then(res => res.json())
 }
 
+export const getUserById = (input) => {
+    return fetch(`${url}/users/${input}`)
+        .then(res => res.json())
+}
+
 export const deleteFriend = (id) => {
     return fetch(`${url}/friends/${id}`, {
         method: "DELETE"

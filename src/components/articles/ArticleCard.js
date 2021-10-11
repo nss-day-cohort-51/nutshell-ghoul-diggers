@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
-import {FaEdit, FaTrash } from "react-icons/fa"
-import "./Article.css"
+//Author: Brady Williams
+//Purpose: Display individual articles
+
+import { useHistory } from "react-router";
+import "./ArticleCardDesign.css"
 
 export const ArticleCard = ({article, handleDelete}) => {
 
@@ -9,46 +11,38 @@ export const ArticleCard = ({article, handleDelete}) => {
     
     const loggedInUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
+    const history = useHistory();
 
     if(article.userId === loggedInUser){
-      return (
-          <div className="card__content">
-
-            <div className="article__info">
-
-              <div><strong>Title: </strong>{article.title}</div>
-              <div><strong>URL: </strong> {article.url}</div>
-              <div><strong>Synopsis: </strong>{article.synopsis}</div>
-              <div><strong>Posted by: </strong> {article.user.name} - {formattedDate}</div>
-            
-            </div>
-
-            <div className="remove__item">
-
-            <Link to={`/articles/${article.id}/edit`}><button className="button sm"><FaEdit/></button></Link>
-
-            <button type="button" className="button sm" onClick={() => handleDelete(article.id)}><FaTrash /></button>
-
-            </div>
-
-          </div>
-  
-    )
-    } else {
-      return (
-        <div className="card__content">
-
-          <div className="article__info">
-
-            <div><strong>Title: </strong>{article.title}</div>
-            <div><strong>URL: </strong> {article.url}</div>
-            <div><strong>Synopsis: </strong>{article.synopsis}</div>
-            <div><strong>Posted by: </strong> {article.user.name} - {formattedDate}</div>
-          
-          </div>
-        
-        </div>
-      )
+      return(
+        <div className="card">
+       <div className="card-content">
+         <h3>Title: <span>
+         {article.title}
+         </span></h3>
+         <a href={article.url} target="_blank">Check it out!</a>
+         <p>synopsis: {article.synopsis}</p>
+         <p>Posted by {article.user.name} - {formattedDate}</p>
+       </div>
+       <button className="btn--delete" onClick={() => handleDelete(article.id)}>Delete</button>
+       <button className="btn--edit" onClick={() => history.push(`/${article.id}/edit`)}>Edit</button>
+     </div>
+         
+     )
+    }else {
+      return(
+        <div className="card-friend">
+       <div className="card-friend-content">
+         <h3 className="task-italic">Title: <span>
+         {article.title}
+         </span></h3>
+         <a href={article.url} target="_blank">Check it out!</a>
+         <p className="p-italic">synopsis: {article.synopsis}</p>
+         <p className="p-italic">Posted by {article.user.name} - {formattedDate}</p>
+       </div>
+     </div>
+         
+     )
     }
 
    

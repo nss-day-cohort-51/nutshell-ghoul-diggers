@@ -5,6 +5,7 @@
 import React, { useState, useEffect } from "react";
 import { addPublicMessages } from "./publicMessageManager";
 import {AiOutlineSend} from "react-icons/ai"
+import { getUserById } from "../users/UserManager";
 
 
 const SentMessages = ({getPublicMessages}) => {
@@ -14,18 +15,23 @@ const SentMessages = ({getPublicMessages}) => {
    
 
     event.preventDefault();
-    const messages = {
-      post: sentMessage,
-      userId: parseInt(sessionStorage.getItem("nutshell_user"))
-    };
-    
-    addPublicMessages(messages).then(() => 
-    getPublicMessages())
-    
-    //clear the inputs when user clicks the sent icon
-    setSentMessage("")
-    }
+    getUserById(parseInt(sessionStorage.getItem("nutshell_user")))
+      .then(res => {
 
+        
+
+        const messages = {
+          post: sentMessage,
+          userId: parseInt(sessionStorage.getItem("nutshell_user")),
+          userName: res.name,
+          timestamp: Date.now()
+        };
+    
+        addPublicMessages(messages).then(() => 
+        getPublicMessages()
+        );
+      })
+  };
 
   return (
     <>
