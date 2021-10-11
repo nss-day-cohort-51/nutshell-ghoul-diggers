@@ -3,7 +3,7 @@
 //Purpose: This is a public message component, allows users to send messages back and forth to each other, and I am using React-icons for icons 
 
 import React, { useState } from "react";
-import { addPublicMessages } from "./publicMessageManager";
+import { addPublicMessages } from "./PublicMessageManager";
 import {AiOutlineSend} from "react-icons/ai"
 
 

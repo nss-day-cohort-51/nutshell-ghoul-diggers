@@ -4,7 +4,7 @@
 const api = "http://localhost:8088";
 
 //GET BY ID
-export const messagById = (messageInput) => {
+export const messageById = (messageInput) => {
   return fetch(`${api}/messages/${messageInput}`).then((response) =>
     response.json()
   );

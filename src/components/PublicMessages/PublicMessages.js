@@ -2,7 +2,7 @@
 //Purpose: GET ALL MESSAGES FROM PUBLIC MESSAGE MANAGER
 
 import React, {useEffect } from "react";
-import { deleteMessages } from "./publicMessageManager";
+import { deleteMessages } from "./PublicMessageManager";
 import MessageCard from "./MessageCard";
 
 
