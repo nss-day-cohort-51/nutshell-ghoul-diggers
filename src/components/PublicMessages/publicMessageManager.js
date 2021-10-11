@@ -12,7 +12,7 @@ export const messageById = (messageInput) => {
 
 //GET MESSAGES
 export const getPublicMessages = () => {
-  return fetch(`${api}/messages?_expand=user`).then((response) => response.json());
+  return fetch(`${api}/messages?_sort=timestamp&_order=desc&_expand=user`).then((response) => response.json());
 };
 
 //POST

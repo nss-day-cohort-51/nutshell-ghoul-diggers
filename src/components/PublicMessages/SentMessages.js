@@ -2,48 +2,48 @@
 
 //Purpose: This is a public message component, allows users to send messages back and forwards, and I am using React-icons for icons. 
 
-import React, { useState, useEffect } from "react";
-import { addPublicMessages } from "./publicMessageManager";
-import {AiOutlineSend} from "react-icons/ai"
-import { getUserById } from "../users/UserManager";
+// import React, { useState, useEffect } from "react";
+// import { addPublicMessages } from "./publicMessageManager";
+// import {AiOutlineSend} from "react-icons/ai"
+// import { getUserById } from "../users/UserManager";
 
 
-const SentMessages = ({getPublicMessages}) => {
-  const [sentMessage, setSentMessage] = useState("");
+// const SentMessages = ({getPublicMessages}) => {
+//   const [sentMessage, setSentMessage] = useState("");
   
-  const HandleInputAndSent = (event) => {
+//   const HandleInputAndSent = (event) => {
    
 
-    event.preventDefault();
-    getUserById(parseInt(sessionStorage.getItem("nutshell_user")))
-      .then(res => {
+//     event.preventDefault();
+//     getUserById(parseInt(sessionStorage.getItem("nutshell_user")))
+//       .then(res => {
 
         
 
-        const messages = {
-          post: sentMessage,
-          userId: parseInt(sessionStorage.getItem("nutshell_user")),
-          userName: res.name,
-          timestamp: Date.now()
-        };
+//         const messages = {
+//           post: sentMessage,
+//           userId: parseInt(sessionStorage.getItem("nutshell_user")),
+//           userName: res.name,
+//           timestamp: Date.now()
+//         };
     
-        addPublicMessages(messages).then(() => 
-        getPublicMessages()
-        );
-      })
-  };
+//         addPublicMessages(messages).then(() => 
+//         getPublicMessages()
+//         );
+//       })
+//   };
 
-  return (
-    <>
-      <input
-        type="text"
-        placeholder="enter a message"
-        value={sentMessage}
-        onChange={(evt) => setSentMessage(evt.target.value) }
-      />
-      <button onClick={(event) => HandleInputAndSent(event)}><AiOutlineSend/></button>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <input
+//         type="text"
+//         placeholder="enter a message"
+//         value={sentMessage}
+//         onChange={(evt) => setSentMessage(evt.target.value) }
+//       />
+//       <button onClick={(event) => HandleInputAndSent(event)}><AiOutlineSend/></button>
+//     </>
+//   );
+// };
 
-export default SentMessages;
+// export default SentMessages;

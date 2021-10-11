@@ -15,6 +15,7 @@ const PublicMessageForm = ({getPublicMessages}) => {
 
     const messages = {
       post: sentMessage,
+      timestamp: Date.now(),
       userId: parseInt(sessionStorage.getItem("nutshell_user"))
     };
     

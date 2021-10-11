@@ -9,7 +9,7 @@ import { editMessages, messageById } from "./PublicMessageManager";
 
 export const MessageEditForm = () =>
 {
-    const[edits, setEdits] = useState({post:""})
+    const[edits, setEdits] = useState({post:"", timestamp: ""})
     const{messageId} = useParams()
     const history = useHistory()
 
@@ -28,7 +28,8 @@ export const MessageEditForm = () =>
 
         const updateMessages = {
             id: messageId,
-            post: edits.post
+            post: edits.post,
+            timestamp: Date.now()
         }
 
         editMessages(updateMessages)
@@ -42,9 +43,35 @@ export const MessageEditForm = () =>
     },[])
 
     return(
-        <form>
-            <input value={edits.post} id="post" type="text" onChange={handleFields}/>
-            <button onClick={updateMessage}>Save</button>
-        </form>
+        <>
+
+        <div className="message__input--edit">
+
+            <div className="message__input--textarea">
+                    <input
+                        type="text"
+                        className="form__group--message"
+                        value={edits.post}
+                        onChange={handleFields}
+                    />
+            </div>
+
+            <div className="message__input--btns">
+                    <button
+                        type="button"
+                        className="form__btn" 
+                        onClick={updateMessage}>
+                            Save
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => history.push(`/messages`)}
+                        className="form__btn">Cancel
+                    </button>
+            </div>
+
+        </div>
+        </>
     )
 }

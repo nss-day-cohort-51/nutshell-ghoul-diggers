@@ -219,6 +219,14 @@ button:disabled:hover {
   align-self: center;
 }
 
+.message__input--edit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  margin-top: 40px;
+}
+
 .message__input--textarea {
 padding: 0px;
 margin: 0px;
@@ -242,8 +250,14 @@ width: 600px;
   height: 40px;
 }
 
+/* this targets the buttons on message edit form */
+.message__input--btns {
+  margin-top: 3px;
+}
+
+/* this targets new message form button on messages page */
 .message__input--button {
-  padding-top: 5.5px;
+  padding-top: 5px;
 }
 
 .form__btns {
@@ -265,7 +279,18 @@ width: 600px;
   border: 1px solid black;
 }
 
-.form__btn--friend{
+/* .form__btn--edit--message {
+  font-size: 18px;
+  font-weight: 800;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 10px;
+  height: 40px;
+  border: 1px solid black;
+} */
+
+.form__btn--friend {
   font-size: 18px;
   font-weight: 800;
   background-color: #A4B900;
