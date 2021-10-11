@@ -13,7 +13,6 @@ Page font:
 Montserrat', sans-serif;
 */
 
-
 /* start of styling for Article List */
 .section {
   display: flex;
@@ -25,7 +24,7 @@ Montserrat', sans-serif;
 
 .section__header {
   font-size: 44px;
-  color: #A4B900;
+  color: #a4b900;
   font-weight: 800;
   display: flex;
   flex-direction: row;
@@ -42,7 +41,7 @@ Montserrat', sans-serif;
 .add__article {
   font-size: 18px;
   font-weight: 600;
-  background-color: #A4B900;
+  background-color: #a4b900;
   border: 1px solid #849503;
   border-radius: 5px;
   padding: 5px 10px;
@@ -56,7 +55,6 @@ Montserrat', sans-serif;
   margin-top: 40px;
 }
 
-
 .card__content {
   align-self: center;
   width: 700px;
@@ -68,7 +66,7 @@ Montserrat', sans-serif;
   font-size: 20px;
   color: #241c1a;
   background-color: #a3b90061;
-  border: 2px solid #A4B900;
+  border: 2px solid #a4b900;
   border-radius: 7px;
 }
 
@@ -125,7 +123,7 @@ form {
 
 .form__title {
   font-size: 44px;
-  color: #A4B900;
+  color: #a4b900;
   font-weight: 800;
   display: flex;
   flex-direction: row;
@@ -149,7 +147,8 @@ label {
   margin-top: 20px;
 }
 
-input, select {
+input,
+select {
   padding: 0px 5px;
   text-decoration: none;
 }
@@ -159,7 +158,7 @@ button:disabled:hover {
   background-color: lightgray;
 }
 
-.form__group--edit{
+.form__group--edit {
   display: block;
   width: 96%;
   margin: 5px 0px 20px;
@@ -171,8 +170,9 @@ button:disabled:hover {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 5px;
-  -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   height: 40px;
 }
 
@@ -186,7 +186,7 @@ button:disabled:hover {
 .form__btn {
   font-size: 18px;
   font-weight: 600;
-  background-color: #A4B900;
+  background-color: #a4b900;
   border: 1px solid #849503;
   border-radius: 5px;
   padding: 5px 10px;
