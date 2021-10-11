@@ -13,23 +13,8 @@ Page font:
 Montserrat', sans-serif;
 */
 
-/* 
-Author: Susie Stanley
-Purpose: Controls styling of all article pages
 
-Page colors:
-#FBC859 - Daffodil
-#A4B900 - Avocado
-#bcd501 - Lime
-#483934 - Mahogany
-#76AECB - Periwinkle
-
-Page font:
-Montserrat', sans-serif;
-*/
-
-
-/* start of styling for Article List */
+/* start of styling for Message List */
 .section {
   display: flex;
   flex-direction: column;
@@ -127,9 +112,9 @@ Montserrat', sans-serif;
 .button.lg {
   font-size: 36px;
 }
-/* end of styling for Article List */
+/* end of styling for Message List */
 
-/* start of styling for Add Article Form */
+/* start of styling for Add Message Form */
 .form__flex {
   display: flex;
   flex-direction: column;
@@ -211,4 +196,4 @@ button:disabled:hover {
   padding: 5px 10px;
   margin: 6px;
 }
-/* end of styling for Add Article Form */
+/* end of styling for Add Message Form */

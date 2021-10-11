@@ -30,7 +30,7 @@ export const ArticleEditForm = () => {
         };
 
         ArticleManager.editArticle(editedArticle)
-            .then(() => history.push("/")
+            .then(() => history.push("/articles")
             )
     }
 

@@ -7,7 +7,7 @@ import { addPublicMessages } from "./PublicMessageManager";
 import {AiOutlineSend} from "react-icons/ai"
 
 
-const SentMessages = ({getPublicMessages}) => {
+const PublicMessageForm = ({getPublicMessages}) => {
   const [sentMessage, setSentMessage] = useState("");
   
   const HandleInputAndSent = (event) => {
@@ -40,4 +40,4 @@ const SentMessages = ({getPublicMessages}) => {
   );
 };
 
-export default SentMessages;
+export default PublicMessageForm;

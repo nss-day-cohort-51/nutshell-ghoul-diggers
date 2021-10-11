@@ -7,7 +7,7 @@ import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
 import React, { useState } from "react";
 import { PublicMessages } from "./PublicMessages/PublicMessages";
-import SentMessages from "./PublicMessages/SentMessages";
+import PublicMessageForm from "./PublicMessages/PublicMessageForm";
 import { getPublicMessages } from "./PublicMessages/PublicMessageManager";
 import { AddArticle } from "./articles/AddArticle"
 import { Articles } from "./articles/Articles"
@@ -56,7 +56,7 @@ export const ApplicationViews = () => {
 
       <Route exact path="/messages">
         {/* Render the component for the messages */}
-        <SentMessages getPublicMessages={getMessages} />
+        <PublicMessageForm getPublicMessages={getMessages} />
         <PublicMessages publicMessages={publicMessages} getPublicMessages={getMessages} />
       </Route>
 
