@@ -11,9 +11,8 @@ const PublicMessageForm = ({getPublicMessages}) => {
   const [sentMessage, setSentMessage] = useState("");
   
   const HandleInputAndSent = (event) => {
-   
-
     event.preventDefault();
+    
     const messages = {
       post: sentMessage,
       userId: parseInt(sessionStorage.getItem("nutshell_user"))

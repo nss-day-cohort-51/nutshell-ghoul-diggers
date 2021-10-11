@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import ArticleManager from "./ArticleManager";
 
-export const AddArticle = () => {
+export const ArticleForm = () => {
     const [article, changeArticle] = useState({ userId: parseInt(sessionStorage.getItem("nutshell_user")), url: "", title: "", synopsis: "", timestamp: Date.now() });
 
     const history = useHistory();

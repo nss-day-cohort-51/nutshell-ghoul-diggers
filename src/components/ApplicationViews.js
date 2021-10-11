@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import { PublicMessages } from "./PublicMessages/PublicMessages";
 import PublicMessageForm from "./PublicMessages/PublicMessageForm";
 import { getPublicMessages } from "./PublicMessages/PublicMessageManager";
-import { AddArticle } from "./articles/AddArticle"
+import { ArticleForm } from "./articles/ArticleForm"
 import { Articles } from "./articles/Articles"
 import { ArticleEditForm } from "./articles/ArticleEditForm"
 import { AddFriend } from "./friends/AddFriend"
@@ -31,7 +31,7 @@ export const ApplicationViews = () => {
 
       <Route exact path="/articles/add">
         {/* Render the component for adding articles*/}
-        <AddArticle />
+        <ArticleForm />
       </Route>
 
       <Route path="/:articleId/(\d+)/edit">
