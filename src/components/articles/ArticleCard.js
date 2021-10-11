@@ -9,6 +9,17 @@ export const ArticleCard = ({article, handleDelete}) => {
     
     const loggedInUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
+    const formatDate = (obj) => {
+      const date = new Date(obj);
+      const formattedDate = date.toDateString(); // converts date object to a string that displays in format "Sun Jul 22 2018"
+      return formattedDate;
+    }
+    
+    const formatTime = (obj) => {
+      const date = new Date(obj);
+      const formattedTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // converts date object to a time string that displays in format 12:25"
+      return formattedTime;
+    }
 
     if(article.userId === loggedInUser){
       return (
