@@ -180,6 +180,14 @@ button:disabled:hover {
   height: 40px;
 }
 
+.message__input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 500px;
+  align-items: baseline;
+}
+
 .form__btns {
   display: flex;
   flex-direction: row;
@@ -187,13 +195,14 @@ button:disabled:hover {
   padding: 10px;
 }
 
-.form__btn {
+.form__btn--message {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 800;
   background-color: #A4B900;
   border: 1px solid #849503;
   border-radius: 5px;
-  padding: 5px 10px;
-  margin: 6px;
+  padding: 0px 15px;
+  margin: 0px 10px;
+  height: 40px;
 }
 /* end of styling for Add Message Form */

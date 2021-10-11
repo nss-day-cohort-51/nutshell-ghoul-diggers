@@ -38,7 +38,7 @@ const PublicMessageForm = ({getPublicMessages}) => {
       />
       <button
         type="button"
-        className="form__btn" 
+        className="form__btn--message" 
         onClick={(event) => HandleInputAndSent(event)}>
           <RiSendPlane2Fill />
       </button>
