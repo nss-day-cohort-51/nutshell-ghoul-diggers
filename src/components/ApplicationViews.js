@@ -78,8 +78,8 @@ export const ApplicationViews = () => {
 
       <Route exact path="/messages">
         {/* Render the component for the messages */}
-        <PublicMessages messages={messages} getPublicMessages={getMeMesssage} friends={friends} getFriendsList={getFriendsList}/>
         <SentMessages getPublicMessages={getMeMesssage} />
+        <PublicMessages messages={messages} getPublicMessages={getMeMesssage} friends={friends} getFriendsList={getFriendsList}/>
       </Route>
 
       <Route exact path="/tasks">

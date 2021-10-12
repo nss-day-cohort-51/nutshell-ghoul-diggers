@@ -4,6 +4,8 @@ import ArticleManager from "../src/components/articles/ArticleManager";
 import { getAllFriends } from "../src/components/friends/FriendManager";
 import { getAllTasks } from "../src/components/tasks/TaskManager";
 import { getAllEvents } from "../src/components/events/EventManager";
+import { getUserById } from "../src/components/users/UserManager";
+
 import "./index.css"
 
 export const Dashboard = () => {
@@ -11,16 +13,10 @@ export const Dashboard = () => {
   const [ friendNums, setFriendNums ] = useState(0);
   const [ taskNums, setTaskNums ] = useState(0);
   const [ eventNums, setEventNums ] = useState(0);
-  const [ userInfo, setUserInfo ] =  useState(0);
+  const [ loggedUserId, setLoggedUserId ] =  useState(0);
 
-  const user = sessionStorage.getItem("nutshell_user");
-  console.log("User is ", user)
-
-  // setUserInfo(user);
-  // .then(user => {
-  //   console.log("user is: ", user)
-  //   setUserInfo(user)
-  // });
+  const userId = sessionStorage.getItem("nutshell_user");
+  console.log("UserId is ", userId)
 
   const showArticlesDash = () => {
     ArticleManager.getAllArticles()
@@ -46,7 +42,8 @@ export const Dashboard = () => {
     showArticlesDash();
     showFriendsDash();
     showTasksDash();
-    showEventsDash();  
+    showEventsDash();
+    getUserById(userId).then(loggedUserId => setLoggedUserId(loggedUserId))  
 }, [])
 
 return (
@@ -54,7 +51,7 @@ return (
     <div className="dashboard">
 
       <div className="dashboard__title">Dashboard</div>
-      <div className="dashboard__subtitle">Welcome, {userInfo.name}</div>
+      <div className="dashboard__subtitle">Welcome {loggedUserId.name}</div>
 
 
         <div className="row1">

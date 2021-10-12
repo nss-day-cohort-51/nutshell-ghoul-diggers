@@ -96,7 +96,7 @@ export const EventList = () => {
 
     return(
 
-      <div className="section">
+      <div className="section__events">
 
         <div className="section__header">
         Events

@@ -35,7 +35,7 @@ export const TaskList = () => {
     }, []);
 
     return (
-        <div className="section">
+        <div className="section__task">
 
             <div className="section__header">
             Tasks

@@ -41,6 +41,10 @@ Montserrat', sans-serif;
   list-style-type: none;
 }
 
+.nav__item a:hover {
+  color: #889a00;
+}
+
 .nav__link {
   font-size: 26px;
   font-weight: bold;

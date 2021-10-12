@@ -55,7 +55,7 @@ export const Articles = () => {
     }, [friends])
 
     return (
-        <div className="section">
+        <div className="section__article">
 
             <div className="section__header">
             Articles

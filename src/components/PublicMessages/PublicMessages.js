@@ -2,10 +2,11 @@
 //Purpose: GET ALL MESSAGES FROM PUBLIC MESSAGE MANAGER
 
 import React, {useEffect } from "react";
-import { deleteMessages } from "./publicMessageManager";
+import { deleteMessages } from "./PublicMessageManager";
 import MessageList from "./MessageList";
 import { addFriends, getFriendsById } from "../friends/FriendManager";
 import { getUserById } from "../users/UserManager";
+import "./Message.css"
 
 
 export const PublicMessages = ({messages, getPublicMessages, friends, getFriendsList}) => {
@@ -38,9 +39,11 @@ export const PublicMessages = ({messages, getPublicMessages, friends, getFriends
   }
   return (
     <>
+      <section className="section__message">
       {messages.map((allMessages) => (
         <MessageList key={allMessages.id} data={allMessages} handledelete={handleDelete} handleAddFriend={handleAddFriend} friends={friends} getFriendsList={getFriendsList}/>
       ))}
+      </section>
     </>
   );
 };

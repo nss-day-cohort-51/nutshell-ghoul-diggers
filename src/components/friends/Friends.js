@@ -5,6 +5,7 @@ import React, {useState, useEffect } from "react";
 import { deleteFriend, getFriendsById } from "./FriendManager";
 import { FriendCard } from "./FriendCard";
 import { useHistory } from "react-router";
+import "./Friend.css"
 
 export const Friends = () => {
     const [friends, changeFriends] = useState([])
@@ -28,9 +29,11 @@ export const Friends = () => {
     }, [])
 
     return (
+        <section className="section__friend">
         <div className="friend-card">
         <button className="friend-card__addFriend" onClick={() => {history.push("/friends/add")}}>Add Friend</button>
         {friends.map(friend => <FriendCard key={friend.id} friend={friend} handleDelete={handleDelete} />)}
         </div>
+        </section>
     )
 }

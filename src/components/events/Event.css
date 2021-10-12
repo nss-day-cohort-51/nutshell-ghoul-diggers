@@ -15,12 +15,13 @@ Montserrat', sans-serif;
 
 
 /* start of styling for Event List */
-.section {
+.section__events {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   font-family: "Montserrat", sans-serif;
   padding: 15px;
+  min-height: 65vh;
 }
 
 .section__header {

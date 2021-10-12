@@ -1,0 +1,8 @@
+.section__friend {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: "Montserrat", sans-serif;
+  padding: 15px;
+  min-height: 65vh;
+}
