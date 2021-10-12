@@ -1,0 +1,85 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-top: 4px solid #9B2226;
+  background-color: #D9D9D9;
+}
+
+/* logo is in column 1 */
+.col1 {
+  flex: 1;
+  padding: 10px 0px;
+  margin-top: 10px;
+}
+
+/* copyright quote is in column 2 */
+.col2 {
+  flex: 2;
+  padding: 30px;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center; 
+  margin: auto auto;
+}
+
+/* 'Meet The Team' cards are in column 3 */
+.col3 {
+  flex: 2;
+  text-align: center;
+  padding: 0px 40px;     
+}
+
+.col3 h4 {
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 10px;
+  margin: 5px 0px;
+}
+
+.team {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.team a {
+  text-decoration: none;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100px;
+  text-align: center;
+  font-family: "Playfair", serif;
+  background-color: white;
+  margin:  5px 10px 10px 10px;
+  padding: 10px 20px 0px 20px;
+  border-radius: 8px;
+  border: 2px solid rgb(198, 198, 198);
+  transition: 150ms all; /* this controls how smooth hover effect is */
+}
+
+.team-card img {
+  border: 4px solid #B8DBD9;
+  border-radius: 50px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.team-card h6 {
+  color: black;
+  font-size: 16px;
+  padding: 0px;
+  margin: 10px auto;
+}
+
+/* this code makes team card pop off page */
+.team-card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 15px 15px rgba(0,0,0, 0.75);
+}
