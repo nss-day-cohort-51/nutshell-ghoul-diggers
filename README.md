@@ -1,77 +1,175 @@
-# Reactive Nutshell: The Information Dashboard
+# Nutshell
 
-## Setup: Follow these steps exactly
+![Project Image](src/images/Nutshell-home-page.png)
 
-1. Clone this repository
-1. `cd` into the directory it creates
-1. In the `api` directory, create a copy of the `database.json.example` and remove the `.example` extension.
-1. Run `json-server -p 8088 -w database.json` from the `api` directory.
-1. Run `npm install` and wait for all dependencies to be installed.
-1. Run `npm start` to verify that installation was successful.
+> Everything you need to keep up with your friends in a Nutshell!
 
-> **Note:** Your `database.json` file is already in the `.gitignore` file for this project, so it will never be added to the repo or pushed to Github.
+---
 
-## What is Reactive Nutshell?
+### Table of Contents
 
-Nutshell is a new product offering that you have been tasked with building. It's an app for people to use to organize their daily tasks, events, news article, friends, and chat messages.
+- [Desctiption](#description)
+- [Technololgies](#technologies)
+- [How To Use](#how-to-use)
+- [License](#license)
+- [Author Info](#author-info)
 
-You will be using the React library to build out this application.
+---
 
-To start you off, here's an example of what some of the resources in your API should look like once it's populated with some data from your application.
+## Description
 
-### Users
+Nutshell is a React App built for users to have the capability to post and view news articles, local events, and message posts/private messages with their added friends. It focuses on a sleek, simple, and mellow design that makes it easy for the user to digest the content of the webpage. We achieved this by selecting a pastel-like color scheme and structuring the layout of the page in a spacious, yet condensed way. We focused on creating an elegant design while also having strong user functionality.
 
-```json
-{ "id": 1, "name": "Steve Brownlee", "email": "me@me.com" }
+---
+
+#### Technologies
+
+- React.js
+- CSS
+- Dbdiagram
+- Figma
+- Canva
+- Git/Github
+- Postman
+
+---
+
+## How To Use
+
+### Installations
+
+Run commands inside of Nutshell Directory.
+
+```
+npm install npm@latest -g
 ```
 
-### Friends
-
-```json
-{ "id": 1, "userId": 1, "currentUserId": 3 }
+```
+npm install
 ```
 
-### News Articles
-
-```json
-{
-    "id": 1,
-    "userId": 2,
-    "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
-    "title": "Wormholes Allow Information to Escape Black Holes",
-    "synopsis": "Check out this recent discovery about workholes",
-    "timestamp": "2021-02-11T15:24"
-}
+```
+npm install react-icons --save
 ```
 
-## Professional Requirements
+---
 
-1. All teammates must use React and JSON-server. 
-1. Each module should have a comment at the top with the following info: author(s) and purpose of module
-1. The README for your project should include instructions on how another person can download and run the application
-1. An ERD showing the database relationships. A screenshot/image should be included on your README.
+### Starting the webpage
 
-## A Note About Authentication
+1. Get a free API Key at https://openweathermap.org/api
 
-We want you to know that the login and registration code we have given you is fake, completely insecure, and would never be implemented in a professional application. It is a simulation authentication using very simplistic tools, because authentication is not a learning objective of students at NSS.
+1. Clone the repo
 
-You will be using [session storage](https://javascript.info/localstorage#sessionstorage) to keep track of which user has logged into Nutshell. You need to read the code in the **`Login.js`** and **`Register.js`** components so that you see what is going on, but you do not need to change it.
+   ```
+   git clone git@github.com:nss-day-cohort-51/nutshell-ghoul-diggers.git
+   ```
 
-## Keep in mind some tips for a good usable app
-1. Use acceptable conventions
-   * Logo positioned at top left
-   * Navigation across the top or down the left side
-2. Visual hierarchy
-   * Most important information is the most prominent
-3. Break pages up into defined sections
-   * Logically related content should be related visually
-4. That which is clickable should be obviously clickable.
-5. Eliminate distractions
-   * Use only two typefaces
-   * Limit color pallet (3 colors with black and white)
-   * Use a grid
-6. Support scanning (users don't read)
-   * Use plenty of headings
-   * Short paragraphs
-   * Bulleted lists
-7. Strive for consistency.
+1. Run this command inside of the Nutshell API directory.
+
+   ```
+   json-server -p 8088 -w database.json
+   ```
+
+   ```
+   npm start
+   ```
+
+---
+
+### API Reference
+
+Create database.json file inside of the src directory and paste the following JSON.
+
+```JSON
+   "users": [
+      {
+         "email": "admin@test.com",
+         "name": "Admin User",
+         "id": 1
+      }
+   ],
+   "articles": [
+      {
+         "id": 1,
+         "userId": 1,
+         "url": "http://www.google.com",
+         "title": "Google",
+         "synopsis": "See Google Homepage",
+         "timestamp": 1633634268923
+      }
+   ],
+     "messages": [
+      {
+         "post": "Example",
+         "userId": 1,
+         "timestamp": 1633694268923,
+         "id": 1
+      }
+   ],
+   "events": [
+      {
+         "id": 1,
+         "userId": 1,
+         "name": "Example",
+         "city": "Nashville, TN",
+         "zipcode": "37066",
+         "date": "2021-02-14"
+      }
+   ],
+   "tasks": [
+      {
+         "userId": 1,
+         "taskName": "Example",
+         "completeDate": "2021-11-11",
+         "isCompleted": false,
+         "id": 1
+      },
+```
+
+![ERD Image](src/images/erd.png)
+
+[Back To The Top](#nutshell)
+
+---
+
+## License
+
+MIT License
+
+Copyright (c) 2021 Nashville Software School
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[Back To The Top](#nutshell)
+
+---
+
+## Author Info
+
+### Colby Ryan
+
+- LinkedIn - [Colby Ryan](https://www.linkedin.com/in/colbyrryan/)
+- GitHub - [@colbyryan](https://github.com/colbyryan)
+
+### Susie Stanley
+
+- LinkedIn - [Susie Stanley](https://www.linkedin.com/in/susie-stanley/)
+- GitHub - [@SusieCodes](https://github.com/SusieCodes)
+
+### Gerson Makungu Diketama
+
+- LinkedIn - [Gerson M. Diketama](https://www.linkedin.com/in/gerson-m-diketama-ab00a41a2/)
+- GitHub - [@GersonDiketama](https://github.com/GersonDiketama)
+
+### Brady Williams
+
+- LinkedIn - [Brady Williams](https://www.linkedin.com/in/brady-c-williams/)
+- GitHub - [@Slyydz](https://github.com/Slyydz)
+
+[Back To The Top](#nutshell)
+
+---
