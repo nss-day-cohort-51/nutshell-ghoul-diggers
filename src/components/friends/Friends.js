@@ -1,7 +1,7 @@
 //Author: Brady Williams
 //Purpose: Output List of friends to DOM
 
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { deleteFriend, getFriendsById } from "./FriendManager";
 import { FriendCard } from "./FriendCard";
 import { useHistory } from "react-router";
@@ -22,7 +22,7 @@ export const Friends = () => {
         //invoke the delete function in AnimalManger and re-direct to the animal list.
         deleteFriend(friendId).then(() => getFriendsById(sessionStorage.getItem("nutshell_user")).then(changeFriends))
         console.log(friendId);
-      };
+    };
 
     useEffect(() => {
         getFriends();
@@ -31,8 +31,8 @@ export const Friends = () => {
     return (
         <section className="section__friend">
         <div className="friend-card">
-        <button className="friend-card__addFriend" onClick={() => {history.push("/friends/add")}}>Add Friend</button>
-        {friends.map(friend => <FriendCard key={friend.id} friend={friend} handleDelete={handleDelete} />)}
+            <button className="friend-card__addFriend" onClick={() => { history.push("/friends/add") }}>+ Add Friend</button>
+            {friends.map(friend => <FriendCard key={friend.id} friend={friend} handleDelete={handleDelete} />)}
         </div>
         </section>
     )

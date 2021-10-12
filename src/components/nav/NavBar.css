@@ -52,3 +52,14 @@ Montserrat', sans-serif;
   text-decoration: none;
   cursor: pointer;
 }
+
+.nav__button {
+  font-family: 'Montserrat', sans-serif;;
+  font-size: 26px;
+  font-weight: bold;
+  color: #483934;
+  text-decoration: none;
+  background-color: #FBC859;
+  cursor: pointer;
+  border: #FBC859;
+}

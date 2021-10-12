@@ -6,3 +6,109 @@
   padding: 15px;
   min-height: 65vh;
 }
+.card__content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 160px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.card__content--friend-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.card__content--friend-section h3 {
+  padding-right: 300px;
+  padding-top: 15px;
+}
+.card__content--friend-delete {
+  color: #849503;
+  font-weight: 600;
+  font-size: 30px;
+  padding-right: 10px;
+  padding-top: 40px;
+  border: none;
+  background-color: transparent;
+  position: initial;
+}
+.card__content a {
+  color: #849503;
+  font-weight: 600;
+  font-size: 30px;
+  padding: 10px 20px;
+}
+.card__content a:hover {
+  color: #697701;
+  transition: 0.5s;
+  font-size: 34px;
+  overflow: hidden;
+  margin: -2px;
+}
+.card__content--friend-delete:hover {
+  color: #697701;
+  transition: 0.5s;
+  font-size: 34px;
+  cursor: pointer;
+  overflow: hidden;
+  margin: -2px;
+}
+
+.card__content--icon {
+  display: flex;
+}
+.friend-card__addFriend {
+  background-color: transparent;
+  border: none;
+  color: #95a801;
+  font-weight: 600;
+  font-size: 25px;
+  padding-left: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.friend-card__addFriend:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  color: #697701;
+  border-radius: 10px;
+}
+.card__content--image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  border: 1px rgb(156, 155, 155) solid;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.form-group input {
+  margin: 3px 10px;
+  padding: 3px 0px;
+}
+
+.form-group button {
+  background-color: transparent;
+  border: none;
+  color: #483934;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.form-group button:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  background: #ffc547df;
+  border-radius: 10px;
+}

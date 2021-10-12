@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import "../nav/Footer.css"
 // import logo from "../../images/nutshell_logo_bgyellow.png";
 
