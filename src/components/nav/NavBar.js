@@ -6,8 +6,11 @@ import logo from "../../images/nutshell_logo_bgyellow.png";
 
 export const NavBar = () => {
   return (
+    <header>
     <nav className="nav__flex">
+      <Link to="/">
       <img className="logo" src={logo} alt="C51 Nutshell Logo" />
+      </Link>
       <ul className="nav">
         <li className="nav__item">
           <Link className="nav__link" to="/articles">Articles</Link>
@@ -26,5 +29,6 @@ export const NavBar = () => {
         </li>
       </ul>
     </nav>
+    </header>
   )
 }

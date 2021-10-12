@@ -15,6 +15,7 @@ import { ArticleEditForm } from "./articles/ArticleEditForm"
 import { AddFriend } from "./friends/AddFriend"
 import { Friends } from "./friends/Friends"
 import { MessageEditForm } from "./PublicMessages/MessageEditForm";
+import { Dashboard } from "../Dashboard";
 
 export const ApplicationViews = () => {
   const [publicMessages, setPublicMessages] = useState([])
@@ -24,6 +25,12 @@ export const ApplicationViews = () => {
 
   return (
     <>
+
+      <Route exact path="/">
+        {/* Render the component for news articles */}
+        <Dashboard />
+      </Route>
+
       <Route exact path="/articles">
         {/* Render the component for news articles */}
         <Articles />

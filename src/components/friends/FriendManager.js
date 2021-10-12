@@ -24,3 +24,12 @@ export const addFriends = (friend) => {
         body: JSON.stringify(friend)
     }).then(response => response.json())
   }
+
+  export const getAllFriends = () => {
+    return fetch(`${url}/friends`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"     
+        },
+    }).then(res => res.json())
+  }
