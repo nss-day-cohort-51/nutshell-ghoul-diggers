@@ -53,22 +53,23 @@ export const AddFriend = () => {
     return (
 <>
         <div className="form__flex">
-            <dialog className="dialog" open={conflictDialog}>
-                <div>Please input a users first and last name</div>
-                <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
-            </dialog>
 
-            <dialog className="dialog" open={conflictDialog2}>
-                <div>Cannot add yourself</div>
-                <button className="button--close" onClick={e => setConflictDialog2(false)}>Close</button>
-            </dialog>
-             
             <form>
                 <div className="form__title--friend">
                     Add New Friend
                 </div>
 
                 <fieldset>
+
+                    <dialog className="dialog" open={conflictDialog}>
+                        <div>Please input a users first and last name</div>
+                        <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
+                    </dialog>
+
+                    <dialog className="dialog" open={conflictDialog2}>
+                        <div>Cannot add yourself</div>
+                        <button className="button--close" onClick={e => setConflictDialog2(false)}>Close</button>
+                    </dialog>
 
                     <div className="form__group">
                         <label htmlFor="name">User Name: </label>
@@ -81,6 +82,7 @@ export const AddFriend = () => {
                     <button className="form__btn" onClick={() => handleSave()}>Add Friend</button>
                     <button className="form__btn" onClick={() => history.push("/friends")}>Cancel</button>
                 </div>
+                
             </form>
 
         </div>
