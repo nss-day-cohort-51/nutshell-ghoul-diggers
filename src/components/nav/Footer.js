@@ -1,22 +1,22 @@
 import React from "react"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import "../nav/Footer.css"
-import logo from "../../images/nutshell_logo_bgyellow.png";
+// import logo from "../../images/nutshell_logo_bgyellow.png";
 
 export const Footer = () => {
 
 return (
     <>
     <footer>
-            <div class="col1">
+            <div className="col1">
                 <picture>
                   <img src={require(`../../images/nutshell_logo_bgyellow.png`).default} alt="Nutshell App Logo" className="footer__logo" />
                 </picture>
             </div>
                 
-            <div class="col2">&copy; 2021 Nutshell</div>
+            <div className="col2">&copy; 2021 Nutshell</div>
 
-            <div class="col3">
+            <div className="col3">
 
                 <h4>Meet The Team</h4>
 
