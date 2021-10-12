@@ -28,6 +28,7 @@ export const MessageEdit = () =>
 
         const updateMessages = {
             id: messageId,
+            userId: parseInt(sessionStorage.getItem("nutshell_user")),
             post: edits.post
         }
 
