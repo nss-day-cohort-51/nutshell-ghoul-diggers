@@ -85,7 +85,7 @@ export const TaskForm = () => {
 
                     <button className="form__btn" onClick={ResetForm}>Reset Form</button>
 
-                    <button type="button" className="form__btn" onClick={() => { history.push("/tasks") }}>Back</button>
+                    <button type="button" className="form__btn" onClick={() => { history.push("/tasks") }}>Cancel</button>
 
                 </div>
 
