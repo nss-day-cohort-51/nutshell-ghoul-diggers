@@ -8,7 +8,7 @@ import {AiOutlineSend} from "react-icons/ai"
 import { getUserById } from "../users/UserManager";
 
 
-const SentMessages = ({getPublicMessages}) => {
+export const SentMessages = ({getPublicMessages}) => {
   const [sentMessage, setSentMessage] = useState("");
   
   const HandleInputAndSent = (event) => {

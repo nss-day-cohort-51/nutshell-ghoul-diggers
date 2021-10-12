@@ -5,7 +5,7 @@ import React from 'react'
 import {AiFillDelete} from "react-icons/ai"
 import { useHistory } from 'react-router'
 import { useEffect } from 'react/cjs/react.development'
-import "../articles/ArticleCardDesign.css"
+import "../articles/Article.css"
 
 
 const MessageList = ({data, handledelete, handleAddFriend, friends, getFriendsList}) => {
