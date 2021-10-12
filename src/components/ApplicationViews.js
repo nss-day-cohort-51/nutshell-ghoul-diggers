@@ -2,7 +2,7 @@ import { Route } from "react-router-dom"
 import { EventList } from "./events/EventList"
 import { EventForm } from "./events/EventForm"
 import { EventEditForm } from "./events/EventEditForm"
-
+import { getFriendsById } from "./friends/FriendManager"
 import { TaskEditForm } from "./tasks/TaskEditForm"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
@@ -19,9 +19,25 @@ import { MessageEdit } from "./PublicMessages/PublicForm";
 
 export const ApplicationViews = () => {
   const [messages, setPublicMessages] = useState([])
+  const [friends, changeFriend] = useState([]);
+
   const getMeMesssage = () => {
+    console.log("getmemessage")
     getPublicMessages().then((message) => setPublicMessages(message));
   };
+
+  const getFriendsList = () => {
+    let arrayTaco = [];
+
+    getFriendsById(parseInt(sessionStorage.getItem("nutshell_user"))).then(res => {
+        res.forEach(taco => {
+            arrayTaco.push(taco.userId);
+        })
+        changeFriend(arrayTaco);
+    })
+  };
+
+  
 
   return (
     <>
@@ -55,7 +71,7 @@ export const ApplicationViews = () => {
 
       <Route exact path="/messages">
         {/* Render the component for the messages */}
-        <PublicMessages messages={messages} getPublicMessages={getMeMesssage} />
+        <PublicMessages messages={messages} getPublicMessages={getMeMesssage} friends={friends} getFriendsList={getFriendsList}/>
         <SentMessages getPublicMessages={getMeMesssage} />
       </Route>
 

@@ -4,15 +4,17 @@
 import React, {useEffect } from "react";
 import { deleteMessages } from "./publicMessageManager";
 import MessageList from "./MessageList";
+import { addFriends, getFriendsById } from "../friends/FriendManager";
+import { getUserById } from "../users/UserManager";
 
 
-
-export const PublicMessages = ({messages, getPublicMessages}) => {
+export const PublicMessages = ({messages, getPublicMessages, friends, getFriendsList}) => {
 
 // THIS USE EFFECT WATCHES FOR ANY CHANGES MADE ON APPLICATION VIEWS AND RE-RENDER
 
   useEffect(() => {
     getPublicMessages();
+    getFriendsList();
   }, []);
 
   const handleDelete = (messageId) =>
@@ -21,10 +23,24 @@ export const PublicMessages = ({messages, getPublicMessages}) => {
     .then(() => getPublicMessages())
 
   }
+
+  const handleAddFriend = (input) => {
+
+    getUserById(parseInt(sessionStorage.getItem("nutshell_user"))).then(res => {
+      console.log(res);
+
+      const friendObj = {
+        userId: input,
+        currentUserId: res.id,
+        currentUserName: res.name
+      }
+      addFriends(friendObj).then(() => getFriendsList());
+    })
+  }
   return (
     <>
       {messages.map((allMessages) => (
-        <MessageList key={allMessages.id} data={allMessages} handledelete={handleDelete}/>
+        <MessageList key={allMessages.id} data={allMessages} handledelete={handleDelete} handleAddFriend={handleAddFriend} friends={friends} getFriendsList={getFriendsList}/>
       ))}
       
     </>
