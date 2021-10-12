@@ -11,7 +11,6 @@ import { getUserById } from "../users/UserManager";
 export const PublicMessages = ({ publicMessages, getPublicMessages}) => {
 
 // THIS USE EFFECT WATCHES FOR ANY CHANGES MADE ON APPLICATION VIEWS AND RE-RENDER
-
   useEffect(() => {
     getPublicMessages();
   }, []);

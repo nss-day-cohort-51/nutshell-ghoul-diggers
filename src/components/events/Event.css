@@ -206,7 +206,7 @@ button:disabled:hover {
   background-color: lightgray;
 }
 
-.form__group--edit{
+.form__group--edit {
   display: block;
   width: 96%;
   margin: 5px 0px 20px;

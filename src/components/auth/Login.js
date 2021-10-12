@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css"
 
-
 export const Login = () => {
     const [loginUser, setLoginUser] = useState({ email: "" })
     const [existDialog, setExistDialog] = useState(false)
@@ -44,9 +43,11 @@ export const Login = () => {
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
             </dialog>
-            <section>
+        
+        <div classname="form__flex">
+            <div className="form__flex__inner">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <div className="form--login--headline">Nutshell</div>
+                    <div className="form--login--headline">Welcome To Nutshell</div>
                     <div className="form--login--subtitle">Please Sign In</div>
                     <fieldset>
 
@@ -60,17 +61,18 @@ export const Login = () => {
                             onChange={handleInputChange} />
 
                         <div className="form__btns">
-                            <button type="submit" className="form__btn">
+                            <button type="submit" className="login__btn">
                                 Sign In
                             </button>
                         </div>
 
                     </fieldset>
                 </form>
-            </section>
-            <section className="link--register">
+            </div>
+        </div>
+            <div className="link--register">
                 <Link to="/register">Register for an account</Link>
-            </section>
+            </div>
         </main>
     )
 }

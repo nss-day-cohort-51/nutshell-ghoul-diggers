@@ -75,7 +75,9 @@ export const Register = () => {
                             <label htmlFor="inputEmail"> Email address </label>
                             <input type="email" name="email" id="email" className="form__group--edit" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
 
-                            <button type="submit" className="form__btn"> Sign in </button>
+                            <div className="form__btns">
+                            <button type="submit" className="register__btn"> Sign in </button>
+                            </div>
                         </fieldset>
                     </form>
                 </div>

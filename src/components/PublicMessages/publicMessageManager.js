@@ -25,7 +25,6 @@ export const addPublicMessages = (newMessages) => {
 };
 
 //DELETE
-
 export const deleteMessages = (messageId) => {
   return fetch(`${api}/messages/${messageId}`, { method: "DELETE" }).then(
     (response) => response.json()
@@ -33,7 +32,6 @@ export const deleteMessages = (messageId) => {
 };
 
 //EDIT
-
 export const editMessages = (messageId) => {
   return fetch(`${api}/messages/${messageId.id}`, {
     method: "PUT",

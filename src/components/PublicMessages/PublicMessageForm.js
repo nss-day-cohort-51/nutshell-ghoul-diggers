@@ -8,7 +8,11 @@ import {RiSendPlane2Fill} from "react-icons/ri"
 
 
 const PublicMessageForm = ({getPublicMessages}) => {
-  const [sentMessage, setSentMessage] = useState("");
+  const [sentMessage, setSentMessage] = useState({
+    post: "",
+    timestamp: Date.now(),
+    userId: parseInt(sessionStorage.getItem("nutshell_user"))
+  });
   
   const HandleInputAndSent = (event) => {
     event.preventDefault();
@@ -23,8 +27,10 @@ const PublicMessageForm = ({getPublicMessages}) => {
     getPublicMessages())
     
     //clear the inputs when user clicks the sent icon
-    setSentMessage("")
-    }
+    setSentMessage({
+      post: "",
+    })
+  }
 
 
   return (
