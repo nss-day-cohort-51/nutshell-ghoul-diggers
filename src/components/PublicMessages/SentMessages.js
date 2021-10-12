@@ -1,49 +1,44 @@
 //Authors: Gerson M. Diketama
 
-//Purpose: This is a public message component, allows users to send messages back and forwards, and I am using React-icons for icons. 
+//Purpose: This is a public message component, allows users to send messages back and forwards, and I am using React-icons for icons.
 
 import React, { useState, useEffect } from "react";
 import { addPublicMessages } from "./publicMessageManager";
-import {AiOutlineSend} from "react-icons/ai"
+import { AiOutlineSend } from "react-icons/ai";
+import { getUserById } from "../users/UserManager";
+import { getallUsers } from "../users/UserManager";
+import { ShowUsers } from "./PublicUserCard";
 
-
-const SentMessages = ({getPublicMessages}) => {
+const SentMessages = ({ getPublicMessages }) => {
   const [sentMessage, setSentMessage] = useState("");
-  
+  const [filterUsers, setFilterUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
+
   const HandleInputAndSent = (event) => {
-   
-
-    
-    const messages = {
-      post: sentMessage,
-      userId: parseInt(sessionStorage.getItem("nutshell_user"))
-    };
-    console.log(messages)
-    addPublicMessages(messages).then(() => 
-    getPublicMessages())
-
     event.preventDefault();
-    //clear the inputs when user clicks the sent icon
-    
+    getUserById(parseInt(sessionStorage.getItem("nutshell_user"))).then(
+      (res) => {
+        const messages = {
+          post: sentMessage,
+          userId: parseInt(sessionStorage.getItem("nutshell_user")),
+          userName: res.name,
+          timestamp: Date.now(),
+        };
 
+        addPublicMessages(messages).then(() => getPublicMessages());
+      }
+    );
 
-    }
+    setSentMessage("");
+  };
 
-    
-    useEffect(() => {
- 
-      const listener = event => {
-        if (event.keyCode === 13 || event.code === "NumpadEnter") {
-          console.log("Enter key was pressed. Run your function.");
-          HandleInputAndSent(event);
-          setSentMessage("")
-         
-        }
-      };
-      document.addEventListener("keydown", listener);
-    }, []);
-
-
+  const filterData = (input) => {
+    console.log(input);
+    getallUsers().then((data) => {
+      const infoUsers = data.filter((name) => name.name.includes(input));
+      setFilterUsers(infoUsers);
+    });
+  };
 
   return (
     <>
@@ -51,9 +46,17 @@ const SentMessages = ({getPublicMessages}) => {
         type="text"
         placeholder="enter a message"
         value={sentMessage}
-        onChange={(evt) => setSentMessage(evt.target.value) }
+        onChange={(evt) => {
+          setSentMessage(evt.target.value);
+        }}
+        onKeyUp={(evt) => filterData(evt.target.value)}
       />
-      <button onClick={(event) => HandleInputAndSent(event)}><AiOutlineSend/></button>
+      {filterUsers.map((singleUser) => (
+        <ShowUsers key={singleUser.id} data={singleUser} />
+      ))}
+      <button onClick={(event) => HandleInputAndSent(event)}>
+        <AiOutlineSend />
+      </button>
     </>
   );
 };

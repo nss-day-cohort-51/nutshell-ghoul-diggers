@@ -1,3 +1,6 @@
+//Author: Brady Williams
+//Purpose: Add Friends to the database and output
+
 import React, {useState} from "react";
 import { useHistory } from "react-router";
 import { getallUsers } from "../users/UserManager";

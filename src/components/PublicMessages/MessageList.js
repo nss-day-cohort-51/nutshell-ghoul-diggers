@@ -7,13 +7,13 @@ import {AiTwotoneEdit} from "react-icons/ai"
 import { useHistory } from 'react-router'
 
 
-const MessageList = ({data, handledelete}) => {
-    const history = useHistory()
+const MessageList = ({data, handledelete, handleAddFriend}) => {
     return (
         <div>
-            <h3>{data.name}</h3>
-            <h4>{data.post} <button onClick={() =>handledelete(data.id)}><AiFillDelete/></button> <button onClick={() => history.push(`/messages/${data.id}/edit`)}><AiTwotoneEdit/></button>
-            </h4>
+            <h2>{data.user.name}</h2>
+            <h4>{data.post}</h4>
+            <button onClick={() =>handledelete(data.id)}><AiFillDelete/></button>
+            <button onClick={() => handleAddFriend(data.user.id)}>Add as friend</button>
         </div>
     )
 }

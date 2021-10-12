@@ -1,21 +1,18 @@
+//Author: Brady Williams
+//Purpose: Display the Articles main file
+
 import React, {useState, useEffect } from "react";
 import ArticleManager from "./ArticleManager"
 import { ArticleCard } from "./ArticleCard";
-import { useHistory, useParams } from "react-router";
+import { useParams } from "react-router";
+import { Link } from 'react-router-dom';
+import "./Article.css"
 
 export const Articles = () => {
 
     const [articles, changeArticles] = useState([]);
+    const [friends, changeFriend] = useState([]);
 
-    const { articleId } = useParams();
-
-    const history = useHistory();
-
-    const getArticles = () => {
-        ArticleManager.getAllArticles().then(response => {
-            changeArticles(response);
-        })
-    }
 
     const handleDelete = (id) => {
         ArticleManager.deleteArticle(id)
@@ -23,14 +20,57 @@ export const Articles = () => {
             .then(response => changeArticles(response)))
     }
 
+    const getArticles = () => {
+        ArticleManager.getAllArticles().then(response => {
+         const res = response.filter(articleTaco => friends.some(friendsTaco => {
+                if(friendsTaco === articleTaco.userId || articleTaco.userId === parseInt(sessionStorage.getItem("nutshell_user"))){
+                    return articleTaco;
+                } }));
+            
+            changeArticles(res);
+        })
+    }
+
+    const getFriends = () => {
+        let arrayTaco = [];
+        ArticleManager.getFriendsById(parseInt(sessionStorage.getItem("nutshell_user")))
+            .then(res => {
+                
+                // console.log(res)
+                res.forEach(taco => {
+                    arrayTaco.push(taco.userId)
+                })
+                changeFriend(arrayTaco);
+                
+            })
+
+    }
+
     useEffect(() => {
-        getArticles();
+        getFriends()
+        
     }, [])
 
+    useEffect(() => {
+        getArticles();
+    }, [friends])
+
     return (
-        <div className="container-cards">
-        <button className="btn--add" onClick={() => history.push("/add")}>Add Article</button>
-        {articles.map(article => <ArticleCard key={article.id} article={article} handleDelete={handleDelete}/>)}
+        <div className="section">
+
+            <div className="section__header">
+            Articles
+            </div> 
+
+            <div className="section__content">
+                <Link to={`articles/add`}>
+                <button className="add__article">+ Add An Article</button></Link>
+            </div>
+
+            <div className="container">
+                {articles.map(article => <ArticleCard key={article.id} article={article} handleDelete={handleDelete}/>)}
+            </div>
+
         </div>
     )
 }
