@@ -9,6 +9,8 @@ import { addFriends } from "./FriendManager";
 export const AddFriend = () => {
     
     const [friend, setFriend] = useState({userId: "", currentUserId: ""});
+    const [conflictDialog, setConflictDialog] = useState(false);
+    const [conflictDialog2, setConflictDialog2] = useState(false)
 
 	const history = useHistory();
 
@@ -22,7 +24,7 @@ export const AddFriend = () => {
                         userId: taco.id,
                         currentUserId: parseInt(sessionStorage.getItem("nutshell_user"))
                     }
-                    console.log(obj)
+                    
                     setFriend(obj);
                     
                 }
@@ -35,9 +37,9 @@ export const AddFriend = () => {
         console.log(friend);
 
         if(friend.userId === ""){
-            console.log("Invalid User");
+            setConflictDialog(true)
         }else if(friend.userId === friend.currentUserId){
-            console.log("Cannot Add Yourself");
+            setConflictDialog2(true)
         }else {
             addFriends(friend).then(() => history.push("/friends"))
         }
@@ -47,9 +49,19 @@ export const AddFriend = () => {
 
     return (
         <fieldset>
+            <dialog className="dialog" open={conflictDialog}>
+                <div>Please input a users first and last name</div>
+                <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
+            </dialog>
+
+            <dialog className="dialog" open={conflictDialog2}>
+                <div>Cannot add yourself</div>
+                <button className="button--close" onClick={e => setConflictDialog2(false)}>Close</button>
+            </dialog>
+
 				<div className="form-group">
 					<label htmlFor="name">User Name: </label>
-					<input type="text" id="name" onChange={event => checkUser(event.target.value)} className="form-control" placeholder="User Name" />
+					<input type="text" id="name" onChange={event => checkUser(event.target.value)} className="form-control" placeholder="Input first and last name" />
                     <button className="save__button" onClick={() => handleSave()}>Save</button>
                     <button className="cancel__button" onClick={() => history.push("/friends")}>Cancel</button>
 				</div>
