@@ -24,6 +24,14 @@ code {
   font-weight: 800;
   color: #483934;
   text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard__subtitle {
+  font-size: 32px;
+  font-weight: 600;
+  color: #483934;
+  text-align: center;
   margin-bottom: 50px;
 }
 
@@ -40,6 +48,9 @@ code {
 }
 
 .r1col, .r2col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-width: 400px;
   min-height: 200px;
   font-size: 34px;
@@ -48,8 +59,23 @@ code {
   border: 5px solid #A4B900;
   border-radius: 10px;
   margin: 20px;
-  padding: 30px;
+  padding: 0px 30px;
   text-align: center;
+}
+
+.category {
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.nums {
+  padding: 0px;
+  margin: 0px auto 30px;
+  text-align: center;
+  background-color: white;
+  width: 100px;
+  border-radius: 5px;
 }
 
 .dashboard a {

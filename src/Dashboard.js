@@ -11,6 +11,16 @@ export const Dashboard = () => {
   const [ friendNums, setFriendNums ] = useState(0);
   const [ taskNums, setTaskNums ] = useState(0);
   const [ eventNums, setEventNums ] = useState(0);
+  const [ userInfo, setUserInfo ] =  useState(0);
+
+  const user = sessionStorage.getItem("nutshell_user");
+  console.log("User is ", user)
+
+  // setUserInfo(user);
+  // .then(user => {
+  //   console.log("user is: ", user)
+  //   setUserInfo(user)
+  // });
 
   const showArticlesDash = () => {
     ArticleManager.getAllArticles()
@@ -36,8 +46,7 @@ export const Dashboard = () => {
     showArticlesDash();
     showFriendsDash();
     showTasksDash();
-    showEventsDash();
-    
+    showEventsDash();  
 }, [])
 
 return (
@@ -45,6 +54,8 @@ return (
     <div className="dashboard">
 
       <div className="dashboard__title">Dashboard</div>
+      <div className="dashboard__subtitle">Welcome, {userInfo.name}</div>
+
 
         <div className="row1">
 

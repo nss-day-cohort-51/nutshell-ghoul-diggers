@@ -16,20 +16,21 @@ Montserrat', sans-serif;
 footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: #FBC859;
-  height: 225px;
+  padding: 0px 20px 30px;
 }
 
 /* logo is in column 1 */
 .col1 {
-  padding: 10px 0px;
-  margin-top: 40px;
+  padding-left: 30px;
+  padding-top: 60px;
 }
 
 .footer__logo {
   width: 250px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
+  margin: auto auto;
 }
 
 /* copyright quote is in column 2 */
@@ -53,8 +54,7 @@ footer {
   font-size: 20px;
   font-weight: 800;
   color: #483934;
-  padding-top: 10px;
-  margin: 5px 0px 15px;
+  margin-bottom: 15px;
 }
 
 .team {
@@ -62,7 +62,7 @@ footer {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  /* margin-bottom: 15px; */
+  margin-bottom: 5px;
 }
 
 .team a {
