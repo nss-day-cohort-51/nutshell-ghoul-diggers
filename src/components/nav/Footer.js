@@ -1,6 +1,7 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import "../nav/Footer.css"
-// import logo from "../../images/nutshell_logo_bgyellow.png";
+import logo from "../../images/nutshell_logo_bgyellow.png";
 
 export const Footer = () => {
 
@@ -9,7 +10,9 @@ return (
     <footer>
             <div className="col1">
                 <picture>
-                  <img src={require(`../../images/nutshell_logo_bgyellow.png`).default} alt="Nutshell App Logo" className="footer__logo" />
+                <Link to="/">
+                  <img className="footer__logo" src={logo} alt="C51 Nutshell Logo" />
+                </Link>
                 </picture>
             </div>
                 

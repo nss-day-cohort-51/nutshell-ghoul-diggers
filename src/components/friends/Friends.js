@@ -2,15 +2,13 @@
 //Purpose: Output List of friends to DOM
 
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
 import { deleteFriend, getFriendsById } from "./FriendManager";
 import { FriendCard } from "./FriendCard";
-import { useHistory } from "react-router";
 import "./Friend.css"
 
 export const Friends = () => {
     const [friends, changeFriends] = useState([])
-
-    const history = useHistory();
 
     const getFriends = () => {
         getFriendsById(sessionStorage.getItem("nutshell_user")).then(response => {
@@ -19,7 +17,7 @@ export const Friends = () => {
     }
 
     const handleDelete = (friendId) => {
-        //invoke the delete function in AnimalManger and re-direct to the animal list.
+        //invoke the delete function and re-direct to the list
         deleteFriend(friendId).then(() => getFriendsById(sessionStorage.getItem("nutshell_user")).then(changeFriends))
         console.log(friendId);
     };
@@ -29,11 +27,22 @@ export const Friends = () => {
     }, [])
 
     return (
-        <section className="section__friend">
-        <div className="friend-card">
-            <button className="friend-card__addFriend" onClick={() => { history.push("/friends/add") }}>+ Add Friend</button>
-            {friends.map(friend => <FriendCard key={friend.id} friend={friend} handleDelete={handleDelete} />)}
+        <div className="section__friends">
+
+            <div className="section__header">
+            Friends
+            </div> 
+
+            <div className="section__content">
+                <Link to={`/friends/add`}>
+                <button className="add__friend">+ Add Friend</button>
+                </Link>
+            </div>
+
+            <div className="container">
+                {friends.map(friend => <FriendCard key={friend.id} friend={friend} handleDelete={handleDelete} />)}
+            </div>
+
         </div>
-        </section>
     )
 }

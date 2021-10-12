@@ -80,6 +80,12 @@ Montserrat', sans-serif;
   border-radius: 7px;
 }
 
+.article__info--field a {
+  text-decoration: none;
+  color: #596501;
+  font-weight: 600;
+}
+
 .remove__item {
   display: flex;
   flex-direction: row;
@@ -107,6 +113,18 @@ Montserrat', sans-serif;
 .button.lg {
   font-size: 36px;
 }
+
+.card-friend {
+  background-color: cornsilk;
+}
+
+.p-italic {
+  font-style: italic;
+}
+
+.task-italic {
+  font-style: italic;
+}
 /* end of styling for Article List */
 
 /* start of styling for Add Article Form */
@@ -116,6 +134,7 @@ Montserrat', sans-serif;
   align-content: center;
   font-family: "Montserrat", sans-serif;
   padding: 15px;
+  min-height: 65vh;
 }
 
 form {

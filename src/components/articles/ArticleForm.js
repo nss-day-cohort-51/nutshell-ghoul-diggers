@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import ArticleManager from "./ArticleManager";
+import "./Article.css"
 
 export const ArticleForm = () => {
     const [article, changeArticle] = useState({ userId: parseInt(sessionStorage.getItem("nutshell_user")), url: "", title: "", synopsis: "", timestamp: Date.now() });
@@ -62,13 +63,8 @@ export const ArticleForm = () => {
                     </div>
 
                     <div className="form__group">
-<<<<<<< HEAD:src/components/articles/ArticleForm.js
                         <label htmlFor="url">URL: </label>
-                        <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert url"/>
-=======
-                        <label htmlFor="url">url: </label>
-                        <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert url" />
->>>>>>> main:src/components/articles/AddArticle.js
+                        <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert URL"/>
                     </div>
 
                     <div className="form__group">

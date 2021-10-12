@@ -23,15 +23,16 @@ const MessageCard = ({data, handledelete, handleAddFriend}) => {
     return (
 <>
             <div className="message__list__flex">
+                
                 <div className="card__content--messages">
 
                     <div className="message__info">
 
-                        <div className="message__info__name"><strong>{data.user.name} </strong></div>
+                        <div className="message__info--name"><strong>{data.user.name} </strong></div>
 
-                        <div className="message__info__field"><strong>Message: </strong>{data.post}</div>
+                        <div className="message__info--field"><strong>Message: </strong>{data.post}</div>
 
-                        <div className="message__info__date"><strong>Posted On: </strong> {formatDate(data.timestamp)} at {formatTime(data.timestamp)}</div>
+                        <div className="message__info--date"><strong>Posted On: </strong> {formatDate(data.timestamp)} at {formatTime(data.timestamp)}</div>
 
                     </div>
 

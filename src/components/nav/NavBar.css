@@ -63,3 +63,7 @@ Montserrat', sans-serif;
   cursor: pointer;
   border: #FBC859;
 }
+
+.nav__button:hover {
+  color: #889a00;
+}
