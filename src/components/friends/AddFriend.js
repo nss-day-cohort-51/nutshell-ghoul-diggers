@@ -50,7 +50,7 @@ export const AddFriend = () => {
 
 
     return (
-        <fieldset>
+        <fieldset className="form">
             <dialog className="dialog" open={conflictDialog}>
                 <div>Please input a users first and last name</div>
                 <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
@@ -63,8 +63,8 @@ export const AddFriend = () => {
 
             <div className="form-group">
                 <label htmlFor="name">User Name: </label>
-                <input type="text" id="name" onChange={event => checkUser(event.target.value)} className="form-control" placeholder="Input first and last name" />
-                <button className="save__button" onClick={() => handleSave()}>Save</button>
+                <input type="text" id="name" onChange={event => checkUser(event.target.value)} className="form-control" placeholder="Enter Users Name" />
+                <button className="save__button" onClick={() => handleSave()}>Add Friend</button>
                 <button className="cancel__button" onClick={() => history.push("/friends")}>Cancel</button>
             </div>
         </fieldset>
