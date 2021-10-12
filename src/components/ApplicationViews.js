@@ -2,12 +2,12 @@ import { Route } from "react-router-dom"
 import { EventList } from "./events/EventList"
 import { EventForm } from "./events/EventForm"
 import { EventEditForm } from "./events/EventEditForm"
+import { getFriendsById } from "./friends/FriendManager"
 import { TaskEditForm } from "./tasks/TaskEditForm"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
 import React, { useState } from "react";
 import { PublicMessages } from "./PublicMessages/PublicMessages";
-import PublicMessageForm from "./PublicMessages/PublicMessageForm";
 import { getPublicMessages } from "./PublicMessages/PublicMessageManager";
 import { ArticleForm } from "./articles/ArticleForm"
 import { Articles } from "./articles/Articles"
@@ -16,11 +16,26 @@ import { AddFriend } from "./friends/AddFriend"
 import { Friends } from "./friends/Friends"
 import { MessageEditForm } from "./PublicMessages/MessageEditForm";
 import { Dashboard } from "../Dashboard";
+import { SentMessages } from "../components/PublicMessages/SentMessages"
 
 export const ApplicationViews = () => {
-  const [publicMessages, setPublicMessages] = useState([])
-  const getMessages = () => {
-    getPublicMessages().then((messages) => setPublicMessages(messages));
+  const [messages, setPublicMessages] = useState([])
+  const [friends, changeFriend] = useState([]);
+
+  const getMeMesssage = () => {
+    console.log("getmemessage")
+    getPublicMessages().then((message) => setPublicMessages(message));
+  };
+
+  const getFriendsList = () => {
+    let arrayTaco = [];
+
+    getFriendsById(parseInt(sessionStorage.getItem("nutshell_user"))).then(res => {
+        res.forEach(taco => {
+            arrayTaco.push(taco.userId);
+        })
+        changeFriend(arrayTaco);
+    })
   };
 
   return (
@@ -41,7 +56,7 @@ export const ApplicationViews = () => {
         <ArticleForm />
       </Route>
 
-      <Route path="/articles/:articleId(\d+)/edit">
+      <Route exact path="/articles/:articleId(\d+)/edit">
         <ArticleEditForm />
       </Route>
 
@@ -63,8 +78,8 @@ export const ApplicationViews = () => {
 
       <Route exact path="/messages">
         {/* Render the component for the messages */}
-        <PublicMessageForm getPublicMessages={getMessages} />
-        <PublicMessages publicMessages={publicMessages} getPublicMessages={getMessages} />
+        <PublicMessages messages={messages} getPublicMessages={getMeMesssage} friends={friends} getFriendsList={getFriendsList}/>
+        <SentMessages getPublicMessages={getMeMesssage} />
       </Route>
 
       <Route exact path="/tasks">

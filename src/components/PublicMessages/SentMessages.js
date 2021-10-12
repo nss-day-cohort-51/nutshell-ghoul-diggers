@@ -2,10 +2,17 @@
 
 //Purpose: This is a public message component, allows users to send messages back and forwards, and I am using React-icons for icons. 
 
+<<<<<<< HEAD
 // import React, { useState, useEffect } from "react";
 // import { addPublicMessages } from "./publicMessageManager";
 // import {AiOutlineSend} from "react-icons/ai"
 // import { getUserById } from "../users/UserManager";
+=======
+import React, { useState} from "react";
+import { addPublicMessages } from "./publicMessageManager";
+import {AiOutlineSend} from "react-icons/ai"
+import { getUserById } from "../users/UserManager";
+>>>>>>> main
 
 
 // const SentMessages = ({getPublicMessages}) => {
