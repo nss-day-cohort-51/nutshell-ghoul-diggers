@@ -4,7 +4,7 @@
 import React, {useEffect } from "react";
 import { deleteMessages } from "./PublicMessageManager";
 import { MessageCard } from "./MessageCard";
-import { addFriends, getFriendsById } from "../friends/FriendManager";
+import { addFriends } from "../friends/FriendManager";
 import { getUserById } from "../users/UserManager";
 import "./Message.css"
 

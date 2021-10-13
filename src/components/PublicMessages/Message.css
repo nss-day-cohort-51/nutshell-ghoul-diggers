@@ -65,7 +65,7 @@ Montserrat', sans-serif;
 
 .card__content--messages {
   align-self: center;
-  width: 800px;
+  width: 600px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -79,7 +79,7 @@ Montserrat', sans-serif;
 }
 
 .message__info {
-  width: 700px;
+  width: 400px;
   white-space: wrap;
   padding: 20px;
   background-color: #fbc859bc;
@@ -231,7 +231,7 @@ button:disabled:hover {
 .message__input--textarea {
 padding: 0px;
 margin: 0px;
-width: 600px;
+width: 500px;
 }
 
 .form__group--message {
@@ -291,7 +291,15 @@ width: 600px;
   border: 1px solid black;
 } */
 
+.form__btn--wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px; 
+}
+
 .form__btn--friend {
+  align-self: center;
   font-size: 18px;
   font-weight: 800;
   background-color: #A4B900;

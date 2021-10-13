@@ -70,13 +70,14 @@ export const MessageCard = (
                         <div className="message__info--date"><strong>Posted On: </strong> {formatDate(data.timestamp)} at {formatTime(data.timestamp)}</div>
 
                     </div>
-
-                    <button 
-                            type="button"
-                            className="form__btn--friend"
-                            onClick={() => handleAddFriend(data.user.id)}>
-                                + Add Friend
-                    </button>
+                    <div className="form__btn--wrapper">
+                        <button 
+                                type="button"
+                                className="form__btn--friend"
+                                onClick={() => handleAddFriend(data.user.id)}>
+                                    + Add Friend
+                        </button>
+                    </div>
 
                 </div>
             
