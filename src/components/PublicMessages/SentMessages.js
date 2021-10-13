@@ -1,6 +1,5 @@
-//Authors: Gerson M. Diketama
-
-//Purpose: This is a public message component, allows users to send messages back and forwards, and I am using React-icons for icons. 
+//Author: Gerson M. Diketama
+//Purpose: This is a public message component that allows users to send messages to a message board
 
 import React, { useState} from "react";
 import { addPublicMessages } from "./PublicMessageManager";
