@@ -11,7 +11,9 @@ const history = useHistory();
 
   return (
     <nav className="nav__flex">
-      <img className="logo" src={logo} alt="C51 Nutshell Logo" />
+                <Link to="/">
+                  <img className="logo" src={logo} alt="C51 Nutshell Logo" />
+                </Link>
       <ul className="nav">
         <li className="nav__item">
           <Link className="nav__link" to="/articles">Articles</Link>
