@@ -38,7 +38,7 @@ export const EventWeather = ( { event } ) => {
 
   return ( 
     <>
-    {theWeather.avg !== "" ?
+    {theWeather.icon !== "" ?
 
     <div className="forecast__flex">
 
@@ -64,8 +64,10 @@ export const EventWeather = ( { event } ) => {
       <div className="forecast__label">Conditions: </div>
       <div className="forecast__info"> {theWeather.condition}</div>
       </div>
-
+      
+      { theWeather.icon ?
       <div className="forecast__icon"><img src={theWeather.icon} alt="weather icon" /></div>
+      : <p> no icon available for today </p> }
 
     </div>
       : <p className="no__forecast">Forecast Info Not Available For This Date</p> }

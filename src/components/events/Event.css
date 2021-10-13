@@ -282,5 +282,6 @@ button:disabled:hover {
   text-align: center;
   font-size: 22px;
   font-weight: 600;
+  padding: 20px;
 }
 /* end of EventWeather forecast popup styling */
