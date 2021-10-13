@@ -65,7 +65,7 @@ Montserrat', sans-serif;
 
 .card__content--messages {
   align-self: center;
-  width: 600px;
+  width: 640px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -79,7 +79,7 @@ Montserrat', sans-serif;
 }
 
 .message__info {
-  width: 400px;
+  width: 415px;
   white-space: wrap;
   padding: 20px;
   background-color: #fbc859bc;
@@ -109,7 +109,14 @@ Montserrat', sans-serif;
   align-items: center;
   padding: 5px 5px 5px 20px;
   margin: auto 10px;
-  /* border: 1px solid blue; */
+}
+
+.remove__item--message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 28px;
+  margin: auto 10px;
 }
 
 .button {
@@ -205,6 +212,14 @@ button:disabled:hover {
   margin-bottom: 30px;
 }
 
+.message__flex--edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px;
+  min-height: 65vh;
+}
+
 .message__input--headline {
   align-self: center;
   font-size: 44px;
@@ -277,19 +292,7 @@ width: 500px;
   padding: 5px 15px 0px 18px;
   margin: 0px 5px 0px;
   height: 41px;
-  border: 1px solid black;
 }
-
-/* .form__btn--edit--message {
-  font-size: 18px;
-  font-weight: 800;
-  background-color: #A4B900;
-  border: 1px solid #849503;
-  border-radius: 5px;
-  padding: 10px;
-  height: 40px;
-  border: 1px solid black;
-} */
 
 .form__btn--wrapper {
   display: flex;
@@ -306,7 +309,7 @@ width: 500px;
   border: 1px solid #849503;
   border-radius: 5px;
   padding: 5px 15px;
-  margin: 0px 5px 4px 15px;
+  margin: 0px 5px 4px;
   white-space: nowrap;
 }
 /* end of styling for Add Message Form */

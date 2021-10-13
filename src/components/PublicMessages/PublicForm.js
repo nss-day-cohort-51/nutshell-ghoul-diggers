@@ -1,5 +1,5 @@
 //Author: Gerson M. Diketama
-//Purpose: Edit exisiting Messages.
+//Purpose: Edit existing messages
 
 
 import React, {useState, useEffect} from "react";
@@ -13,7 +13,7 @@ export const MessageEdit = () =>
     const{messageId} = useParams()
     const history = useHistory()
 
-    const hadleFields = evt => 
+    const handleFields = evt => 
     {
         const stateTochange = {...edits}
         stateTochange[evt.target.id] = evt.target.value
@@ -44,7 +44,7 @@ export const MessageEdit = () =>
 
     return(
         <form>
-            <input value={edits.post} id="post" type="text" onChange={hadleFields}/>
+            <input value={edits.post} id="post" type="text" onChange={handleFields}/>
             <button onClick={updateMessage}>Save</button>
         </form>
     )

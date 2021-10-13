@@ -40,7 +40,7 @@ export const Login = () => {
     return (
         <main className="container--login">
             <dialog className="dialog dialog--auth" open={existDialog}>
-                <div>User does not exist</div>
+                <div className="login__dialog">User does not exist</div>
                 <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
             </dialog>
         

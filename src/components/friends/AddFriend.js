@@ -58,12 +58,12 @@ export const AddFriend = () => {
 
         <fieldset className="form">
             <dialog className="dialog" open={conflictDialog}>
-                <div>Please input a users first and last name</div>
+                <div className="friend__dialog">Please Input User's First &#38; Last Name</div>
                 <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
             </dialog>
 
             <dialog className="dialog" open={conflictDialog2}>
-                <div>Cannot add yourself</div>
+                <div className="friend__dialog">Cannot Add Yourself</div>
                 <button className="button--close" onClick={e => setConflictDialog2(false)}>Close</button>
             </dialog>
 
@@ -75,7 +75,7 @@ export const AddFriend = () => {
         </fieldset>
 
         <div className="form__btns">
-                <button type="button" className="form__btn" onClick={() => handleSave()}>Add Friend</button>
+                <button type="button" className="form__btn" onClick={() => handleSave()}>Submit</button>
                 <button className="form__btn" onClick={() => history.push("/friends")}>Cancel</button>
         </div>
 

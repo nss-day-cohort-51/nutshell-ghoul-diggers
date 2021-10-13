@@ -1,7 +1,21 @@
+/* 
+Author: Susie Stanley
+Purpose: Controls styling of message page
+
+Page colors:
+#FBC859 - Daffodil
+#A4B900 - Avocado
+#bcd501 - Lime
+#483934 - Mahogany
+#76AECB - Periwinkle
+
+Page font:
+Montserrat', sans-serif;
+*/
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  /* font-family: 'Source Serif Pro', serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -98,4 +112,29 @@ code {
 .nums {
   font-size: 50px;
   font-weight: 800;
+}
+
+.dialog {
+  font-size: 20px; 
+  border: 4px solid #A4B900;
+  background-color: #FBC859;
+  padding: 20px;
+  text-align: center;
+}
+
+.friend__dialog, .login__dialog, .event__dialog {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.button--close {
+  font-size: 14px;
+  font-weight: 800;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0px 5px 0px;
 }

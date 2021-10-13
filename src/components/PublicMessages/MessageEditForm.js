@@ -43,8 +43,7 @@ export const MessageEditForm = () =>
     },[])
 
     return(
-        <>
-
+      <div className="message__flex--edit">
         <div className="message__input--edit">
 
             <div className="message__input--textarea">
@@ -72,6 +71,6 @@ export const MessageEditForm = () =>
             </div>
 
         </div>
-        </>
+      </div>
     )
 }

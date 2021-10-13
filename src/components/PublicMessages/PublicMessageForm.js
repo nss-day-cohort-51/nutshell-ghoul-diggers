@@ -9,7 +9,7 @@ import { getUserById } from "../users/UserManager";
 
 
 export const PublicMessageForm = ({getPublicMessages}) => {
-  const [sentMessage, setSentMessage] = useState("");
+  const [sentMessage, setSentMessage] = useState();
   
   const HandleInput = (event) => {
     event.preventDefault();
@@ -27,6 +27,9 @@ export const PublicMessageForm = ({getPublicMessages}) => {
         addPublicMessages(messages).then(() => 
         getPublicMessages()
         );
+
+        //clear the inputs when user clicks the sent icon
+        setSentMessage("");
       })
   };
 

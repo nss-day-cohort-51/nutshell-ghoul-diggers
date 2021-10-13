@@ -102,7 +102,7 @@ export const MessageCard = (
 
                 </div>
 
-                <div className="remove__item">
+                <div className="remove__item--message">
 
                     <button 
                     className="button sm"

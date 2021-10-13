@@ -50,7 +50,7 @@ export const ArticleForm = () => {
         <div className="form__flex">
 
             <dialog className="dialog" open={conflictDialog}>
-                <h2>Please fill all fields</h2>
+                <h2>Please Fill In All Fields</h2>
                 <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
             </dialog>
 
