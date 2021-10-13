@@ -21,8 +21,9 @@ export const EventWeather = ( { event } ) => {
           low: weather.forecast.forecastday[0].day.mintemp_f,
           avg: weather.forecast.forecastday[0].day.avgtemp_f,
           condition: weather.forecast.forecastday[0].day.condition.text,
-          icon: weather.forecast.forecastday[0].day.condition.icon
+          icon: "http:" + weather.forecast.forecastday[0].day.condition.icon
         });
+        console.log("weather icon is: ", weather.forecast.forecastday[0].day.condition.icon)
       } else {
         console.log("weather info came back undefined")
         }
@@ -62,19 +63,12 @@ export const EventWeather = ( { event } ) => {
       <div className="forecast__wrap"></div>
       <div className="forecast__label">Conditions: </div>
       <div className="forecast__info"> {theWeather.condition}</div>
-
       </div>
+
+      <div className="forecast__icon"><img src={theWeather.icon} alt="weather icon" /></div>
 
     </div>
       : <p className="no__forecast">Forecast Info Not Available For This Date</p> }
-
-      {/* <picture>
-          {theWeather.icon !== "" ?
-          <img src={require(`http:${theWeather.icon}`).default} alt="weather icon" className=""/> 
-          : <p>There isn't an icon available</p>}
-      </picture> */}
-
-      {/* <div className="forecast__icon">Icon Goes Here {theWeather.icon}</div> */}
 
     </>
   );
