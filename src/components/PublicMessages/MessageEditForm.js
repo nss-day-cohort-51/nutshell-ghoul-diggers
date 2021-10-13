@@ -1,10 +1,10 @@
 //Author: Gerson M. Diketama
-//Purpose: Edit exisiting Messages.
+//Purpose: Edit existing messages
 
 
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
-import { editMessages, messageById } from "./PublicMessageManager";
+import { editMessages, getMessageById } from "./PublicMessageManager";
 
 
 export const MessageEditForm = () =>
@@ -38,7 +38,7 @@ export const MessageEditForm = () =>
 
 
     useEffect(() => {
-        messageById(messageId)
+        getMessageById(messageId)
         .then(messages => setEdits(messages))
     },[])
 

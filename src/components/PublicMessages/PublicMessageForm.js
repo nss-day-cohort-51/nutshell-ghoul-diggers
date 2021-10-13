@@ -5,32 +5,30 @@
 import React, { useState } from "react";
 import { addPublicMessages } from "./PublicMessageManager";
 import {RiSendPlane2Fill} from "react-icons/ri"
+import { getUserById } from "../users/UserManager";
 
 
-const PublicMessageForm = ({getPublicMessages}) => {
-  const [sentMessage, setSentMessage] = useState({
-    post: "",
-    timestamp: Date.now(),
-    userId: parseInt(sessionStorage.getItem("nutshell_user"))
-  });
+export const PublicMessageForm = ({getPublicMessages}) => {
+  const [sentMessage, setSentMessage] = useState("");
   
-  const HandleInputAndSent = (event) => {
+  const HandleInput = (event) => {
     event.preventDefault();
 
-    const messages = {
-      post: sentMessage,
-      timestamp: Date.now(),
-      userId: parseInt(sessionStorage.getItem("nutshell_user"))
-    };
+    getUserById(parseInt(sessionStorage.getItem("nutshell_user")))
+      .then(res => {
+
+        const messages = {
+          post: sentMessage,
+          userId: parseInt(sessionStorage.getItem("nutshell_user")),
+          userName: res.name,
+          timestamp: Date.now()
+        };
     
-    addPublicMessages(messages).then(() => 
-    getPublicMessages())
-    
-    //clear the inputs when user clicks the sent icon
-    setSentMessage({
-      post: "",
-    })
-  }
+        addPublicMessages(messages).then(() => 
+        getPublicMessages()
+        );
+      })
+  };
 
 
   return (
@@ -55,7 +53,7 @@ const PublicMessageForm = ({getPublicMessages}) => {
             <button
               type="button"
               className="form__btn--message" 
-              onClick={(event) => HandleInputAndSent(event)}>
+              onClick={(event) => HandleInput(event)}>
                 <RiSendPlane2Fill />
             </button>
         </div>
@@ -66,5 +64,3 @@ const PublicMessageForm = ({getPublicMessages}) => {
     </>
   );
 };
-
-export default PublicMessageForm;

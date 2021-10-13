@@ -14,6 +14,7 @@ export const SentMessages = ({getPublicMessages}) => {
    
 
     event.preventDefault();
+    
     getUserById(parseInt(sessionStorage.getItem("nutshell_user")))
       .then(res => {
 

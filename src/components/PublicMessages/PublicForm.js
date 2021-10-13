@@ -4,7 +4,7 @@
 
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
-import { editMessages, messagById } from "./PublicMessageManager";
+import { editMessages, messageById } from "./PublicMessageManager";
 
 
 export const MessageEdit = () =>
@@ -38,7 +38,7 @@ export const MessageEdit = () =>
 
 
     useEffect(() => {
-        messagById(messageId)
+        messageById(messageId)
         .then(messages => setEdits(messages))
     },[])
 

@@ -16,14 +16,14 @@ import { AddFriend } from "./friends/AddFriend"
 import { Friends } from "./friends/Friends"
 import { MessageEditForm } from "./PublicMessages/MessageEditForm";
 import { Dashboard } from "../Dashboard";
-import { SentMessages } from "../components/PublicMessages/SentMessages"
+import { PublicMessageForm } from "../components/PublicMessages/PublicMessageForm"
 
 export const ApplicationViews = () => {
   const [messages, setPublicMessages] = useState([])
   const [friends, changeFriend] = useState([]);
 
-  const getMeMesssage = () => {
-    console.log("getmemessage")
+  const getMessages = () => {
+    console.log("getMessages")
     getPublicMessages().then((message) => setPublicMessages(message));
   };
 
@@ -60,9 +60,7 @@ export const ApplicationViews = () => {
         <ArticleEditForm />
       </Route>
 
-      {/* author: Gerson
-      Purpose: If the route matches the message edit path then it will take the user to this page */}
-      <Route path="/messages/:messageId(\d+)/edit">
+      <Route exact path="/messages/:messageId(\d+)/edit">
         <MessageEditForm />
       </Route>
 
@@ -78,8 +76,8 @@ export const ApplicationViews = () => {
 
       <Route exact path="/messages">
         {/* Render the component for the messages */}
-        <SentMessages getPublicMessages={getMeMesssage} />
-        <PublicMessages messages={messages} getPublicMessages={getMeMesssage} friends={friends} getFriendsList={getFriendsList}/>
+        <PublicMessageForm getPublicMessages={getMessages} />
+        <PublicMessages messages={messages} getPublicMessages={getMessages} friends={friends} getFriendsList={getFriendsList}/>
       </Route>
 
       <Route exact path="/tasks">
