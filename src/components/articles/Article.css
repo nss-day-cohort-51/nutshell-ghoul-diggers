@@ -72,12 +72,23 @@ Montserrat', sans-serif;
 }
 
 .article__info {
-  width: 600px;
+  width: 520px;
   white-space: wrap;
   padding: 20px;
   background-color: #fbc859bc;
   border: 0.5px solid #fbc85968;
   border-radius: 7px;
+}
+
+.article__info--friend {
+  width: 520px;
+  white-space: wrap;
+  padding: 20px;
+  background-color: #fbc859bc;
+  border: 0.5px solid #fbc85968;
+  border-radius: 7px;
+  background-color: cornsilk;
+  font-style: italic;
 }
 
 .article__info--field a {
@@ -114,17 +125,6 @@ Montserrat', sans-serif;
   font-size: 36px;
 }
 
-.card-friend {
-  background-color: cornsilk;
-}
-
-.p-italic {
-  font-style: italic;
-}
-
-.task-italic {
-  font-style: italic;
-}
 /* end of styling for Article List */
 
 /* start of styling for Add Article Form */

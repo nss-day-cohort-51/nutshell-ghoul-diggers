@@ -54,19 +54,19 @@ export const ArticleCard = ({article, handleDelete}) => {
       return (
         <div className="card__content">
 
-<div className="article__info">
+            <div className="article__info--friend">
 
-<div className="article__info__field"><strong>Title: </strong>{article.title}</div>
+            <div className="article__info__field"><strong>Title: </strong> {article.title}</div>
 
-<div className="article__info__field"><strong>URL: </strong> {article.url}</div>
+            <div className="article__info--field"><strong>URL: </strong> <a href={article.url} target="_blank" rel="noreferrer"> Check it out!</a></div>
 
-<div className="article__info__field"><strong>Synopsis: </strong>{article.synopsis}</div>
+            <div className="article__info__field"><strong>Synopsis: </strong> {article.synopsis}</div>
 
-<div className="article__info__field"><strong>Posted By: </strong> {article.user.name}</div>
+            <div className="article__info__field"><strong>Posted By: </strong> {article.user.name}</div>
 
-<div className="article__info__field"><strong>Posted On: </strong> {formatDate(article.timestamp)} at {formatTime(article.timestamp)}</div>
+            <div className="article__info__field"><strong>Posted On: </strong> {formatDate(article.timestamp)} at {formatTime(article.timestamp)}</div>
 
-</div>
+            </div>
         
         </div>
       )
