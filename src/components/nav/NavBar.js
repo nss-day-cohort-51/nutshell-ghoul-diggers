@@ -10,11 +10,8 @@ export const NavBar = () => {
 const history = useHistory();  
 
   return (
-    <header>
     <nav className="nav__flex">
-      <Link to="/">
       <img className="logo" src={logo} alt="C51 Nutshell Logo" />
-      </Link>
       <ul className="nav">
         <li className="nav__item">
           <Link className="nav__link" to="/articles">Articles</Link>
@@ -39,6 +36,5 @@ const history = useHistory();
         </li>
       </ul>
     </nav>
-    </header>
   )
 }

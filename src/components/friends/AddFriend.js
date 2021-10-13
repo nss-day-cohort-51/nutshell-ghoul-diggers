@@ -35,7 +35,6 @@ export const AddFriend = () => {
     }
 
     const handleSave = () => {
-
         console.log(friend);
 
         if (friend.userId === "") {
@@ -52,40 +51,35 @@ export const AddFriend = () => {
 
     return (
 <>
-        <div className="form__flex">
 
-            <form>
-                <div className="form__title--friend">
-                    Add New Friend
-                </div>
+    <div className="form__flex">
 
-                <fieldset>
+    <div className="form__title">Add Friend</div>
 
-                    <dialog className="dialog" open={conflictDialog}>
-                        <div>Please input a users first and last name</div>
-                        <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
-                    </dialog>
+        <fieldset className="form">
+            <dialog className="dialog" open={conflictDialog}>
+                <div>Please input a users first and last name</div>
+                <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
+            </dialog>
 
-                    <dialog className="dialog" open={conflictDialog2}>
-                        <div>Cannot add yourself</div>
-                        <button className="button--close" onClick={e => setConflictDialog2(false)}>Close</button>
-                    </dialog>
+            <dialog className="dialog" open={conflictDialog2}>
+                <div>Cannot add yourself</div>
+                <button className="button--close" onClick={e => setConflictDialog2(false)}>Close</button>
+            </dialog>
 
-                    <div className="form__group">
-                        <label htmlFor="name">User Name: </label>
-                        <input type="text" id="name" onChange={event => checkUser(event.target.value)} className="form__group--edit" placeholder="Enter Users Name" />
-                    </div>
+            <div className="form__group">
+                <label htmlFor="name">User Name: </label>
+                <input type="text" id="name" onChange={event => checkUser(event.target.value)} className="form__group--edit" placeholder="Enter Users Name" />
+            </div>
 
-                </fieldset>
+        </fieldset>
 
-                <div className="form__btns">
-                    <button className="form__btn" onClick={() => handleSave()}>Add Friend</button>
-                    <button className="form__btn" onClick={() => history.push("/friends")}>Cancel</button>
-                </div>
-                
-            </form>
-
+        <div className="form__btns">
+                <button type="button" className="form__btn" onClick={() => handleSave()}>Add Friend</button>
+                <button className="form__btn" onClick={() => history.push("/friends")}>Cancel</button>
         </div>
+
+    </div>
 </>
     )
 }

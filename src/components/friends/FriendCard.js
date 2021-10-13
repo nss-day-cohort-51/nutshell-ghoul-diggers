@@ -19,12 +19,18 @@ export const FriendCard = ({ friend, handleDelete }) => {
                 : <p>photo loading...</p>}
             </div>
 
-            <div className="friend__info--name"> 
-              <div className="friend__name--delete">
-                {friend.user.name}
-                <button type="button" className="friend__delete--btn" onClick={() => handleDelete(friend.id)}><FaTrash />
-                </button>
-              </div>
+            <div className="friend__info--name">
+
+                <div className="friend__name--delete"><strong>
+                  {friend.user.name}</strong>
+
+                    <div className="icon">
+                      <button type="button" className="friend__delete--btn" onClick={() => handleDelete(friend.id)}><FaTrash />
+                      </button>
+                    </div>
+
+                </div>
+
             </div>
         
         </div>

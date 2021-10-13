@@ -59,11 +59,13 @@ Montserrat', sans-serif;
   font-weight: bold;
   color: #483934;
   text-decoration: none;
-  background-color: #FBC859;
+  background-color: #bcd501;
   cursor: pointer;
-  border: #FBC859;
+  border: 3px solid #8fa200;
+  border-radius: 8px;
+  padding: 5px 10px;
 }
 
-.nav__button:hover {
+/* .nav__button:hover {
   color: #889a00;
-}
+} */

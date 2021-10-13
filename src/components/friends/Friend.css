@@ -93,6 +93,9 @@ Montserrat', sans-serif;
 }
 
 .friend__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 500px;
   white-space: wrap;
   padding: 20px;
@@ -102,18 +105,24 @@ Montserrat', sans-serif;
 }
 
 .friend__info--image img {
-  width: 150px;
+  width: 125px;
   border: 6px solid #A4B900;
   border-radius: 75px;
 }
 
 .friend__info--name {
   font-size: 24px;
-  margin: 5px 0px;
+  margin: 0px;
+  text-align: right;
 }
 
-.friend__info--delete {
-  padding: 0px 20px 5px;
+.friend__name--delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .remove__item {
@@ -128,7 +137,7 @@ Montserrat', sans-serif;
   font-size: 30px;
   color: #483934;
   transition: all .2s ease-in-out;
-  margin: 15px; 
+  margin-right: 30px; 
 }
 
 .icon a {
@@ -140,14 +149,6 @@ Montserrat', sans-serif;
 .icon:hover {
   transform: scale(1.5);
   color: #697701;
-}
-
-.friend__name--delete {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 30px;
 }
 
 .friend__delete--btn {
@@ -163,13 +164,18 @@ Montserrat', sans-serif;
 .form__flex {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  /* align-content: center; */
   font-family: "Montserrat", sans-serif;
   padding: 15px;
 }
 
-form {
+.form {
   align-self: center;
+  text-align: center;
+}
+
+.form__group {
+  text-align: left;
 }
 
 .form__title--friend {
