@@ -58,15 +58,15 @@ return (
 
         <Link to="/articles">
           <div className="r1col">
-            <p className="category">Number of Articles:</p>
-            <p className="nums">{articleNums}</p>
+            <div className="category">Number of Articles:</div>
+            <div className="nums">{articleNums}</div>
           </div>
         </Link>
 
         <Link to="/friends">
           <div className="r1col">
-            <p className="category">Number of Friends:</p>
-            <p className="nums">{friendNums}</p>
+            <div className="category">Number of Friends:</div>
+            <div className="nums">{friendNums}</div>
           </div>
         </Link>
 
@@ -76,15 +76,15 @@ return (
 
         <Link to="/tasks">
           <div className="r2col">
-            <p className="category">Number of Tasks:</p>
-            <p className="nums">{taskNums}</p>
+            <div className="category">Number of Tasks:</div>
+            <div className="nums">{taskNums}</div>
           </div>
           </Link>
 
         <Link to="/events">
           <div className="r2col">            
-            <p className="category">Number of Events:</p>
-            <p className="nums">{eventNums}</p>
+            <div className="category">Number of Events:</div>
+            <div className="nums">{eventNums}</div>
           </div>
           </Link>
 

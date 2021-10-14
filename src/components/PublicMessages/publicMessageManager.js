@@ -36,7 +36,7 @@ export const deleteMessages = (messageId) => {
 };
 
 //EDIT
-export const editMessages = (messageId) => {
+export const editMessage = (messageId) => {
   return fetch(`${api}/messages/${messageId.id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -45,7 +45,7 @@ export const editMessages = (messageId) => {
 };
 
 //UPDATE MESSAGE
-export const update = (editedMessage) => {
+export const updateMessage = (editedMessage) => {
   return fetch(`${api}/messages/${editedMessage.id}`, {
     method: "PUT",
     headers: {

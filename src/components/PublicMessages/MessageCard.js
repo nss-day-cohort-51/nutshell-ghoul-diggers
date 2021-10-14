@@ -20,7 +20,7 @@ const formatDate = (obj) => {
 
 
 export const MessageCard = (
-    {   data, 
+    {   message, 
         handledelete, 
         handleAddFriend, 
         friends, 
@@ -33,7 +33,7 @@ export const MessageCard = (
     }, []);
 
     // returns just the post
-    if(friends.includes(data.user.id) === true){
+    if(friends.includes(message.user.id) === true){
         return (
             <div className="message__list__flex">
                 
@@ -41,11 +41,11 @@ export const MessageCard = (
 
                     <div className="message__info">
 
-                        <div className="message__info--name"><strong>{data.user.name} </strong></div>
+                        <div className="message__info--name"><strong>{message.user.name} </strong></div>
 
-                        <div className="message__info--field"><strong>Message: </strong>{data.post}</div>
+                        <div className="message__info--field"><strong>Message: </strong>{message.post}</div>
 
-                        <div className="message__info--date"><strong>Posted On: </strong> {formatDate(data.timestamp)} at {formatTime(data.timestamp)}</div>
+                        <div className="message__info--date"><strong>Posted On: </strong> {formatDate(message.timestamp)} at {formatTime(message.timestamp)}</div>
 
                     </div>
 
@@ -55,7 +55,7 @@ export const MessageCard = (
         )
     }
     // returns posts and Add Friend button
-    else if(data.user.id !== parseInt(sessionStorage.getItem("nutshell_user"))){
+    else if(message.user.id !== parseInt(sessionStorage.getItem("nutshell_user"))){
         return (
             <div className="message__list__flex">
                 
@@ -63,18 +63,18 @@ export const MessageCard = (
 
                     <div className="message__info">
 
-                        <div className="message__info--name"><strong>{data.user.name} </strong></div>
+                        <div className="message__info--name"><strong>{message.user.name} </strong></div>
 
-                        <div className="message__info--field"><strong>Message: </strong>{data.post}</div>
+                        <div className="message__info--field"><strong>Message: </strong>{message.post}</div>
 
-                        <div className="message__info--date"><strong>Posted On: </strong> {formatDate(data.timestamp)} at {formatTime(data.timestamp)}</div>
+                        <div className="message__info--date"><strong>Posted On: </strong> {formatDate(message.timestamp)} at {formatTime(message.timestamp)}</div>
 
                     </div>
                     <div className="form__btn--wrapper">
                         <button 
                                 type="button"
                                 className="form__btn--friend"
-                                onClick={() => handleAddFriend(data.user.id)}>
+                                onClick={() => handleAddFriend(message.user.id)}>
                                     + Add Friend
                         </button>
                     </div>
@@ -94,11 +94,11 @@ export const MessageCard = (
 
                 <div className="message__info">
 
-                    <div className="message__info--name"><strong>{data.user.name} </strong></div>
+                    <div className="message__info--name"><strong>{message.user.name} </strong></div>
 
-                    <div className="message__info--field"><strong>Message: </strong>{data.post}</div>
+                    <div className="message__info--field"><strong>Message: </strong>{message.post}</div>
 
-                    <div className="message__info--date"><strong>Posted On: </strong> {formatDate(data.timestamp)} at {formatTime(data.timestamp)}</div>
+                    <div className="message__info--date"><strong>Posted On: </strong> {formatDate(message.timestamp)} at {formatTime(message.timestamp)}</div>
 
                 </div>
 
@@ -106,14 +106,14 @@ export const MessageCard = (
 
                     <button 
                     className="button sm"
-                    onClick={() => history.push(`/messages/${data.id}/edit`)}>
+                    onClick={() => history.push(`/messages/${message.id}/edit`)}>
                         <FaEdit/>
                     </button>
 
                     <button 
                     type="button" 
                     className="button sm" 
-                    onClick={() => handledelete(data.id)}>
+                    onClick={() => handledelete(message.id)}>
                         <FaTrash />
                     </button>
 

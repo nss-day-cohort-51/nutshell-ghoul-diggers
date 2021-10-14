@@ -4,73 +4,80 @@
 
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
-import { editMessages, getMessageById } from "./PublicMessageManager";
+import { editMessage, updateMessage, getMessageById } from "./PublicMessageManager";
 
 
 export const MessageEditForm = () =>
 {
-    const[edits, setEdits] = useState({post:"", timestamp: ""})
-    const{messageId} = useParams()
-    const history = useHistory()
+    const[ message, setMessage] = useState({
+        post: "",
+        userId: parseInt(sessionStorage.getItem("nutshell_user")),
+        timestamp: Date.now()
+        });
 
-    const handleFields = evt => 
-    {
-        const stateTochange = {...edits}
-        stateTochange[evt.target.id] = evt.target.value
-        setEdits(stateTochange)
-    }
+    const{ messageId } = useParams();
+    const history = useHistory();
 
-
-
-    const updateMessage = evt =>
-    {
+    const handleEdit = evt => {
         evt.preventDefault()
 
-        const updateMessages = {
+        // this is an edit so we need the id
+        const editedMessage = {
             id: messageId,
-            post: edits.post,
+            post: message.post,
+            userId: message.userId,
             timestamp: Date.now()
-        }
-
-        editMessages(updateMessages)
-        .then(() => history.push("/messages"))
+        };
+        editMessage(editedMessage)
+        .then(() => history.push("/messages")
+        )
     }
 
+    const handleChange = evt => {  
+        const stateToChange = { ...message };
+        stateToChange[evt.target.id] = evt.target.value;
+        setMessage(stateToChange);
+    }
 
     useEffect(() => {
         getMessageById(messageId)
-        .then(messages => setEdits(messages))
+        .then(messageInfo => setMessage(messageInfo))
     },[])
 
     return(
-      <div className="message__flex--edit">
-        <div className="message__input--edit">
+    <div className="message__flex--edit">
 
-            <div className="message__input--textarea">
-                    <input
-                        type="text"
-                        className="form__group--message"
-                        value={edits.post}
-                        onChange={handleFields}
-                    />
+        <div className="form__title">Edit Message</div>
+
+            <div className="message__input--edit">
+
+                <div className="message__input--textarea">
+                        <input
+                            type="text"
+                            id="post"
+                            className="form__group--message"
+                            value={message.post}
+                            onChange={handleChange} required
+                        />
+                </div>
+
+                <div className="message__input--btns">
+                        <button
+                            type="button"
+                            className="form__btn" 
+                            onClick={handleEdit}>
+                                Save
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() => history.push(`/messages`)}
+                            className="form__btn">Cancel
+                        </button>
+                </div>
+
             </div>
 
-            <div className="message__input--btns">
-                    <button
-                        type="button"
-                        className="form__btn" 
-                        onClick={updateMessage}>
-                            Save
-                    </button>
-
-                    <button
-                        type="button"
-                        onClick={() => history.push(`/messages`)}
-                        className="form__btn">Cancel
-                    </button>
-            </div>
-
-        </div>
-      </div>
+    </div>
     )
 }

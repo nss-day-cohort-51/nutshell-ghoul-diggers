@@ -40,9 +40,11 @@ export const PublicMessages = ({messages, getPublicMessages, friends, getFriends
   return (
     <>
       <section className="section__message">
-      {messages.map((allMessages) => (
-        <MessageCard key={allMessages.id} data={allMessages} handledelete={handleDelete} handleAddFriend={handleAddFriend} friends={friends} getFriendsList={getFriendsList}/>
-      ))}
+      {messages.map((singleMessage => (
+        <MessageCard key={singleMessage.id} message={singleMessage} handledelete={handleDelete} handleAddFriend={handleAddFriend} friends={friends} getFriendsList={getFriendsList}/>
+        ))
+      )
+      }
       </section>
     </>
   );

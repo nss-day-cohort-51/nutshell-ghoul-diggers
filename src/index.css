@@ -9,8 +9,9 @@ Page colors:
 #483934 - Mahogany
 #76AECB - Periwinkle
 
-Page font:
-Montserrat', sans-serif;
+Page fonts:
+Montserrat, sans-serif
+Poppins, sans-serif (numbers)
 */
 
 body {
@@ -68,6 +69,7 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  /* align-items: center; */
 }
 
 .r1col, .r2col {
@@ -82,36 +84,35 @@ code {
   border: 5px solid #A4B900;
   border-radius: 10px;
   margin: 20px;
-  padding: 0px 30px;
+  padding: 30px;
   text-align: center;
 }
 
 .category {
   text-align: center;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 5px;
 }
 
 .nums {
-  padding: 0px;
-  margin: 0px auto 30px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
   background-color: white;
   width: 100px;
-  border-radius: 5px;
+  height: 100px;
+  margin: 30px auto 0px;
+  border-radius: 50px;
+  padding: 0px;
 }
 
 .dashboard a {
   text-decoration: none;
-}
-
-.category {
-  font-weight: 500;
-}
-
-.nums {
-  font-size: 50px;
-  font-weight: 800;
 }
 
 .dialog {
