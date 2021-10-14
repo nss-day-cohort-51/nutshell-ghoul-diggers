@@ -1,6 +1,6 @@
 # Nutshell
 
-![Project Image](src/images/Nutshell-home-page.png)
+![Image](src/images/Nutshell-home-page.png)
 
 > Everything you need to keep up with your friends in a Nutshell!
 
@@ -8,8 +8,8 @@
 
 ### Table of Contents
 
-- [Desctiption](#description)
-- [Technololgies](#technologies)
+- [Description](#description)
+- [Technologies](#technologies)
 - [How To Use](#how-to-use)
 - [License](#license)
 - [Author Info](#author-info)
@@ -18,7 +18,7 @@
 
 ## Description
 
-Nutshell is a React App built for users to have the capability to post and view news articles, local events, and message posts/private messages with their added friends. It focuses on a sleek, simple, and mellow design that makes it easy for the user to digest the content of the webpage. We achieved this by selecting a pastel-like color scheme and structuring the layout of the page in a spacious, yet condensed way. We focused on creating an elegant design while also having strong user functionality.
+Nutshell is a React App built for users to have the capability to post and view news articles, local events, and post public/private messages with their added friends. It focuses on a sleek, simple, and interactive design that makes it easy for the user to digest the content of the webpage. We achieved this by selecting a vibrant-like color scheme and structuring the layout of the page in a spacious, yet efficient way. We focused on creating an elegant design while also having strong user functionality.
 
 ---
 
@@ -26,7 +26,7 @@ Nutshell is a React App built for users to have the capability to post and view 
 
 - React.js
 - CSS
-- Dbdiagram
+- dbdiagram
 - Figma
 - Canva
 - Git/Github
