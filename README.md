@@ -1,6 +1,6 @@
 # Nutshell
 
-![Image](src/images/Nutshell-home-page.png)
+![Image](https://github.com/nss-day-cohort-51/nutshell-ghoul-diggers/blob/main/src/images/NutshellDashboard.png)
 
 > Everything you need to keep up with your friends in a Nutshell!
 
