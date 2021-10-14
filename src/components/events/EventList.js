@@ -51,7 +51,6 @@ export const EventList = () => {
   const showFirstUpcomingEvent = () => {
     const copyOfFutureEvents = [...futureEvents]
     const firstEventObj = copyOfFutureEvents.shift()
-    console.log("firstEventObj is saved as ", firstEventObj)
     setFirstUpcomingEvent(firstEventObj)
   }
 

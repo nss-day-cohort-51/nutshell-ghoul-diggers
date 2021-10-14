@@ -16,7 +16,6 @@ export const Dashboard = () => {
   const [ loggedUserId, setLoggedUserId ] =  useState(0);
 
   const userId = sessionStorage.getItem("nutshell_user");
-  console.log("UserId is ", userId)
 
   const showArticlesDash = () => {
     ArticleManager.getAllArticles()

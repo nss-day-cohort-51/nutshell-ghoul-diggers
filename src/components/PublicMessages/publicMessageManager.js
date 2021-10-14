@@ -12,8 +12,6 @@ export const getMessageById = (messageInput) => {
 
 //GET MESSAGES
 export const getPublicMessages = () => {
-  const savedInfo = fetch(`${api}/messages?_sort=timestamp&_order=desc&_expand=user`).then((response) => response.json());
-  console.log("savedInfo is ", savedInfo)
   return fetch(`${api}/messages?_sort=timestamp&_order=desc&_expand=user`).then((response) => response.json());
 };
 

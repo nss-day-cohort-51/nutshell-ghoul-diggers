@@ -23,7 +23,6 @@ export const ApplicationViews = () => {
   const [friends, changeFriend] = useState([]);
 
   const getMessages = () => {
-    console.log("getMessages")
     getPublicMessages().then((message) => setPublicMessages(message));
   };
 
