@@ -126,7 +126,7 @@ Create database.json file inside of the src directory and paste the following JS
       },
 ```
 
-![ERD Image](src/images/erd.png)
+![ERD Image](https://github.com/nss-day-cohort-51/nutshell-ghoul-diggers/blob/main/src/images/NutshellERD.png)
 
 [Back To The Top](#nutshell)
 
