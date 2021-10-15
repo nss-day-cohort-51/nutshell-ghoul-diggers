@@ -1,7 +1,22 @@
+/* 
+Author: Susie Stanley
+Purpose: Controls styling of message page
+
+Page colors:
+#FBC859 - Daffodil
+#A4B900 - Avocado
+#bcd501 - Lime
+#483934 - Mahogany
+#76AECB - Periwinkle
+
+Page fonts:
+Montserrat, sans-serif
+Poppins, sans-serif (numbers)
+*/
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  /* font-family: 'Source Serif Pro', serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -9,4 +24,118 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  padding: 15px;
+  min-height: 65vh;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 30px auto;
+  min-height: 62vh;
+}
+
+.dashboard__title {
+  font-size: 44px;
+  font-weight: 800;
+  color: #483934;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard__subtitle {
+  font-size: 32px;
+  font-weight: 600;
+  color: #483934;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.row2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.r1col, .r2col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 400px;
+  min-height: 200px;
+  font-size: 34px;
+  color:#483934;
+  background-color: #FBC859;
+  border: 5px solid #A4B900;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 30px 40px 20px;
+  text-align: center;
+}
+
+.category {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.722);
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.nums {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.722);
+  width: 80px;
+  height: 80px;
+  margin: 30px auto 0px;
+  border-radius: 40px;
+  padding: 0px;
+}
+
+.dashboard a {
+  text-decoration: none;
+}
+
+.dialog {
+  font-size: 20px; 
+  border: 4px solid #A4B900;
+  background-color: #FBC859;
+  padding: 20px;
+  text-align: center;
+}
+
+.friend__dialog, .login__dialog, .event__dialog {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.button--close {
+  font-size: 14px;
+  font-weight: 800;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0px 5px 0px;
 }

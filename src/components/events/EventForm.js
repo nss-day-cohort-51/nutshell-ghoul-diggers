@@ -60,9 +60,9 @@ export const EventForm = () => {
 		evt.preventDefault() //Prevents the browser from submitting the form
 
 		if ( event.name === "" || event.date === "" || event.city === "" ) {
-			window.alert("Please fill out all required info")
+			window.alert("Please Fill Out All Required Info")
     } else if ( event.zipcode.length !== 5 || FiveDigitZipCode(event.zipcode) ) {
-      window.alert("Please enter a 5 digit zipcode") 
+      window.alert("Please Enter A 5 digit Zipcode") 
     } else {
 			//invoke addEvent, passing event as an argument
 			//once completed, this changes the url and displays the event list
@@ -76,6 +76,7 @@ export const EventForm = () => {
       <form>
         <div className="form__title">Add New Event</div>
         <fieldset>
+
           <div className="form__group">
             <label htmlFor="name">Event name:</label>
             <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form__group--edit" placeholder="Event Name" value={event.name} />
@@ -99,7 +100,7 @@ export const EventForm = () => {
 
           <button className="form__btn"
             onClick={handleClickSaveEvent}>
-            Save Event
+            Submit
           </button>
 
           <button className="form__btn"

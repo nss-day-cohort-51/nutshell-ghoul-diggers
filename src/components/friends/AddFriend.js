@@ -35,40 +35,51 @@ export const AddFriend = () => {
     }
 
     const handleSave = () => {
-
         console.log(friend);
 
         if (friend.userId === "") {
+            console.log("friend.userId === ''")
             setConflictDialog(true)
         } else if (friend.userId === friend.currentUserId) {
+            console.log("friend.userId === friend.currentUserId")
             setConflictDialog2(true)
         } else {
+            console.log("else")
             addFriends(friend).then(() => history.push("/friends"))
         }
     }
 
-
-
     return (
+<>
+
+    <div className="form__flex">
+
+    <div className="form__title">Add Friend</div>
+
         <fieldset className="form">
             <dialog className="dialog" open={conflictDialog}>
-                <div>Please input a users first and last name</div>
+                <div className="friend__dialog">Please Input User's First &#38; Last Name</div>
                 <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
             </dialog>
 
             <dialog className="dialog" open={conflictDialog2}>
-                <div>Cannot add yourself</div>
+                <div className="friend__dialog">Cannot Add Yourself</div>
                 <button className="button--close" onClick={e => setConflictDialog2(false)}>Close</button>
             </dialog>
 
-            <div className="form-group">
+            <div className="form__group">
                 <label htmlFor="name">User Name: </label>
-                <input type="text" id="name" onChange={event => checkUser(event.target.value)} className="form-control" placeholder="Enter Users Name" />
-                <button className="save__button" onClick={() => handleSave()}>Add Friend</button>
-                <button className="cancel__button" onClick={() => history.push("/friends")}>Cancel</button>
+                <input type="text" id="name" onChange={event => checkUser(event.target.value)} className="form__group--edit" placeholder="Enter Users Name" />
             </div>
+
         </fieldset>
+
+        <div className="form__btns">
+                <button type="button" className="form__btn" onClick={() => handleSave()}>Submit</button>
+                <button className="form__btn" onClick={() => history.push("/friends")}>Cancel</button>
+        </div>
+
+    </div>
+</>
     )
-
-
 }

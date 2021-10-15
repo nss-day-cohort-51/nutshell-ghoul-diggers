@@ -1,0 +1,104 @@
+/* 
+Author: Susie Stanley
+Purpose: Controls styling of all event pages
+
+Page colors:
+#FBC859 - Daffodil
+#A4B900 - Avocado
+#bcd501 - Lime
+#483934 - Mahogany
+#76AECB - Periwinkle
+
+Page font:
+Montserrat', sans-serif;
+*/
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #FBC859;
+  padding: 0px 20px 30px;
+}
+
+/* logo is in column 1 */
+.col1 {
+  padding-left: 30px;
+  padding-top: 60px;
+}
+
+.footer__logo {
+  width: 250px;
+  /* margin-left: 30px; */
+  margin: auto auto;
+}
+
+/* copyright quote is in column 2 */
+.col2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #483934;
+  text-align: center; 
+  margin-top: 100px;
+  padding-left: 30px;
+  /* border: 1px solid black; */
+}
+
+/* 'Meet The Team' cards are in column 3 */
+.col3 {
+  text-align: center;
+  padding: 0px 40px;    
+}
+
+.col3 h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #483934;
+  margin-bottom: 15px;
+}
+
+.team {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.team a {
+  text-decoration: none;
+}
+
+.team__card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100px;
+  text-align: center;
+  background-color: #dce49e92;
+  margin:  0px 5px;
+  padding: 10px 10px 0px 10px;
+  border-radius: 8px;
+  border: 2px solid #bece40;
+  transition: 150ms all; /* this controls how smooth hover effect is */
+}
+
+.team__card img {
+  border: 4px solid #A4B900;
+  border-radius: 50px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.team__card h6 {
+  color: black;
+  font-size: 16px;
+  padding: 0px;
+  margin: 10px auto;
+}
+
+/* this code makes team card pop off page */
+.team__card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 15px 15px rgba(0,0,0, 0.75);
+}

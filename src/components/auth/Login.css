@@ -2,3 +2,72 @@
   min-width: 15rem;
   min-height: 5rem;
 }
+
+/* .form__flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+} */
+
+.form__flex__inner {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.form--login {
+  flex: 1;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form--login--headline {
+font-family: "Montserrat", sans-serif;
+font-weight: 800;
+font-size: 48px;
+color: #A4B900;
+text-align: center;
+margin: 100px 0px 50px;
+}
+
+.form--login--subtitle {
+  font-size: 34px;  
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register--headline {
+  font-size: 38px;
+  color: #A4B900;
+}
+
+.link--register {
+  display: block;
+  text-align: center;
+  margin: 10px;
+}
+
+.link--register a {
+  color: #849503;
+}
+
+.login__btn, .register__btn {
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 6px;  
+}

@@ -4,8 +4,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import ArticleManager from "./ArticleManager";
+import "./Article.css"
 
-export const AddArticle = () => {
+export const ArticleForm = () => {
     const [article, changeArticle] = useState({ userId: parseInt(sessionStorage.getItem("nutshell_user")), url: "", title: "", synopsis: "", timestamp: Date.now() });
     const [conflictDialog, setConflictDialog] = useState(false);
 
@@ -49,7 +50,7 @@ export const AddArticle = () => {
         <div className="form__flex">
 
             <dialog className="dialog" open={conflictDialog}>
-                <h2>Please fill all fields</h2>
+                <h2>Please Fill In All Fields</h2>
                 <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
             </dialog>
 
@@ -62,8 +63,8 @@ export const AddArticle = () => {
                     </div>
 
                     <div className="form__group">
-                        <label htmlFor="url">url: </label>
-                        <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert url" />
+                        <label htmlFor="url">URL: </label>
+                        <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert URL"/>
                     </div>
 
                     <div className="form__group">

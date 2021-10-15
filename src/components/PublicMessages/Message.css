@@ -1,0 +1,315 @@
+/* 
+Author: Susie Stanley
+Purpose: Controls styling of message page
+
+Page colors:
+#FBC859 - Daffodil
+#A4B900 - Avocado
+#bcd501 - Lime
+#483934 - Mahogany
+#76AECB - Periwinkle
+
+Page font:
+Montserrat', sans-serif;
+*/
+
+
+/* start of styling for Message List */
+.section__message {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: "Montserrat", sans-serif;
+  padding: 15px;
+  min-height: 65vh;
+}
+
+.section__header {
+  font-size: 44px;
+  color: #A4B900;
+  font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+}
+
+.section__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.add__message {
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.message__list__flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card__content--messages {
+  align-self: center;
+  width: 640px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #241c1a;
+  background-color: #a3b90061;
+  border: 2px solid #A4B900;
+  border-radius: 7px;
+}
+
+.message__info {
+  width: 415px;
+  white-space: wrap;
+  padding: 20px;
+  background-color: #fbc859bc;
+  border: 0.5px solid #fbc85968;
+  border-radius: 7px;
+}
+
+.message__info--name {
+  font-size: 24px;
+  margin: 5px 0px;
+}
+
+.message__info--field {
+  font-size: 20px;
+  margin: 5px 0px;
+}
+
+.message__info--date {
+  font-size: 16px;
+  margin: 5px 0px;
+  white-space: nowrap;
+}
+
+.remove__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 5px 5px 20px;
+  margin: auto 10px;
+}
+
+.remove__item--message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 28px;
+  margin: auto 10px;
+}
+
+.button {
+  color: #483934;
+  margin: 5px;
+  border: none;
+  background-color: transparent;
+}
+
+.button.sm {
+  font-size: 26px;
+}
+
+.button.med {
+  font-size: 30px;
+}
+
+.button.lg {
+  font-size: 36px;
+}
+/* end of styling for Message List */
+
+/* start of styling for Add Message Form */
+.form__flex {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  font-family: "Montserrat", sans-serif;
+  padding: 15px;
+}
+
+form {
+  align-self: center;
+}
+
+.form__title {
+  font-size: 44px;
+  color: #A4B900;
+  font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0px 20px;
+}
+
+fieldset {
+  width: 500px;
+  background-color: #fbc859df;
+  color: #483934;
+  text-align: left;
+  font-weight: bolder;
+  padding: 20px 10px 20px 20px;
+  border: 2px solid #fec54a;
+  border-radius: 10px;
+}
+
+label {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+input, select {
+  padding: 0px 5px;
+  text-decoration: none;
+}
+
+button:disabled,
+button:disabled:hover {
+  background-color: lightgray;
+}
+
+.form__group--edit{
+  display: block;
+  width: 96%;
+  margin: 5px 0px 20px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 40px;
+}
+
+.message__flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.message__flex--edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 30px;
+  min-height: 65vh;
+}
+
+.message__input--headline {
+  align-self: center;
+  font-size: 44px;
+  font-weight: 800;
+  color: #A4B900;
+  margin: 30px;
+}
+
+.message__input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+}
+
+.message__input--edit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  margin-top: 40px;
+}
+
+.message__input--textarea {
+padding: 0px;
+margin: 0px;
+width: 500px;
+}
+
+.form__group--message {
+  display: block;
+  width: 96%;
+  margin: 5px 0px 0px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 40px;
+}
+
+/* this targets the buttons on message edit form */
+.message__input--btns {
+  margin-top: 3px;
+}
+
+/* this targets new message form button on messages page */
+.message__input--button {
+  padding-top: 5px;
+}
+
+.form__btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+}
+
+.form__btn--message {
+  font-size: 18px;
+  font-weight: 800;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 5px 15px 0px 18px;
+  margin: 0px 5px 0px;
+  height: 41px;
+}
+
+.form__btn--wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px; 
+}
+
+.form__btn--friend {
+  align-self: center;
+  font-size: 18px;
+  font-weight: 800;
+  background-color: #A4B900;
+  border: 1px solid #849503;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 0px 5px 4px;
+  white-space: nowrap;
+}
+/* end of styling for Add Message Form */

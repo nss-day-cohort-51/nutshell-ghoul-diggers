@@ -6,7 +6,7 @@ import { useHistory, useParams } from "react-router";
 import ArticleManager from "./ArticleManager";
 import "./Article.css"
 
-export const EditForm = () => {
+export const ArticleEditForm = () => {
     const [articles, changeArticles] = useState({
     userId: parseInt(sessionStorage.getItem("nutshell_user")),
     synopsis: "",
@@ -62,20 +62,19 @@ export const EditForm = () => {
 
                     <label htmlFor="title">Title: </label>
                     <input type="text" id="title" onChange={handleChange} required className="form__group--edit" placeholder="Insert title" value={articles.title}/>
-                {/* </div>
-
-                <div className="form__group"> */}
+   
                     <label htmlFor="url">URL: </label>
                     <input type="text" id="url" onChange={handleChange} required className="form__group--edit" placeholder="Insert url" value={articles.url}/>
-                {/* </div> 
 
-                <div className="form__group"> */}
                     <label htmlFor="synopsis">Synopsis: </label>
                     <input type="text" id="synopsis" onChange={handleChange} required className="form__group--edit" placeholder="Insert synopsis" value={articles.synopsis}/>
+
+                    <input type="hidden" id="timestamp" className="form__group--edit" value={Date.now()}/>
 
                 </div>
 
             </fieldset>
+
             <div className="form__btns">
                 <button className="form__btn"
                     onClick={handleEdit}>
@@ -84,6 +83,7 @@ export const EditForm = () => {
                 
                 <button className="form__btn" onClick={() => history.push("/articles")}>Cancel</button>
             </div>
+            
         </form>
     </div>
     )

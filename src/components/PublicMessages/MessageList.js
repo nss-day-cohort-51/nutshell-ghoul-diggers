@@ -1,14 +1,14 @@
 //Author: Gerson Diketama
-//Purpose: Card to display all the the message from API/ GET
+//Purpose: Card to display all of the messages from API/ GET
 
 import React from 'react'
 import {AiFillDelete} from "react-icons/ai"
 import { useHistory } from 'react-router'
 import { useEffect } from 'react/cjs/react.development'
-import "../articles/ArticleCardDesign.css"
+import "../articles/Article.css"
 
 
-const MessageList = ({data, handledelete, handleAddFriend, friends, getFriendsList}) => {
+export const MessageList = ({data, handledelete, handleAddFriend, friends, getFriendsList}) => {
 
     const history = useHistory();
 
@@ -16,7 +16,7 @@ const MessageList = ({data, handledelete, handleAddFriend, friends, getFriendsLi
         getFriendsList();
     }, []);
 
-
+    // returns just the post
     if(friends.includes(data.user.id) === true){
             return (
                 <div>
@@ -25,7 +25,7 @@ const MessageList = ({data, handledelete, handleAddFriend, friends, getFriendsLi
                 </div>
             )
     }
-    
+    // returns posts and Add Friend button
     else if(data.user.id !== parseInt(sessionStorage.getItem("nutshell_user"))){
         return (
             <div>
@@ -37,8 +37,8 @@ const MessageList = ({data, handledelete, handleAddFriend, friends, getFriendsLi
             </div>
         )
     }
-    
-    else{
+    // returns post and Edit and Delete buttons
+    else {
         return (
             <div>
                 <h2>{data.user.name}</h2>
@@ -49,5 +49,3 @@ const MessageList = ({data, handledelete, handleAddFriend, friends, getFriendsLi
         )
     }
 }
-
-export default MessageList

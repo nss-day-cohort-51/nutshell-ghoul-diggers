@@ -1,49 +1,76 @@
 //Author: Brady Williams
 //Purpose: Display individual articles
 
-import { useHistory } from "react-router";
-import "./ArticleCardDesign.css"
+import { Link } from 'react-router-dom';
+import {FaEdit, FaTrash } from "react-icons/fa"
+import "./Article.css"
 
 export const ArticleCard = ({article, handleDelete}) => {
-
-    const date = new Date(article.timestamp);
-    const formattedDate = date.toLocaleString();
     
     const loggedInUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
-    const history = useHistory();
-
-    if(article.userId === loggedInUser){
-      return(
-        <div className="card">
-       <div className="card-content">
-         <h3>Title: <span>
-         {article.title}
-         </span></h3>
-         <a href={article.url} target="_blank">Check it out!</a>
-         <p>synopsis: {article.synopsis}</p>
-         <p>Posted by {article.user.name} - {formattedDate}</p>
-       </div>
-       <button className="btn--delete" onClick={() => handleDelete(article.id)}>Delete</button>
-       <button className="btn--edit" onClick={() => history.push(`/${article.id}/edit`)}>Edit</button>
-     </div>
-         
-     )
-    }else {
-      return(
-        <div className="card-friend">
-       <div className="card-friend-content">
-         <h3 className="task-italic">Title: <span>
-         {article.title}
-         </span></h3>
-         <a href={article.url} target="_blank">Check it out!</a>
-         <p className="p-italic">synopsis: {article.synopsis}</p>
-         <p className="p-italic">Posted by {article.user.name} - {formattedDate}</p>
-       </div>
-     </div>
-         
-     )
+    const formatDate = (obj) => {
+      const date = new Date(obj);
+      const formattedDate = date.toDateString(); // converts date object to a string that displays in format "Sun Jul 22 2018"
+      return formattedDate;
+    }
+    
+    const formatTime = (obj) => {
+      const date = new Date(obj);
+      const formattedTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // converts date object to a time string that displays in format 12:25"
+      return formattedTime;
     }
 
-   
+    if(article.userId === loggedInUser){
+      return (
+
+          <div className="card__content">
+
+            <div className="article__info">
+
+              <div className="article__info--field"><strong>Title: </strong>{article.title}</div>
+
+              <div className="article__info--field"><strong>URL: </strong> <a href={article.url} target="_blank" rel="noreferrer">Check it out!</a></div>
+
+              <div className="article__info--field"><strong>Synopsis: </strong>{article.synopsis}</div>
+
+              <div className="article__info--ield"><strong>Posted By: </strong> {article.user.name}</div>
+
+              <div className="article__info--field"><strong>Posted On: </strong> {formatDate(article.timestamp)} at {formatTime(article.timestamp)}</div>
+
+            </div>
+
+            <div className="remove__item">
+
+              <Link to={`/articles/${article.id}/edit`}><button className="button sm"><FaEdit/></button></Link>
+
+              <button type="button" className="button sm" onClick={() => handleDelete(article.id)}><FaTrash /></button>
+
+            </div>
+
+          </div>
+    )
+    } else {
+      return (
+        <div className="card__content">
+
+            <div className="article__info--friend">
+
+            <div className="article__info__field"><strong>Title: </strong> {article.title}</div>
+
+            <div className="article__info--field"><strong>URL: </strong> <a href={article.url} target="_blank" rel="noreferrer"> Check it out!</a></div>
+
+            <div className="article__info__field"><strong>Synopsis: </strong> {article.synopsis}</div>
+
+            <div className="article__info__field"><strong>Posted By: </strong> {article.user.name}</div>
+
+            <div className="article__info__field"><strong>Posted On: </strong> {formatDate(article.timestamp)} at {formatTime(article.timestamp)}</div>
+
+            </div>
+        
+        </div>
+      )
+    }
+
 }
+

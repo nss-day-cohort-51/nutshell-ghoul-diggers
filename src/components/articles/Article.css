@@ -14,12 +14,13 @@ Montserrat', sans-serif;
 */
 
 /* start of styling for Article List */
-.section {
+.section__article {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   font-family: "Montserrat", sans-serif;
   padding: 15px;
+  min-height: 65vh;
 }
 
 .section__header {
@@ -71,12 +72,29 @@ Montserrat', sans-serif;
 }
 
 .article__info {
-  width: 600px;
+  width: 520px;
   white-space: wrap;
   padding: 20px;
   background-color: #fbc859bc;
   border: 0.5px solid #fbc85968;
   border-radius: 7px;
+}
+
+.article__info--friend {
+  width: 520px;
+  white-space: wrap;
+  padding: 20px;
+  background-color: #fbc859bc;
+  border: 0.5px solid #fbc85968;
+  border-radius: 7px;
+  background-color: cornsilk;
+  font-style: italic;
+}
+
+.article__info--field a {
+  text-decoration: none;
+  color: #596501;
+  font-weight: 600;
 }
 
 .remove__item {
@@ -106,6 +124,7 @@ Montserrat', sans-serif;
 .button.lg {
   font-size: 36px;
 }
+
 /* end of styling for Article List */
 
 /* start of styling for Add Article Form */
@@ -115,6 +134,7 @@ Montserrat', sans-serif;
   align-content: center;
   font-family: "Montserrat", sans-serif;
   padding: 15px;
+  min-height: 65vh;
 }
 
 form {

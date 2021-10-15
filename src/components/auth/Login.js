@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css"
 
-
 export const Login = () => {
     const [loginUser, setLoginUser] = useState({ email: "" })
     const [existDialog, setExistDialog] = useState(false)
@@ -41,33 +40,39 @@ export const Login = () => {
     return (
         <main className="container--login">
             <dialog className="dialog dialog--auth" open={existDialog}>
-                <div>User does not exist</div>
+                <div className="login__dialog">User does not exist</div>
                 <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
             </dialog>
-            <section>
+        
+        <div classname="form__flex">
+            <div className="form__flex__inner">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Nutshell</h1>
-                    <h2>Please sign in</h2>
+                    <div className="form--login--headline">Welcome To Nutshell</div>
+                    <div className="form--login--subtitle">Please Sign In</div>
                     <fieldset>
+
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             id="email"
-                            className="form-control"
+                            className="form__group--edit"
                             placeholder="Email address"
                             required autoFocus
                             value={loginUser.email}
                             onChange={handleInputChange} />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
+
+                        <div className="form__btns">
+                            <button type="submit" className="login__btn">
+                                Sign In
+                            </button>
+                        </div>
+
                     </fieldset>
                 </form>
-            </section>
-            <section className="link--register">
+            </div>
+        </div>
+            <div className="link--register">
                 <Link to="/register">Register for an account</Link>
-            </section>
+            </div>
         </main>
     )
 }

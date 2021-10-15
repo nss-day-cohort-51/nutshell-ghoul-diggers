@@ -8,21 +8,21 @@ import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
 import React, { useState } from "react";
 import { PublicMessages } from "./PublicMessages/PublicMessages";
-import SentMessages from "./PublicMessages/SentMessages";
-import { getPublicMessages } from "./PublicMessages/publicMessageManager";
-import { AddArticle } from "./articles/AddArticle"
+import { getPublicMessages } from "./PublicMessages/PublicMessageManager";
+import { ArticleForm } from "./articles/ArticleForm"
 import { Articles } from "./articles/Articles"
-import { EditForm } from "./articles/EditArticle"
+import { ArticleEditForm } from "./articles/ArticleEditForm"
 import { AddFriend } from "./friends/AddFriend"
 import { Friends } from "./friends/Friends"
-import { MessageEdit } from "./PublicMessages/PublicForm";
+import { MessageEditForm } from "./PublicMessages/MessageEditForm";
+import { Dashboard } from "../Dashboard";
+import { PublicMessageForm } from "../components/PublicMessages/PublicMessageForm"
 
 export const ApplicationViews = () => {
   const [messages, setPublicMessages] = useState([])
   const [friends, changeFriend] = useState([]);
 
-  const getMeMesssage = () => {
-    console.log("getmemessage")
+  const getMessages = () => {
     getPublicMessages().then((message) => setPublicMessages(message));
   };
 
@@ -37,10 +37,14 @@ export const ApplicationViews = () => {
     })
   };
 
-  
-
   return (
     <>
+
+      <Route exact path="/">
+        {/* Render the component for news articles */}
+        <Dashboard />
+      </Route>
+
       <Route exact path="/articles">
         {/* Render the component for news articles */}
         <Articles />
@@ -48,15 +52,15 @@ export const ApplicationViews = () => {
 
       <Route exact path="/articles/add">
         {/* Render the component for adding articles*/}
-        <AddArticle />
+        <ArticleForm />
       </Route>
 
-      <Route exact path="/:articleId(\d+)/edit">
-        <EditForm />
+      <Route exact path="/articles/:articleId(\d+)/edit">
+        <ArticleEditForm />
       </Route>
 
       <Route exact path="/messages/:messageId(\d+)/edit">
-        <MessageEdit />
+        <MessageEditForm />
       </Route>
 
       <Route exact path="/friends">
@@ -71,8 +75,8 @@ export const ApplicationViews = () => {
 
       <Route exact path="/messages">
         {/* Render the component for the messages */}
-        <PublicMessages messages={messages} getPublicMessages={getMeMesssage} friends={friends} getFriendsList={getFriendsList}/>
-        <SentMessages getPublicMessages={getMeMesssage} />
+        <PublicMessageForm getPublicMessages={getMessages} />
+        <PublicMessages messages={messages} getPublicMessages={getMessages} friends={friends} getFriendsList={getFriendsList}/>
       </Route>
 
       <Route exact path="/tasks">

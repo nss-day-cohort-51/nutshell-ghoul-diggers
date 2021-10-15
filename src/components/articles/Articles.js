@@ -4,7 +4,6 @@
 import React, {useState, useEffect } from "react";
 import ArticleManager from "./ArticleManager"
 import { ArticleCard } from "./ArticleCard";
-import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
 import "./Article.css"
 
@@ -56,7 +55,7 @@ export const Articles = () => {
     }, [friends])
 
     return (
-        <div className="section">
+        <div className="section__article">
 
             <div className="section__header">
             Articles

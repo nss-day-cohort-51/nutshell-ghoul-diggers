@@ -2,16 +2,16 @@
 //Purpose: GET ALL MESSAGES FROM PUBLIC MESSAGE MANAGER
 
 import React, {useEffect } from "react";
-import { deleteMessages } from "./publicMessageManager";
-import MessageList from "./MessageList";
-import { addFriends, getFriendsById } from "../friends/FriendManager";
+import { deleteMessages } from "./PublicMessageManager";
+import { MessageCard } from "./MessageCard";
+import { addFriends } from "../friends/FriendManager";
 import { getUserById } from "../users/UserManager";
+import "./Message.css"
 
 
 export const PublicMessages = ({messages, getPublicMessages, friends, getFriendsList}) => {
 
 // THIS USE EFFECT WATCHES FOR ANY CHANGES MADE ON APPLICATION VIEWS AND RE-RENDER
-
   useEffect(() => {
     getPublicMessages();
     getFriendsList();
@@ -39,10 +39,13 @@ export const PublicMessages = ({messages, getPublicMessages, friends, getFriends
   }
   return (
     <>
-      {messages.map((allMessages) => (
-        <MessageList key={allMessages.id} data={allMessages} handledelete={handleDelete} handleAddFriend={handleAddFriend} friends={friends} getFriendsList={getFriendsList}/>
-      ))}
-      
+      <section className="section__message">
+      {messages.map((singleMessage => (
+        <MessageCard key={singleMessage.id} message={singleMessage} handledelete={handleDelete} handleAddFriend={handleAddFriend} friends={friends} getFriendsList={getFriendsList}/>
+        ))
+      )
+      }
+      </section>
     </>
   );
 };
