@@ -6,7 +6,6 @@ import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import "./Nutshell.css"
-// import "../../src/components/events/Modal.css"
 
 
 export const Nutshell = () => (
